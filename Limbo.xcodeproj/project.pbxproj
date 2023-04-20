@@ -16,6 +16,7 @@
 		294D60C329F1D54500CE0463 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 294D60B129F1D54400CE0463 /* Montserrat-Bold.ttf */; };
 		294D60C429F1D54500CE0463 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 294D60B229F1D54500CE0463 /* Montserrat-Medium.ttf */; };
 		294D60C629F1D54500CE0463 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 294D60B429F1D54500CE0463 /* Montserrat-Regular.ttf */; };
+		294D60CA29F1E2C800CE0463 /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294D60C929F1E2C800CE0463 /* GradientButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		294D60B229F1D54500CE0463 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		294D60B429F1D54500CE0463 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		294D60C829F1D5C100CE0463 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		294D60C929F1E2C800CE0463 /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				294D609929F1D25C00CE0463 /* Assets.xcassets */,
 				294D60A329F1D52B00CE0463 /* Fonts */,
 				294D609B29F1D25C00CE0463 /* Preview Content */,
+				294D60C929F1E2C800CE0463 /* GradientButton.swift */,
 			);
 			path = Limbo;
 			sourceTree = "<group>";
@@ -168,6 +171,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				294D609829F1D25B00CE0463 /* ContentView.swift in Sources */,
+				294D60CA29F1E2C800CE0463 /* GradientButton.swift in Sources */,
 				294D609629F1D25B00CE0463 /* LimboApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -15,7 +15,7 @@ struct ContentView: View {
                 .scaledToFill()
                 .ignoresSafeArea()
             VStack() {
-                VStack {
+                VStack(alignment: .trailing) {
                     Text("Limbo")
                         .font(.custom("Montserrat", size: 100))
                         .fontWeight(.semibold)
@@ -33,22 +33,13 @@ struct ContentView: View {
                 
                 Spacer()
                 
-                VStack {
+                VStack() {
                     Button() {
                         print("Tapped gradient button")
                     } label: {
-                        ZStack {
-                            LinearGradient(colors: [Color("redGradientColor"),Color("yellowGradientColor")], startPoint: .leading, endPoint: .trailing)
-                            
-                            Text("Zaloguj się")
-                                .font(.custom("Montserrat", size: 20))
-                                .fontWeight(.bold)
-                                .foregroundColor(.white)
-                        }
-                        
+                        GradientButton(text: "Zaloguj się")
+                            .frame(width: 250, height: 60)
                     }
-                    .cornerRadius(25)
-                    .frame(width: 250, height: 60)
                     
                     Button() {
                         print("Tapped darker button")
