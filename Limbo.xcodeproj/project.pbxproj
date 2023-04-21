@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		294D609629F1D25B00CE0463 /* LimboApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294D609529F1D25B00CE0463 /* LimboApp.swift */; };
-		294D609829F1D25B00CE0463 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294D609729F1D25B00CE0463 /* ContentView.swift */; };
+		294D609829F1D25B00CE0463 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294D609729F1D25B00CE0463 /* MainView.swift */; };
 		294D609A29F1D25C00CE0463 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 294D609929F1D25C00CE0463 /* Assets.xcassets */; };
 		294D609D29F1D25C00CE0463 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 294D609C29F1D25C00CE0463 /* Preview Assets.xcassets */; };
 		294D60BB29F1D54500CE0463 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 294D60A929F1D54400CE0463 /* Montserrat-SemiBold.ttf */; };
@@ -22,7 +22,7 @@
 /* Begin PBXFileReference section */
 		294D609229F1D25B00CE0463 /* Limbo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Limbo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		294D609529F1D25B00CE0463 /* LimboApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimboApp.swift; sourceTree = "<group>"; };
-		294D609729F1D25B00CE0463 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		294D609729F1D25B00CE0463 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		294D609929F1D25C00CE0463 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		294D609C29F1D25C00CE0463 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		294D60A929F1D54400CE0463 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -64,13 +64,12 @@
 		294D609429F1D25B00CE0463 /* Limbo */ = {
 			isa = PBXGroup;
 			children = (
-				294D60C829F1D5C100CE0463 /* Info.plist */,
+				294D60CD29F1E63B00CE0463 /* Model */,
 				294D609529F1D25B00CE0463 /* LimboApp.swift */,
-				294D609729F1D25B00CE0463 /* ContentView.swift */,
-				294D609929F1D25C00CE0463 /* Assets.xcassets */,
-				294D60A329F1D52B00CE0463 /* Fonts */,
+				294D60CB29F1E5F100CE0463 /* Views */,
+				294D60CC29F1E61700CE0463 /* Supporting Files */,
 				294D609B29F1D25C00CE0463 /* Preview Content */,
-				294D60C929F1E2C800CE0463 /* GradientButton.swift */,
+				294D60C829F1D5C100CE0463 /* Info.plist */,
 			);
 			path = Limbo;
 			sourceTree = "<group>";
@@ -93,6 +92,31 @@
 				294D60A929F1D54400CE0463 /* Montserrat-SemiBold.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		294D60CB29F1E5F100CE0463 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				294D609729F1D25B00CE0463 /* MainView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		294D60CC29F1E61700CE0463 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				294D609929F1D25C00CE0463 /* Assets.xcassets */,
+				294D60A329F1D52B00CE0463 /* Fonts */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		294D60CD29F1E63B00CE0463 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				294D60C929F1E2C800CE0463 /* GradientButton.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,7 +194,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				294D609829F1D25B00CE0463 /* ContentView.swift in Sources */,
+				294D609829F1D25B00CE0463 /* MainView.swift in Sources */,
 				294D60CA29F1E2C800CE0463 /* GradientButton.swift in Sources */,
 				294D609629F1D25B00CE0463 /* LimboApp.swift in Sources */,
 			);

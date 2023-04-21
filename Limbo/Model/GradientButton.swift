@@ -15,7 +15,7 @@ struct GradientButton: View {
             LinearGradient(colors: [Color("redGradientColor"),Color("yellowGradientColor")], startPoint: .leading, endPoint: .trailing)
             
             Text(text)
-                .font(.custom("Montserrat", size: 20))
+                .font(.custom("Montserrat", size: 16))
                 .fontWeight(.bold)
                 .foregroundColor(.white)
         }
