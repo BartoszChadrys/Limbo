@@ -28,7 +28,7 @@ struct LoginView: View {
                         .fontWeight(.semibold)
                         .foregroundColor(Color("orangeColor"))
                 }
-                .padding(.top, 50)
+                .padding(.top,50)
                 
                 Spacer()
                 
@@ -38,10 +38,27 @@ struct LoginView: View {
                         .fontWeight(.semibold)
                         .foregroundColor(.white)
                     
-
-                }
-                
+                    VStack(spacing: 15) {
+                        TextField("Email użytkownika", text: $email)
+                            .padding(15)
+                            .font(.custom("Montserrat", size: 15))
+                            .fontWeight(.light)
+                            .frame(width: 250, height: 50)
+                            .background(Color("backgroundBoxColor"))
+                            .cornerRadius(20)
+                        
+                        TextField("Hasło", text: $email)
+                            .padding(15)
+                            .font(.custom("Montserrat", size: 15))
+                            .fontWeight(.light)
+                            .frame(width: 250, height: 50)
+                            .background(Color("backgroundBoxColor"))
+                            .cornerRadius(20)
+                        }
+                    }
+                    
                 Spacer()
+                
             }
         }
     }
