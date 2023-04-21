@@ -23,8 +23,8 @@ struct MainView: View {
                         .fontWeight(.medium)
                         .foregroundColor(.white)
                         .multilineTextAlignment(.trailing)
-                } .padding(.top, 70)
-                
+                }
+                .padding(.top, 70)
                 
                 Spacer()
                 
