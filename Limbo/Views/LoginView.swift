@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LoginView: View {
     @State private var email: String = ""
+    @State private var password: String = ""
     
     var body: some View {
         ZStack {
@@ -39,21 +40,9 @@ struct LoginView: View {
                         .foregroundColor(.white)
                     
                     VStack(spacing: 15) {
-                        TextField("Email użytkownika", text: $email)
-                            .padding(15)
-                            .font(.custom("Montserrat", size: 15))
-                            .fontWeight(.light)
-                            .frame(width: 250, height: 50)
-                            .background(Color("backgroundBoxColor"))
-                            .cornerRadius(20)
+                        TextFieldView(title: "Email użytkownika", holdText: $email)
                         
-                        TextField("Hasło", text: $email)
-                            .padding(15)
-                            .font(.custom("Montserrat", size: 15))
-                            .fontWeight(.light)
-                            .frame(width: 250, height: 50)
-                            .background(Color("backgroundBoxColor"))
-                            .cornerRadius(20)
+                        TextFieldView(title: "Hasło", holdText: $password)
                         }
                     }
                 .padding(.top, 50)
@@ -81,9 +70,7 @@ struct LoginView: View {
                             .foregroundColor(Color("orangeColor"))
                     }
                 }
-                .padding(30)
-                
-                Spacer()
+                .padding(.bottom, 70)
 
             }
         }
@@ -93,5 +80,20 @@ struct LoginView: View {
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
         LoginView()
+    }
+}
+
+struct TextFieldView: View {
+    var title: String
+    @Binding var holdText: String
+    
+    var body: some View {
+        TextField(title, text: $holdText)
+            .padding(15)
+            .font(.custom("Montserrat", size: 15))
+            .fontWeight(.light)
+            .frame(width: 250, height: 50)
+            .background(Color("backgroundBoxColor"))
+            .cornerRadius(20)
     }
 }
