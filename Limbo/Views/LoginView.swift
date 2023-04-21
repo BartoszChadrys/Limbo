@@ -56,9 +56,35 @@ struct LoginView: View {
                             .cornerRadius(20)
                         }
                     }
+                .padding(.top, 50)
                     
                 Spacer()
                 
+                VStack {
+                    Button() {
+                        print("Tapped gradient button")
+                    } label: {
+                        GradientButton(text: "Zaloguj się")
+                            .frame(width: 250, height: 60)
+                    }
+                    .padding(.bottom, 10)
+                    
+                    HStack {
+                        Text("Nie masz konta?")
+                            .font(.custom("Montserrat", size: 16))
+                            .fontWeight(.medium)
+                            .foregroundColor(.white)
+                        
+                        Text("Zaloguj się")
+                            .font(.custom("Montserrat", size: 16))
+                            .fontWeight(.semibold)
+                            .foregroundColor(Color("orangeColor"))
+                    }
+                }
+                .padding(30)
+                
+                Spacer()
+
             }
         }
     }
