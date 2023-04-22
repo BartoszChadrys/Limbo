@@ -40,9 +40,8 @@ struct LoginView: View {
                         .foregroundColor(.white)
                     
                     VStack(spacing: 15) {
-                        TextFieldView(title: "Email użytkownika", holdText: $email)
-                        
-                        TextFieldView(title: "Hasło", holdText: $password)
+                            TextFieldView(title: "Email użytkownika", holdText: $email)
+                            TextFieldView(title: "Hasło", holdText: $password)
                         }
                     }
                 .padding(.top, 50)
@@ -64,7 +63,7 @@ struct LoginView: View {
                             .fontWeight(.medium)
                             .foregroundColor(.white)
                         
-                        Text("Zaloguj się")
+                        Text("Zarejestruj się")
                             .font(.custom("Montserrat", size: 16))
                             .fontWeight(.semibold)
                             .foregroundColor(Color("orangeColor"))
@@ -91,9 +90,11 @@ struct TextFieldView: View {
         TextField(title, text: $holdText)
             .padding(15)
             .font(.custom("Montserrat", size: 15))
-            .fontWeight(.light)
+            .fontWeight(.semibold)
             .frame(width: 250, height: 50)
             .background(Color("backgroundBoxColor"))
             .cornerRadius(20)
+            .foregroundColor(.white)
+            .autocorrectionDisabled()
     }
 }

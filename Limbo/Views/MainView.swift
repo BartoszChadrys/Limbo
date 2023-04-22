@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct MainView: View {
+    @State private var showLoginView = false
+    
     var body: some View {
         ZStack() {
             backgroundImageView()
@@ -30,11 +32,14 @@ struct MainView: View {
                 
                 VStack() {
                     Button() {
-                        print("Tapped gradient button")
+                        showLoginView.toggle()
                     } label: {
                         GradientButton(text: "Zaloguj się")
                             .frame(width: 250, height: 60)
                     }
+                    .fullScreenCover(isPresented: $showLoginView, content: {
+                        LoginView()
+                    })
                     
                     Button() {
                         print("Tapped dark button")
@@ -70,8 +75,8 @@ struct backgroundImageView: View {
     var body: some View {
         Image("backgroundFlames")
             .resizable()
-            .aspectRatio(contentMode: .fit)
-            .ignoresSafeArea()
+            .renderingMode(.original)
             .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+            .ignoresSafeArea()
     }
 }
