@@ -18,7 +18,6 @@ struct LoginView: View {
                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
                 .onTapGesture {
                     UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-
                 }
             
             VStack {
@@ -44,9 +43,25 @@ struct LoginView: View {
                         .foregroundColor(.white)
                     
                     VStack(spacing: 15) {
-                        EmailTextFieldView(title: "Email użytkownika", holdText: $email)
+                        ZStack(alignment: .trailing) {
+                            EmailTextFieldView(title: "Email użytkownika", holdText: $email)
+                            
+                            Image("userIcon")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 25, height: 25)
+                                .padding(.trailing, 15)
+                        }
                         
-                        SecureFieldView(title: "Hasło", holdText: $password)
+                        ZStack(alignment: .trailing) {
+                            SecureFieldView(title: "Hasło", holdText: $password)
+                            
+                            Image("passwordIcon")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 25, height: 25)
+                                .padding(.trailing, 15)
+                        }
                     }
                 }
                 .padding(.top, 50)
@@ -94,7 +109,7 @@ struct EmailTextFieldView: View {
     var body: some View {
         TextField(title, text: $holdText)
             .padding(15)
-            .font(.custom("Montserrat", size: 15))
+            .font(.custom("Montserrat", size: 12))
             .fontWeight(.semibold)
             .frame(width: 250, height: 50)
             .background(Color("backgroundBoxColor"))
@@ -112,7 +127,7 @@ struct SecureFieldView: View {
     var body: some View {
         SecureField(title, text: $holdText)
             .padding(15)
-            .font(.custom("Montserrat", size: 15))
+            .font(.custom("Montserrat", size: 12))
             .fontWeight(.semibold)
             .frame(width: 250, height: 50)
             .background(Color("backgroundBoxColor"))
