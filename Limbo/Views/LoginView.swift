@@ -44,12 +44,11 @@ struct LoginView: View {
                         .foregroundColor(.white)
                     
                     VStack(spacing: 15) {
-                            TextFieldView(title: "Email użytkownika", holdText: $email)
-                            .ignoresSafeArea(.keyboard)
-                            TextFieldView(title: "Hasło", holdText: $password)
-                            .ignoresSafeArea(.keyboard)
-                        }
+                        EmailTextFieldView(title: "Email użytkownika", holdText: $email)
+                        
+                        SecureFieldView(title: "Hasło", holdText: $password)
                     }
+                }
                 .padding(.top, 50)
                     
                 Spacer()
@@ -88,12 +87,30 @@ struct LoginView_Previews: PreviewProvider {
     }
 }
 
-struct TextFieldView: View {
+struct EmailTextFieldView: View {
     var title: String
     @Binding var holdText: String
     
     var body: some View {
         TextField(title, text: $holdText)
+            .padding(15)
+            .font(.custom("Montserrat", size: 15))
+            .fontWeight(.semibold)
+            .frame(width: 250, height: 50)
+            .background(Color("backgroundBoxColor"))
+            .cornerRadius(20)
+            .foregroundColor(.white)
+            .autocorrectionDisabled()
+            .textContentType(.emailAddress)
+    }
+}
+
+struct SecureFieldView: View {
+    var title: String
+    @Binding var holdText: String
+    
+    var body: some View {
+        SecureField(title, text: $holdText)
             .padding(15)
             .font(.custom("Montserrat", size: 15))
             .fontWeight(.semibold)
