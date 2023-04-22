@@ -10,16 +10,11 @@ import SwiftUI
 struct LoginView: View {
     @State private var email: String = ""
     @State private var password: String = ""
+    @State private var isPasswordHidden = true
     
     var body: some View {
         ZStack {
-            Color("backgroundColor")
-                .ignoresSafeArea()
-                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-                .onTapGesture {
-                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-                }
-            
+            backgroundColorView()
             VStack {
                 HStack {
                     Image("flame")
@@ -44,7 +39,8 @@ struct LoginView: View {
                     
                     VStack(spacing: 15) {
                         ZStack(alignment: .trailing) {
-                            EmailTextFieldView(title: "Email użytkownika", holdText: $email)
+                            TextFieldView(title: "Email użytkownika", holdText: $email)
+                                .textContentType(.emailAddress)
                             
                             Image("userIcon")
                                 .resizable()
@@ -54,13 +50,25 @@ struct LoginView: View {
                         }
                         
                         ZStack(alignment: .trailing) {
-                            SecureFieldView(title: "Hasło", holdText: $password)
+                            if isPasswordHidden {
+                                SecureFieldView(title: "Hasło", holdText: $password)
+                                
+                                Button() {
+                                    isPasswordHidden.toggle()
+                                } label: {
+                                    EyeButton(image: "crossedEyeIcon")
+                                }
+                                
+                            } else {
+                                TextFieldView(title: "Hasło", holdText: $password)
+                                
+                                Button() {
+                                    isPasswordHidden.toggle()
+                                } label: {
+                                    EyeButton(image: "eyeIcon")
+                                }
+                            }
                             
-                            Image("passwordIcon")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 25, height: 25)
-                                .padding(.trailing, 15)
                         }
                     }
                 }
@@ -77,7 +85,7 @@ struct LoginView: View {
                     }
                     .padding(.bottom, 10)
                     
-                    HStack {
+                    HStack(spacing: 5) {
                         Text("Nie masz konta?")
                             .font(.custom("Montserrat", size: 16))
                             .fontWeight(.medium)
@@ -90,7 +98,6 @@ struct LoginView: View {
                     }
                 }
                 .padding(.bottom, 70)
-
             }
         }
     }
@@ -102,7 +109,7 @@ struct LoginView_Previews: PreviewProvider {
     }
 }
 
-struct EmailTextFieldView: View {
+struct TextFieldView: View {
     var title: String
     @Binding var holdText: String
     
@@ -116,7 +123,6 @@ struct EmailTextFieldView: View {
             .cornerRadius(20)
             .foregroundColor(.white)
             .autocorrectionDisabled()
-            .textContentType(.emailAddress)
     }
 }
 
@@ -134,5 +140,28 @@ struct SecureFieldView: View {
             .cornerRadius(20)
             .foregroundColor(.white)
             .autocorrectionDisabled()
+    }
+}
+
+struct EyeButton: View {
+    var image: String
+    
+    var body: some View {
+        Image(image)
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .frame(width: 25, height: 25)
+            .padding(.trailing, 15)
+    }
+}
+
+struct backgroundColorView: View {
+    var body: some View {
+        Color("backgroundColor")
+            .ignoresSafeArea()
+            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+            .onTapGesture {
+                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+            }
     }
 }
