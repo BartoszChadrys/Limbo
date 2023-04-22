@@ -16,6 +16,10 @@ struct LoginView: View {
             Color("backgroundColor")
                 .ignoresSafeArea()
                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+                .onTapGesture {
+                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+
+                }
             
             VStack {
                 HStack {
@@ -41,7 +45,9 @@ struct LoginView: View {
                     
                     VStack(spacing: 15) {
                             TextFieldView(title: "Email użytkownika", holdText: $email)
+                            .ignoresSafeArea(.keyboard)
                             TextFieldView(title: "Hasło", holdText: $password)
+                            .ignoresSafeArea(.keyboard)
                         }
                     }
                 .padding(.top, 50)
