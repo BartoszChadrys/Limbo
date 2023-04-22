@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		290629F229F286A60048434E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290629F129F286A60048434E /* LoginView.swift */; };
+		290629F429F480260048434E /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290629F329F480260048434E /* RegisterView.swift */; };
 		294D609629F1D25B00CE0463 /* LimboApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294D609529F1D25B00CE0463 /* LimboApp.swift */; };
 		294D609829F1D25B00CE0463 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294D609729F1D25B00CE0463 /* MainView.swift */; };
 		294D609A29F1D25C00CE0463 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 294D609929F1D25C00CE0463 /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		290629F129F286A60048434E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		290629F329F480260048434E /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		294D609229F1D25B00CE0463 /* Limbo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Limbo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		294D609529F1D25B00CE0463 /* LimboApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimboApp.swift; sourceTree = "<group>"; };
 		294D609729F1D25B00CE0463 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 			children = (
 				294D609729F1D25B00CE0463 /* MainView.swift */,
 				290629F129F286A60048434E /* LoginView.swift */,
+				290629F329F480260048434E /* RegisterView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				294D609829F1D25B00CE0463 /* MainView.swift in Sources */,
+				290629F429F480260048434E /* RegisterView.swift in Sources */,
 				294D60CA29F1E2C800CE0463 /* GradientButton.swift in Sources */,
 				290629F229F286A60048434E /* LoginView.swift in Sources */,
 				294D609629F1D25B00CE0463 /* LimboApp.swift in Sources */,
