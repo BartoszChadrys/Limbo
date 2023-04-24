@@ -13,8 +13,9 @@ class RegisterViewModel: ObservableObject {
     @Published var name: String = ""
     @Published var password: String = ""
     @Published var repeatedPassword: String = ""
-    
     @Published var isPasswordHidden = true
+    
+    @Published var showLoginView = false
     
     
 }

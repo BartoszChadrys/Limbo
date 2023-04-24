@@ -52,10 +52,17 @@ struct LoginView: View {
                             .fontWeight(.medium)
                             .foregroundColor(.white)
                         
-                        Text("Zarejestruj się")
-                            .font(.custom("Montserrat", size: 16))
-                            .fontWeight(.semibold)
-                            .foregroundColor(Color("orangeColor"))
+                        Button() {
+                            viewModel.showRegisterView.toggle()
+                        } label: {
+                            Text("Zarejestruj się")
+                                .font(.custom("Montserrat", size: 16))
+                                .fontWeight(.semibold)
+                                .foregroundColor(Color("orangeColor"))
+                        }
+                        .fullScreenCover(isPresented: $viewModel.showRegisterView) {
+                            RegisterView()
+                        }
                     }
                 }
                 .padding(.bottom, 70)
