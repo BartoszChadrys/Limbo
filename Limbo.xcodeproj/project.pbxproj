@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		290629F229F286A60048434E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290629F129F286A60048434E /* LoginView.swift */; };
 		290629F429F480260048434E /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290629F329F480260048434E /* RegisterView.swift */; };
+		290629F729F482050048434E /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290629F629F482050048434E /* LoginViewModel.swift */; };
+		290629FA29F711020048434E /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290629F929F711020048434E /* RegisterViewModel.swift */; };
 		294D609629F1D25B00CE0463 /* LimboApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294D609529F1D25B00CE0463 /* LimboApp.swift */; };
 		294D609829F1D25B00CE0463 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294D609729F1D25B00CE0463 /* MainView.swift */; };
 		294D609A29F1D25C00CE0463 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 294D609929F1D25C00CE0463 /* Assets.xcassets */; };
@@ -24,6 +26,8 @@
 /* Begin PBXFileReference section */
 		290629F129F286A60048434E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		290629F329F480260048434E /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		290629F629F482050048434E /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		290629F929F711020048434E /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		294D609229F1D25B00CE0463 /* Limbo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Limbo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		294D609529F1D25B00CE0463 /* LimboApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimboApp.swift; sourceTree = "<group>"; };
 		294D609729F1D25B00CE0463 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -49,6 +53,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		290629F529F481EA0048434E /* LoginView */ = {
+			isa = PBXGroup;
+			children = (
+				290629F129F286A60048434E /* LoginView.swift */,
+				290629F629F482050048434E /* LoginViewModel.swift */,
+			);
+			path = LoginView;
+			sourceTree = "<group>";
+		};
+		290629F829F710F40048434E /* RegisterView */ = {
+			isa = PBXGroup;
+			children = (
+				290629F329F480260048434E /* RegisterView.swift */,
+				290629F929F711020048434E /* RegisterViewModel.swift */,
+			);
+			path = RegisterView;
+			sourceTree = "<group>";
+		};
 		294D608929F1D25B00CE0463 = {
 			isa = PBXGroup;
 			children = (
@@ -101,9 +123,9 @@
 		294D60CB29F1E5F100CE0463 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				290629F529F481EA0048434E /* LoginView */,
+				290629F829F710F40048434E /* RegisterView */,
 				294D609729F1D25B00CE0463 /* MainView.swift */,
-				290629F129F286A60048434E /* LoginView.swift */,
-				290629F329F480260048434E /* RegisterView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -202,6 +224,8 @@
 			files = (
 				294D609829F1D25B00CE0463 /* MainView.swift in Sources */,
 				290629F429F480260048434E /* RegisterView.swift in Sources */,
+				290629FA29F711020048434E /* RegisterViewModel.swift in Sources */,
+				290629F729F482050048434E /* LoginViewModel.swift in Sources */,
 				294D60CA29F1E2C800CE0463 /* GradientButton.swift in Sources */,
 				290629F229F286A60048434E /* LoginView.swift in Sources */,
 				294D609629F1D25B00CE0463 /* LimboApp.swift in Sources */,

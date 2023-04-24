@@ -8,26 +8,14 @@
 import SwiftUI
 
 struct LoginView: View {
-    @State private var email: String = ""
-    @State private var password: String = ""
-    @State private var isPasswordHidden = true
+    
+    @StateObject private var viewModel = LoginViewModel()
     
     var body: some View {
         ZStack {
             backgroundColorView()
             VStack {
-                HStack {
-                    Image("flame")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 50, height: 50)
-                    
-                    Text("Limbo")
-                        .font(.custom("Montserrat", size: 50))
-                        .fontWeight(.semibold)
-                        .foregroundColor(Color("orangeColor"))
-                }
-                .padding(.top,50)
+                LimboLogoView()
                 
                 Spacer()
                 
@@ -39,7 +27,7 @@ struct LoginView: View {
                     
                     VStack(spacing: 15) {
                         ZStack(alignment: .trailing) {
-                            TextFieldView(title: "Email użytkownika", holdText: $email)
+                            TextFieldView(title: "Email użytkownika", holdText: $viewModel.email)
                                 .textContentType(.emailAddress)
                             
                             Image("userIcon")
@@ -50,25 +38,23 @@ struct LoginView: View {
                         }
                         
                         ZStack(alignment: .trailing) {
-                            if isPasswordHidden {
-                                SecureFieldView(title: "Hasło", holdText: $password)
+                            if viewModel.isPasswordHidden {
+                                SecureFieldView(title: "Hasło", holdText: $viewModel.password)
                                 
                                 Button() {
-                                    isPasswordHidden.toggle()
+                                    viewModel.isPasswordHidden.toggle()
                                 } label: {
                                     EyeButton(image: "crossedEyeIcon")
                                 }
-                                
                             } else {
-                                TextFieldView(title: "Hasło", holdText: $password)
+                                TextFieldView(title: "Hasło", holdText: $viewModel.password)
                                 
                                 Button() {
-                                    isPasswordHidden.toggle()
+                                    viewModel.isPasswordHidden.toggle()
                                 } label: {
                                     EyeButton(image: "eyeIcon")
                                 }
                             }
-                            
                         }
                     }
                 }
@@ -163,5 +149,22 @@ struct backgroundColorView: View {
             .onTapGesture {
                 UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
             }
+    }
+}
+
+struct LimboLogoView: View {
+    var body: some View {
+        HStack {
+            Image("flame")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 50, height: 50)
+            
+            Text("Limbo")
+                .font(.custom("Montserrat", size: 50))
+                .fontWeight(.semibold)
+                .foregroundColor(Color("orangeColor"))
+        }
+        .padding(.top,50)
     }
 }
