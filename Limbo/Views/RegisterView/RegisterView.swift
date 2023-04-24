@@ -38,7 +38,28 @@ struct RegisterView: View {
                 
                 Spacer()
                 
-                
+                VStack {
+                    Button() {
+                        print("Tapped gradient button")
+                    } label: {
+                        GradientButton(text: "Załóż konto")
+                            .frame(width: 250, height: 60)
+                    }
+                    .padding(.bottom, 10)
+                    
+                    HStack(spacing: 5) {
+                        Text("Masz już konto?")
+                            .font(.custom("Montserrat", size: 16))
+                            .fontWeight(.medium)
+                            .foregroundColor(.white)
+                        
+                        Text("Zaloguj się")
+                            .font(.custom("Montserrat", size: 16))
+                            .fontWeight(.semibold)
+                            .foregroundColor(Color("orangeColor"))
+                    }
+                }
+                .padding(.bottom, 70)
             }
         }
     }
