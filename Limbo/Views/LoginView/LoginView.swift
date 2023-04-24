@@ -26,36 +26,11 @@ struct LoginView: View {
                         .foregroundColor(.white)
                     
                     VStack(spacing: 15) {
-                        ZStack(alignment: .trailing) {
-                            TextFieldView(title: "Email użytkownika", holdText: $viewModel.email)
-                                .textContentType(.emailAddress)
-                            
-                            Image("userIcon")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 25, height: 25)
-                                .padding(.trailing, 15)
-                        }
+                        TextFieldViewWithUserIcon(email: $viewModel.email)
                         
-                        ZStack(alignment: .trailing) {
-                            if viewModel.isPasswordHidden {
-                                SecureFieldView(title: "Hasło", holdText: $viewModel.password)
-                                
-                                Button() {
-                                    viewModel.isPasswordHidden.toggle()
-                                } label: {
-                                    EyeButton(image: "crossedEyeIcon")
-                                }
-                            } else {
-                                TextFieldView(title: "Hasło", holdText: $viewModel.password)
-                                
-                                Button() {
-                                    viewModel.isPasswordHidden.toggle()
-                                } label: {
-                                    EyeButton(image: "eyeIcon")
-                                }
-                            }
-                        }
+                        LoginSecureFieldViewWithEyeIcon(
+                            localViewModel: viewModel,
+                            password: $viewModel.password)
                     }
                 }
                 .padding(.top, 50)
@@ -166,5 +141,49 @@ struct LimboLogoView: View {
                 .foregroundColor(Color("orangeColor"))
         }
         .padding(.top,50)
+    }
+}
+
+struct LoginSecureFieldViewWithEyeIcon: View {
+    var localViewModel: LoginViewModel
+    @Binding var password: String
+    
+    var body: some View {
+        ZStack(alignment: .trailing) {
+            if localViewModel.isPasswordHidden {
+                SecureFieldView(title: "Hasło", holdText: $password)
+                
+                Button() {
+                    localViewModel.isPasswordHidden.toggle()
+                } label: {
+                    EyeButton(image: "crossedEyeIcon")
+                }
+            } else {
+                TextFieldView(title: "Hasło", holdText: $password)
+                
+                Button() {
+                    localViewModel.isPasswordHidden.toggle()
+                } label: {
+                    EyeButton(image: "eyeIcon")
+                }
+            }
+        }
+    }
+}
+
+struct TextFieldViewWithUserIcon: View {
+    @Binding var email: String
+    
+    var body: some View {
+        ZStack(alignment: .trailing) {
+            TextFieldView(title: "Email użytkownika", holdText: $email)
+                .textContentType(.emailAddress)
+            
+            Image("userIcon")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 25, height: 25)
+                .padding(.trailing, 15)
+        }
     }
 }
