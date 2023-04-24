@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MainView: View {
     @State private var showLoginView = false
+    @State private var showRegisterView = false
     
     var body: some View {
         ZStack() {
@@ -37,17 +38,20 @@ struct MainView: View {
                         GradientButton(text: "Zaloguj się")
                             .frame(width: 250, height: 60)
                     }
-                    .fullScreenCover(isPresented: $showLoginView, content: {
+                    .fullScreenCover(isPresented: $showLoginView) {
                         LoginView()
-                    })
+                    }
                     
                     Button() {
-                        print("Tapped dark button")
+                        showRegisterView.toggle()
                     } label: {
                         DarkButton()
                             .frame(width: 250, height: 60)
                             .background(Color("backgroundColor"))
                             .cornerRadius(25)
+                    }
+                    .fullScreenCover(isPresented: $showRegisterView) {
+                        RegisterView()
                     }
                 }
                 .padding(.bottom, 90)
