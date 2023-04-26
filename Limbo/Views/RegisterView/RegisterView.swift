@@ -31,7 +31,7 @@ struct RegisterView: View {
                     VStack(alignment: .leading, spacing: 15) {
                         TextFieldViewWithUserIcon(email: $viewModel.email)
                         
-                        CheckBoxView(viewModel: viewModel)
+                        CheckBoxView(isCheckboxPressed: $viewModel.isCheckboxPressed)
                         
                         if viewModel.isCheckboxPressed {
                             TextFieldView(title: "Numer albumu",
@@ -120,15 +120,14 @@ struct RegisterSecureFieldViewWithEyeIcon: View {
 }
 
 struct CheckBoxView: View {
-    var viewModel: RegisterViewModel
+    @Binding var isCheckboxPressed: Bool
     
     var body: some View {
-        HStack(alignment: .center) {
-            
+        HStack() {
             Button() {
-                viewModel.isCheckboxPressed.toggle()
+                isCheckboxPressed.toggle()
             } label: {
-                if viewModel.isCheckboxPressed {
+                if isCheckboxPressed {
                     Image(systemName: "checkmark.square.fill")
                         .foregroundColor(.white)
                 } else {
