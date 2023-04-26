@@ -65,7 +65,7 @@ struct LoginView: View {
                         }
                     }
                 }
-                .padding(.bottom, 70)
+                .padding(.bottom, 60)
             }
         }
     }
@@ -185,6 +185,7 @@ struct TextFieldViewWithUserIcon: View {
         ZStack(alignment: .trailing) {
             TextFieldView(title: "Email użytkownika", holdText: $email)
                 .textContentType(.emailAddress)
+                
             
             Image("userIcon")
                 .resizable()

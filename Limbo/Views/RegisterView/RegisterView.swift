@@ -24,17 +24,26 @@ struct RegisterView: View {
                         .fontWeight(.semibold)
                         .foregroundColor(.white)
                 }
+                .padding(.top, 50)
                 
-                VStack(spacing: 15) {
-                    TextFieldViewWithUserIcon(email: $viewModel.email)
-                    TextFieldView(title: "Numer albumu", holdText: $viewModel.indexNumber)
-                    TextFieldView(title: "Imię i nazwisko", holdText: $viewModel.name)
-                    
-                    RegisterSecureFieldViewWithEyeIcon(
-                        localViewModel: viewModel,
-                        password: $viewModel.password)
-                    SecureFieldView(title: "Powtórz Hasło", holdText: $viewModel.repeatedPassword)
+                
+                ScrollView {
+                    VStack(spacing: 15) {
+                        TextFieldViewWithUserIcon(email: $viewModel.email)
+                        TextFieldView(title: "Numer albumu",
+                                    holdText: $viewModel.indexNumber)
+                        TextFieldView(title: "Imię i nazwisko",
+                                    holdText: $viewModel.name)
+                        
+                        RegisterSecureFieldViewWithEyeIcon(
+                            localViewModel: viewModel,
+                            password: $viewModel.password)
+                        SecureFieldView(title: "Powtórz Hasło",
+                                      holdText: $viewModel.repeatedPassword)
+                    }
                 }
+                .frame(maxHeight: 310)
+                .padding(.bottom, 15)
                 
                 Spacer()
                 
@@ -53,13 +62,20 @@ struct RegisterView: View {
                             .fontWeight(.medium)
                             .foregroundColor(.white)
                         
-                        Text("Zaloguj się")
-                            .font(.custom("Montserrat", size: 16))
-                            .fontWeight(.semibold)
-                            .foregroundColor(Color("orangeColor"))
+                        Button() {
+                            viewModel.showLoginView.toggle()
+                        } label: {
+                            Text("Zaloguj się")
+                                .font(.custom("Montserrat", size: 16))
+                                .fontWeight(.semibold)
+                                .foregroundColor(Color("orangeColor"))
+                        }
+                        .fullScreenCover(isPresented: $viewModel.showLoginView) {
+                            LoginView()
+                        }
                     }
                 }
-                .padding(.bottom, 70)
+                .padding(.bottom, 60)
             }
         }
     }
