@@ -31,26 +31,7 @@ struct RegisterView: View {
                     VStack(alignment: .leading, spacing: 15) {
                         TextFieldViewWithUserIcon(email: $viewModel.email)
                         
-                        HStack(alignment: .center) {
-                            
-                            Button() {
-                                viewModel.isCheckboxPressed.toggle()
-                            } label: {
-                                if viewModel.isCheckboxPressed {
-                                    Image(systemName: "checkmark.square.fill")
-                                        .foregroundColor(.white)
-                                } else {
-                                    Image(systemName: "square")
-                                        .foregroundColor(Color("backgroundBoxColor"))
-                                }
-                            }
-                            .frame(width: 20, height: 20)
-                            .padding(.leading, 10)
-
-                            Text("Jestem studentem Politechniki Łódzkiej")
-                                .font(.custom("Montserrat", size: 10))
-                                .foregroundColor(.white)
-                        }
+                        CheckBoxView(viewModel: viewModel)
                         
                         if viewModel.isCheckboxPressed {
                             TextFieldView(title: "Numer albumu",
@@ -60,8 +41,8 @@ struct RegisterView: View {
                                     holdText: $viewModel.name)
                         
                         RegisterSecureFieldViewWithEyeIcon(
-                            localViewModel: viewModel,
-                            password: $viewModel.password)
+                                    localViewModel: viewModel,
+                                    password: $viewModel.password)
                         SecureFieldView(title: "Powtórz Hasło",
                                       holdText: $viewModel.repeatedPassword)
                     }
@@ -134,6 +115,33 @@ struct RegisterSecureFieldViewWithEyeIcon: View {
                     EyeButton(image: "eyeIcon")
                 }
             }
+        }
+    }
+}
+
+struct CheckBoxView: View {
+    var viewModel: RegisterViewModel
+    
+    var body: some View {
+        HStack(alignment: .center) {
+            
+            Button() {
+                viewModel.isCheckboxPressed.toggle()
+            } label: {
+                if viewModel.isCheckboxPressed {
+                    Image(systemName: "checkmark.square.fill")
+                        .foregroundColor(.white)
+                } else {
+                    Image(systemName: "square")
+                        .foregroundColor(Color("backgroundBoxColor"))
+                }
+            }
+            .frame(width: 20, height: 20)
+            .padding(.leading, 10)
+            
+            Text("Jestem studentem Politechniki Łódzkiej")
+                .font(.custom("Montserrat", size: 10))
+                .foregroundColor(.white)
         }
     }
 }
