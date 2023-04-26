@@ -28,10 +28,34 @@ struct RegisterView: View {
                 
                 
                 ScrollView {
-                    VStack(spacing: 15) {
+                    VStack(alignment: .leading, spacing: 15) {
                         TextFieldViewWithUserIcon(email: $viewModel.email)
-                        TextFieldView(title: "Numer albumu",
-                                    holdText: $viewModel.indexNumber)
+                        
+                        HStack(alignment: .center) {
+                            
+                            Button() {
+                                viewModel.isCheckboxPressed.toggle()
+                            } label: {
+                                if viewModel.isCheckboxPressed {
+                                    Image(systemName: "checkmark.square.fill")
+                                        .foregroundColor(.white)
+                                } else {
+                                    Image(systemName: "square")
+                                        .foregroundColor(Color("backgroundBoxColor"))
+                                }
+                            }
+                            .frame(width: 20, height: 20)
+                            .padding(.leading, 10)
+
+                            Text("Jestem studentem Politechniki Łódzkiej")
+                                .font(.custom("Montserrat", size: 10))
+                                .foregroundColor(.white)
+                        }
+                        
+                        if viewModel.isCheckboxPressed {
+                            TextFieldView(title: "Numer albumu",
+                                        holdText: $viewModel.indexNumber)
+                        }
                         TextFieldView(title: "Imię i nazwisko",
                                     holdText: $viewModel.name)
                         
