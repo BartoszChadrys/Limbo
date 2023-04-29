@@ -62,10 +62,11 @@ struct HomeView: View {
                     }
                     .frame(maxHeight: 65)
                 }
-                    
                 
                 Spacer()
                 
+                NavbarView(homeIcon: "homeIconGradient", quizIcon: "quizIconWhite", statsIcon: "statsIconWhite", profileIcon: "profileIconWhite")
+                    
                 }
             }
             
@@ -78,5 +79,42 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
+    }
+}
+
+struct NavbarView: View {
+    var homeIcon: String
+    var quizIcon: String
+    var statsIcon: String
+    var profileIcon: String
+    
+    var body: some View {
+        ZStack {
+            Rectangle()
+                .foregroundColor(Color("backgroundBoxColor"))
+                .frame(width: UIScreen.main.bounds.width,
+                       height: 70)
+            HStack(spacing: 65) {
+                Image(homeIcon)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 25, height: 25)
+                
+                Image(quizIcon)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 25, height: 25)
+                
+                Image(statsIcon)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 25, height: 25)
+                
+                Image(profileIcon)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 25, height: 25)
+            }
+        }
     }
 }
