@@ -16,33 +16,17 @@ struct HomeView: View {
             
             VStack {
                 HStack(spacing: 20) {
-                    ZStack {
-                        Rectangle()
-                            .frame(width: 65, height: 35)
-                            .foregroundColor(Color("backgroundBoxColor"))
-                            .cornerRadius(20)
-                        HStack() {
-                            Image("flame")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 20, height: 20, alignment: .leading)
-                            Text("50")
-                                .font(.custom("Montserrat", size: 14))
-                                .fontWeight(.semibold)
-                                .foregroundColor(.white)
-                        }
-                    }
-                    .padding(.top, 50)
+                    PointsView(points: 50)
                     
-                        LimboLogoView()
+                    LimboLogoView()
                     
-                        Image("exampleAvatar")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 35, height: 35)
-                            .padding(.top, 50)
-                    }
-                    .padding(.top, 50)
+                    Image("exampleAvatar")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 35, height: 35)
+                        .padding(.top, 50)
+                }
+                .padding(.top, 50)
                 
                 VStack(alignment: .leading) {
                     Text("Najlepsi w grupie")
@@ -53,39 +37,11 @@ struct HomeView: View {
                     ScrollView(.horizontal) {
                         LazyHStack(spacing: 25) {
                             ForEach(viewModel.imageList, id: \.self) { image in
-                                ZStack {
-                                    Image(image)
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .frame(width: 65, height: 65)
-                                    
-                                    ZStack() {
-                                        Rectangle()
-                                            .frame(width: 40, height: 25)
-                                            .foregroundColor(Color("backgroundBoxColor"))
-                                            .cornerRadius(20)
-                                            .opacity(0.8)
-                                        
-                                        HStack(spacing: 3) {
-                                            Image("flame")
-                                                .resizable()
-                                                .aspectRatio(contentMode: .fit)
-                                                .frame(width: 15, height: 15, alignment: .leading)
-                                            Text("50")
-                                                .font(.custom("Montserrat", size: 10))
-                                                .fontWeight(.semibold)
-                                                .foregroundColor(.white)
-                                        }
-                                    }
-                                    .padding(.leading, 30)
-                                    .padding(.top, 45)
-                                    
-                                    
-                                }
+                                PersonInfoView(image: image)
                             }
                         }
                     }
-                    .frame(maxHeight: 65)
+                    .frame(maxHeight: 90)
                 }
                 
                 Spacer()
@@ -138,5 +94,70 @@ struct NavbarView: View {
                     .frame(width: 25, height: 25)
             }
         }
+    }
+}
+
+struct PersonInfoView: View {
+    var image: String
+    
+    var body: some View {
+        VStack {
+            ZStack {
+                Image(image)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 65, height: 65)
+                
+                ZStack() {
+                    Rectangle()
+                        .frame(width: 40, height: 25)
+                        .foregroundColor(Color("backgroundBoxColor"))
+                        .cornerRadius(20)
+                        .opacity(0.8)
+                    
+                    HStack(spacing: 3) {
+                        Image("flame")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 15, height: 15, alignment: .leading)
+                        Text("50")
+                            .font(.custom("Montserrat", size: 10))
+                            .fontWeight(.semibold)
+                            .foregroundColor(.white)
+                    }
+                }
+                .padding(.leading, 30)
+                .padding(.top, 45)
+            }
+            
+            Text("You")
+                .font(.custom("Montserrat", size: 12))
+                .fontWeight(.semibold)
+                .foregroundColor(Color("orangeColor"))
+        }
+    }
+}
+
+struct PointsView: View {
+    var points: Int
+    
+    var body: some View {
+        ZStack {
+            Rectangle()
+                .frame(width: 65, height: 35)
+                .foregroundColor(Color("backgroundBoxColor"))
+                .cornerRadius(20)
+            HStack() {
+                Image("flame")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 20, height: 20, alignment: .leading)
+                Text("\(points)")
+                    .font(.custom("Montserrat", size: 14))
+                    .fontWeight(.semibold)
+                    .foregroundColor(.white)
+            }
+        }
+        .padding(.top, 50)
     }
 }
