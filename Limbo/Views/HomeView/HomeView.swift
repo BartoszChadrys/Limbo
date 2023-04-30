@@ -53,10 +53,35 @@ struct HomeView: View {
                     ScrollView(.horizontal) {
                         LazyHStack(spacing: 25) {
                             ForEach(viewModel.imageList, id: \.self) { image in
-                                Image(image)
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(width: 65, height: 65)
+                                ZStack {
+                                    Image(image)
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width: 65, height: 65)
+                                    
+                                    ZStack() {
+                                        Rectangle()
+                                            .frame(width: 40, height: 25)
+                                            .foregroundColor(Color("backgroundBoxColor"))
+                                            .cornerRadius(20)
+                                            .opacity(0.8)
+                                        
+                                        HStack(spacing: 3) {
+                                            Image("flame")
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fit)
+                                                .frame(width: 15, height: 15, alignment: .leading)
+                                            Text("50")
+                                                .font(.custom("Montserrat", size: 10))
+                                                .fontWeight(.semibold)
+                                                .foregroundColor(.white)
+                                        }
+                                    }
+                                    .padding(.leading, 30)
+                                    .padding(.top, 45)
+                                    
+                                    
+                                }
                             }
                         }
                     }
@@ -69,9 +94,6 @@ struct HomeView: View {
                     
                 }
             }
-            
-            
-            
         }
     }
 
