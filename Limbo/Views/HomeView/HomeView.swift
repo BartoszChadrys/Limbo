@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Charts
 
 struct HomeView: View {
     @StateObject private var viewModel = HomeViewModel()
@@ -43,6 +44,7 @@ struct HomeView: View {
                     }
                     .frame(maxHeight: 90)
                 }
+                .padding(.leading, 15)
                 
                 Spacer()
                 
