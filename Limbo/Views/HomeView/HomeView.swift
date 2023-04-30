@@ -46,6 +46,29 @@ struct HomeView: View {
                 }
                 .padding(.leading, 15)
                 
+                VStack(alignment: .leading) {
+                    Text("Statystyki")
+                        .font(.custom("Montserrat", size: 20))
+                        .fontWeight(.medium)
+                        .foregroundColor(.white)
+                    
+                    Chart {
+                        ForEach(viewModel.activityArray) { activity in
+                            LineMark(x: .value("Day", activity.date),
+                                    y: .value("Flickers", activity.activityCount))
+                            
+                            PointMark(x: .value("Day", activity.date),
+                                      y: .value("Flickers", activity.activityCount))
+                            
+                        }
+                    }
+                    .frame(maxWidth: 350, maxHeight: 200)
+                    .foregroundColor(Color("orangeColor"))
+                }
+                .padding(.leading, 15)
+                
+                
+                
                 Spacer()
                 
                 NavbarView(homeIcon: "homeIconGradient", quizIcon: "quizIconWhite", statsIcon: "statsIconWhite", profileIcon: "profileIconWhite")
