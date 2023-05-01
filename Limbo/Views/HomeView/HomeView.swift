@@ -44,7 +44,7 @@ struct HomeView: View {
                     }
                     .frame(maxHeight: 90)
                 }
-                .padding(.leading, 15)
+                .padding(.leading, 20)
                 
                 VStack(alignment: .leading) {
                     Text("Statystyki")
@@ -54,18 +54,27 @@ struct HomeView: View {
                     
                     Chart {
                         ForEach(viewModel.activityArray) { activity in
-                            LineMark(x: .value("Day", activity.date),
+                            LineMark(x: .value("Day", activity.date, unit: .day),
                                     y: .value("Flickers", activity.activityCount))
                             
-                            PointMark(x: .value("Day", activity.date),
+                            PointMark(x: .value("Day", activity.date, unit: .weekday),
                                       y: .value("Flickers", activity.activityCount))
+                            .foregroundStyle(LinearGradient(colors: [Color("redGradientColor"), Color("yellowGradientColor")],
+                                 startPoint: .leading, endPoint: .trailing))
                             
                         }
                     }
-                    .frame(maxWidth: 350, maxHeight: 200)
+                    .frame(maxHeight: 160)
                     .foregroundColor(Color("orangeColor"))
+                    .chartYAxis(.hidden)
+                    .chartXAxis {
+                        AxisMarks(values: viewModel.activityArray.map {$0.date}) { date in
+                            AxisValueLabel(format: .dateTime.weekday(), centered: true)
+                                .foregroundStyle(Color.white)
+                        }
+                    }
                 }
-                .padding(.leading, 15)
+                .padding(20)
                 
                 
                 
