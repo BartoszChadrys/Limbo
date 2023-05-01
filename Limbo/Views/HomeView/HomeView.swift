@@ -61,6 +61,9 @@ struct HomeView: View {
                                       y: .value("Flickers", activity.activityCount))
                             .foregroundStyle(LinearGradient(colors: [Color("redGradientColor"), Color("yellowGradientColor")],
                                  startPoint: .leading, endPoint: .trailing))
+                            .annotation {
+                                AnnotationView(points: activity.activityCount)
+                            }
                             
                         }
                     }
@@ -69,7 +72,7 @@ struct HomeView: View {
                     .chartYAxis(.hidden)
                     .chartXAxis {
                         AxisMarks(values: viewModel.activityArray.map {$0.date}) { date in
-                            AxisValueLabel(format: .dateTime.weekday(), centered: true)
+                            AxisValueLabel(format: .dateTime.weekday(), horizontalSpacing: 15)
                                 .foregroundStyle(Color.white)
                         }
                     }
@@ -193,5 +196,31 @@ struct PointsView: View {
             }
         }
         .padding(.top, 50)
+    }
+}
+
+struct AnnotationView: View {
+    var points: Int
+    
+    var body: some View {
+        ZStack {
+            Image("bubblePointsChart")
+                .resizable()
+                .frame(width: 33, height: 25)
+                .foregroundColor(Color("backgroundBoxColor"))
+                .cornerRadius(5)
+            
+            HStack(spacing: 3) {
+                Image("flame")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 10, height: 10)
+                Text("\(points)")
+                    .font(.custom("Montserrat", size: 10))
+                    .fontWeight(.semibold)
+                    .foregroundColor(.white)
+            }
+            .padding(.bottom, 4)
+        }
     }
 }
