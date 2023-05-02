@@ -47,7 +47,7 @@ struct HomeView: View {
                     }
                     .frame(maxHeight: 90)
                 }
-                .padding(.leading, 20)
+                .padding(.leading, 15)
                 
                 VStack(alignment: .leading) {
                     Text("Statystyki")
@@ -79,7 +79,7 @@ struct HomeView: View {
                                 
                             }
                         }
-                        .frame(maxHeight: 160)
+                        .frame(maxHeight: 140)
                         .foregroundColor(Color("orangeColor"))
                         .chartYAxis(.hidden)
                         .chartXAxis {
@@ -90,9 +90,33 @@ struct HomeView: View {
                         }
                     }
                 }
-                .padding(20)
+                .padding(.leading, 15)
+                .padding(.top, 5)
+                .padding(.bottom, 5)
                 
-                
+                VStack(alignment: .leading, spacing: 5) {
+                    Text("Nauka")
+                        .font(.custom("Montserrat", size: 20))
+                        .fontWeight(.medium)
+                        .foregroundColor(.white)
+                        .padding(.leading, 15)
+                    
+                    ZStack {
+                        Rectangle()
+                            .padding(.leading, 15)
+                        
+                        VStack(spacing: 15) {
+                            HStack(spacing: 50) {
+                                ProgressRectangleView()
+                                ProgressRectangleView()
+                            }
+                            HStack(spacing: 50) {
+                                ProgressRectangleView()
+                                ProgressRectangleView()
+                            }
+                        }
+                    }
+                }
                 
                 Spacer()
                 
@@ -180,7 +204,7 @@ struct PersonInfoView: View {
                 .padding(.top, 45)
             }
             
-            Text("You")
+            Text("Ty")
                 .font(.custom("Montserrat", size: 12))
                 .fontWeight(.semibold)
                 .foregroundColor(Color("orangeColor"))
@@ -235,5 +259,13 @@ struct AnnotationView: View {
             }
             .padding(.bottom, 4)
         }
+    }
+}
+
+struct ProgressRectangleView: View {
+    var body: some View {
+        RoundedRectangle(cornerRadius: 25)
+            .stroke(LinearGradient(colors: [Color("redGradientColor"),Color("yellowGradientColor")], startPoint: .leading, endPoint: .trailing), lineWidth: 3)
+            .frame(width: 120, height: 80)
     }
 }
