@@ -11,6 +11,9 @@ import Charts
 struct HomeView: View {
     @StateObject private var viewModel = HomeViewModel()
     
+    let todaysDate = Date()
+    let dateFormatter = DateFormatter()
+    
     var body: some View {
         ZStack {
             backgroundColorView()
@@ -52,28 +55,38 @@ struct HomeView: View {
                         .fontWeight(.medium)
                         .foregroundColor(.white)
                     
-                    Chart {
-                        ForEach(viewModel.activityArray) { activity in
-                            LineMark(x: .value("Day", activity.date, unit: .day),
-                                    y: .value("Flickers", activity.activityCount))
-                            
-                            PointMark(x: .value("Day", activity.date, unit: .weekday),
-                                      y: .value("Flickers", activity.activityCount))
-                            .foregroundStyle(LinearGradient(colors: [Color("redGradientColor"), Color("yellowGradientColor")],
-                                 startPoint: .leading, endPoint: .trailing))
-                            .annotation {
-                                AnnotationView(points: activity.activityCount)
+                    VStack {
+                        Text("Twoja aktywność w tym tygodniu")
+                            .font(.custom("Montserrat", size: 14))
+                            .fontWeight(.medium)
+                            .foregroundColor(.white)
+                            .padding(3)
+                        
+                        Chart {
+                            ForEach(viewModel.activityArray) { activity in
+                                LineMark(x: .value("Day", activity.date, unit: .day),
+                                        y: .value("Flickers", activity.activityCount))
+                                
+                                PointMark(x: .value("Day", activity.date, unit: .day),
+                                          y: .value("Flickers", activity.activityCount))
+                                .foregroundStyle(LinearGradient(colors: [Color("redGradientColor"), Color("yellowGradientColor")],
+                                     startPoint: .leading, endPoint: .trailing))
+                                .annotation {
+                                    if activity.activityCount == 7 {
+                                        AnnotationView(points: activity.activityCount)
+                                    }
+                                }
+                                
                             }
-                            
                         }
-                    }
-                    .frame(maxHeight: 160)
-                    .foregroundColor(Color("orangeColor"))
-                    .chartYAxis(.hidden)
-                    .chartXAxis {
-                        AxisMarks(values: viewModel.activityArray.map {$0.date}) { date in
-                            AxisValueLabel(format: .dateTime.weekday(), horizontalSpacing: 15)
-                                .foregroundStyle(Color.white)
+                        .frame(maxHeight: 160)
+                        .foregroundColor(Color("orangeColor"))
+                        .chartYAxis(.hidden)
+                        .chartXAxis {
+                            AxisMarks(values: viewModel.activityArray.map {$0.date}) { date in
+                                AxisValueLabel(format: .dateTime.weekday(), horizontalSpacing: 15)
+                                    .foregroundStyle(Color.white)
+                            }
                         }
                     }
                 }
