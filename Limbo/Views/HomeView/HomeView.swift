@@ -62,32 +62,7 @@ struct HomeView: View {
                             .foregroundColor(.white)
                             .padding(3)
                         
-                        Chart {
-                            ForEach(viewModel.activityArray) { activity in
-                                LineMark(x: .value("Day", activity.date, unit: .day),
-                                        y: .value("Flickers", activity.activityCount))
-                                
-                                PointMark(x: .value("Day", activity.date, unit: .day),
-                                          y: .value("Flickers", activity.activityCount))
-                                .foregroundStyle(LinearGradient(colors: [Color("redGradientColor"), Color("yellowGradientColor")],
-                                     startPoint: .leading, endPoint: .trailing))
-                                .annotation {
-                                    if activity.activityCount == 7 {
-                                        AnnotationView(points: activity.activityCount)
-                                    }
-                                }
-                                
-                            }
-                        }
-                        .frame(maxHeight: 140)
-                        .foregroundColor(Color("orangeColor"))
-                        .chartYAxis(.hidden)
-                        .chartXAxis {
-                            AxisMarks(values: viewModel.activityArray.map {$0.date}) { date in
-                                AxisValueLabel(format: .dateTime.weekday(), horizontalSpacing: 15)
-                                    .foregroundStyle(Color.white)
-                            }
-                        }
+                        ActivityChartView(localViewModel: viewModel)
                     }
                 }
                 .padding(.leading, 15)
@@ -131,11 +106,8 @@ struct HomeView: View {
                         }
                     }
                 }
-                
-                Spacer()
-                
+                                
                 NavbarView(homeIcon: "homeIconGradient", quizIcon: "quizIconWhite", statsIcon: "statsIconWhite", profileIcon: "profileIconWhite")
-                    
                 }
             }
         }
@@ -321,6 +293,39 @@ struct CircleView: View {
                 .font(.custom("Montserrat", size: 9))
                 .fontWeight(.semibold)
                 .foregroundColor(.white)
+        }
+    }
+}
+
+struct ActivityChartView: View {
+    var localViewModel: HomeViewModel
+    
+    var body: some View {
+        Chart {
+            ForEach(localViewModel.activityArray) { activity in
+                LineMark(x: .value("Day", activity.date, unit: .day),
+                         y: .value("Flickers", activity.activityCount))
+                
+                PointMark(x: .value("Day", activity.date, unit: .day),
+                          y: .value("Flickers", activity.activityCount))
+                .foregroundStyle(LinearGradient(colors: [Color("redGradientColor"), Color("yellowGradientColor")],
+                                                startPoint: .leading, endPoint: .trailing))
+                .annotation {
+                    if activity.activityCount == 7 {
+                        AnnotationView(points: activity.activityCount)
+                    }
+                }
+                
+            }
+        }
+        .frame(maxHeight: 140)
+        .foregroundColor(Color("orangeColor"))
+        .chartYAxis(.hidden)
+        .chartXAxis {
+            AxisMarks(values: localViewModel.activityArray.map {$0.date}) { date in
+                AxisValueLabel(format: .dateTime.weekday(), horizontalSpacing: 15)
+                    .foregroundStyle(Color.white)
+            }
         }
     }
 }
