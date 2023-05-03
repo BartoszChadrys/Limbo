@@ -11,9 +11,6 @@ import Charts
 struct HomeView: View {
     @StateObject private var viewModel = HomeViewModel()
     
-    let todaysDate = Date()
-    let dateFormatter = DateFormatter()
-    
     var body: some View {
         ZStack {
             backgroundColorView()
