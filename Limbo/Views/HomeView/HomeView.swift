@@ -107,17 +107,26 @@ struct HomeView: View {
                         
                         VStack(spacing: 15) {
                             HStack(spacing: 50) {
-                                RoundedRectangleView(gradient: K.greenGradient)
+                                ZStack {
+                                    RoundedRectangleView(gradient: K.greenGradient)
+                                    CircleView(percent: 100, title: "Operacje na danych", gradient: K.greenGradient, circleColor: Color("greenColor"), circleIcon: Image("checkmarkIcon"))
+                                }
                                 
                                 ZStack {
                                     RoundedRectangleView(gradient: K.orangeGradient)
-                                    ProgressCircleView(percent: 47,
-                                                    title: "Instrukcje warunkowe")
+                                    CircleView(percent: 47, title: "Instrukcje warunkowe", gradient: K.orangeGradient, circleColor: Color("orangeColor"), circleIcon: Image("flameWhite"))
                                 }
                             }
                             HStack(spacing: 50) {
-                                RoundedRectangleView(gradient: K.redGradient)
-                                RoundedRectangleView(gradient: K.redGradient)
+                                ZStack {
+                                    RoundedRectangleView(gradient: K.redGradient)
+                                    CircleView(percent: 0, title: "Instrukcje iteracyjne", gradient: K.redGradient, circleColor: Color("redColor"), circleIcon: Image("lockIcon"))
+                                }
+                                
+                                ZStack {
+                                    RoundedRectangleView(gradient: K.redGradient)
+                                    CircleView(percent: 0, title: "Tablice jednowymiarowe", gradient: K.redGradient, circleColor: Color("redColor"), circleIcon: Image("lockIcon"))
+                                }
                             }
                         }
                     }
@@ -277,24 +286,27 @@ struct RoundedRectangleView: View {
     }
 }
 
-struct ProgressCircleView: View {
+struct CircleView: View {
     var percent: Int
     var title: String
+    var gradient: LinearGradient
+    var circleColor: Color
+    var circleIcon: Image
     
     var body: some View {
         VStack(spacing: 0) {
             ZStack {
                 RoundedRectangle(cornerRadius: 50)
-                    .stroke(LinearGradient(colors: [Color("redGradientColor"),Color("yellowGradientColor")], startPoint: .leading, endPoint: .trailing), lineWidth: 4.5)
+                    .stroke(gradient, lineWidth: 4.5)
                     .foregroundColor(.white)
                     .frame(width: 45, height: 45)
                 
                 RoundedRectangle(cornerRadius: 50)
-                    .foregroundColor(Color("orangeColor"))
+                    .foregroundColor(circleColor)
                     .frame(width: 15, height: 15)
                     .padding(.bottom, 45)
                 
-                Image("flameWhite")
+                circleIcon
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 10, height: 10)
@@ -306,7 +318,7 @@ struct ProgressCircleView: View {
                     .foregroundColor(.white)
             }
             Text(title)
-                .font(.custom("Montserrat", size: 10))
+                .font(.custom("Montserrat", size: 9))
                 .fontWeight(.semibold)
                 .foregroundColor(.white)
         }
