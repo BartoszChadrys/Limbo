@@ -111,7 +111,8 @@ struct HomeView: View {
                                 
                                 ZStack {
                                     RoundedRectangleView(gradient: K.orangeGradient)
-                                    ProgressCircleView(percent: 47)
+                                    ProgressCircleView(percent: 47,
+                                                    title: "Instrukcje warunkowe")
                                 }
                             }
                             HStack(spacing: 50) {
@@ -272,34 +273,41 @@ struct RoundedRectangleView: View {
     var body: some View {
         RoundedRectangle(cornerRadius: 25)
             .stroke(gradient, lineWidth: 3)
-            .frame(width: 120, height: 80)
+            .frame(width: 140, height: 90)
     }
 }
 
 struct ProgressCircleView: View {
     var percent: Int
+    var title: String
     
     var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 50)
-                .stroke(LinearGradient(colors: [Color("redGradientColor"),Color("yellowGradientColor")], startPoint: .leading, endPoint: .trailing), lineWidth: 4.5)
-                .foregroundColor(.white)
-                .frame(width: 50, height: 50)
-            
-            RoundedRectangle(cornerRadius: 50)
-                .foregroundColor(Color("orangeColor"))
-                .frame(width: 20, height: 20)
-                .padding(.bottom, 45)
-            
-            Image("flameWhite")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 15, height: 15)
-                .padding(.bottom, 45)
-            
-            Text("\(percent)%")
-                .font(.custom("Montserrat", size: 12))
-                .fontWeight(.bold)
+        VStack(spacing: 0) {
+            ZStack {
+                RoundedRectangle(cornerRadius: 50)
+                    .stroke(LinearGradient(colors: [Color("redGradientColor"),Color("yellowGradientColor")], startPoint: .leading, endPoint: .trailing), lineWidth: 4.5)
+                    .foregroundColor(.white)
+                    .frame(width: 45, height: 45)
+                
+                RoundedRectangle(cornerRadius: 50)
+                    .foregroundColor(Color("orangeColor"))
+                    .frame(width: 15, height: 15)
+                    .padding(.bottom, 45)
+                
+                Image("flameWhite")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 10, height: 10)
+                    .padding(.bottom, 45)
+                
+                Text("\(percent)%")
+                    .font(.custom("Montserrat", size: 12))
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+            }
+            Text(title)
+                .font(.custom("Montserrat", size: 10))
+                .fontWeight(.semibold)
                 .foregroundColor(.white)
         }
     }
