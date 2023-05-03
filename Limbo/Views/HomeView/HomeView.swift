@@ -107,16 +107,16 @@ struct HomeView: View {
                         
                         VStack(spacing: 15) {
                             HStack(spacing: 50) {
+                                RoundedRectangleView(gradient: K.greenGradient)
+                                
                                 ZStack {
-                                    ProgressRectangleView()
+                                    RoundedRectangleView(gradient: K.orangeGradient)
                                     ProgressCircleView(percent: 47)
                                 }
-                                
-                                ProgressRectangleView()
                             }
                             HStack(spacing: 50) {
-                                ProgressRectangleView()
-                                ProgressRectangleView()
+                                RoundedRectangleView(gradient: K.redGradient)
+                                RoundedRectangleView(gradient: K.redGradient)
                             }
                         }
                     }
@@ -266,10 +266,12 @@ struct AnnotationView: View {
     }
 }
 
-struct ProgressRectangleView: View {
+struct RoundedRectangleView: View {
+    var gradient: LinearGradient
+    
     var body: some View {
         RoundedRectangle(cornerRadius: 25)
-            .stroke(LinearGradient(colors: [Color("redGradientColor"),Color("yellowGradientColor")], startPoint: .leading, endPoint: .trailing), lineWidth: 3)
+            .stroke(gradient, lineWidth: 3)
             .frame(width: 120, height: 80)
     }
 }
