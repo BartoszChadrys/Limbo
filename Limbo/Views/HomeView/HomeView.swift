@@ -72,6 +72,7 @@ struct HomeView: View {
                         .fontWeight(.medium)
                         .foregroundColor(.white)
                         .padding(.leading, 15)
+                        .padding(.bottom, 3)
                     
                     ZStack {
                         Rectangle()
