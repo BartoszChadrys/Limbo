@@ -16,18 +16,7 @@ struct HomeView: View {
             backgroundColorView()
             
             VStack {
-                HStack(spacing: 20) {
-                    PointsView(points: 50)
-                    
-                    LimboLogoView()
-                    
-                    Image("exampleAvatar")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 35, height: 35)
-                        .padding(.top, 50)
-                }
-                .padding(.top, 50)
+                LimboLogoWithPointsView()
                 
                 VStack(alignment: .leading) {
                     Text("Najlepsi w grupie")
@@ -325,5 +314,22 @@ struct ActivityChartView: View {
                     .foregroundStyle(Color.white)
             }
         }
+    }
+}
+
+struct LimboLogoWithPointsView: View {
+    var body: some View {
+        HStack(spacing: 20) {
+            PointsView(points: 50)
+            
+            LimboLogoView()
+            
+            Image("exampleAvatar")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 35, height: 35)
+                .padding(.top, 50)
+        }
+        .padding(.top, 50)
     }
 }
