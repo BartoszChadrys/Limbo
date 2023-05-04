@@ -94,7 +94,7 @@ struct HomeView: View {
                     }
                 }
                                 
-                NavbarView(homeIcon: "homeIconGradient", quizIcon: "quizIconWhite", statsIcon: "statsIconWhite", profileIcon: "profileIconWhite")
+                NavbarView(isActive: .home)
                 }
             }
         }
@@ -108,10 +108,7 @@ struct HomeView_Previews: PreviewProvider {
 }
 
 struct NavbarView: View {
-    var homeIcon: String
-    var quizIcon: String
-    var statsIcon: String
-    var profileIcon: String
+    var isActive: NavbarItem
     
     var body: some View {
         ZStack {
@@ -120,25 +117,77 @@ struct NavbarView: View {
                 .frame(width: UIScreen.main.bounds.width,
                        height: 70)
             HStack(spacing: 65) {
-                Image(homeIcon)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 25, height: 25)
+                if isActive == .home {
+                    VStack(spacing: 7) {
+                        Image("homeIconGradient")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 25, height: 25)
+                        
+                        Circle()
+                            .fill(Color("orangeColor"))
+                            .frame(width: 5, height: 5)
+                    }
+                } else {
+                    Image("homeIconWhite")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 25, height: 25)
+                }
                 
-                Image(quizIcon)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 25, height: 25)
+                if isActive == .quiz {
+                    VStack(spacing: 7) {
+                        Image("quizIconGradient")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 25, height: 25)
+                        
+                        Circle()
+                            .fill(Color("orangeColor"))
+                            .frame(width: 5, height: 5)
+                    }
+                } else {
+                    Image("quizIconWhite")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 25, height: 25)
+                }
                 
-                Image(statsIcon)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 25, height: 25)
+                if isActive == .stats {
+                    VStack(spacing: 7) {
+                        Image("statsIconGradient")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 25, height: 25)
+                        
+                        Circle()
+                            .fill(Color("orangeColor"))
+                            .frame(width: 5, height: 5)
+                    }
+                } else {
+                    Image("statsIconWhite")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 25, height: 25)
+                }
                 
-                Image(profileIcon)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 25, height: 25)
+                if isActive == .profile {
+                    VStack(spacing: 7) {
+                        Image("profileIconGradient")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 25, height: 25)
+                        
+                        Circle()
+                            .fill(Color("orangeColor"))
+                            .frame(width: 5, height: 5)
+                    }
+                } else {
+                    Image("profileIconWhite")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 25, height: 25)
+                }
             }
         }
     }

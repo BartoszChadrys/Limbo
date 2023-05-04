@@ -35,7 +35,7 @@ struct TopicView: View {
                 
                 Spacer()
                 
-                NavbarView(homeIcon: "homeIconWhite", quizIcon: "quizIconGradient", statsIcon: "statsIconWhite", profileIcon: "profileIconWhite")
+                NavbarView(isActive: .quiz)
             }
         }
     }

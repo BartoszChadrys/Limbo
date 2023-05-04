@@ -66,7 +66,7 @@ struct ProfileView: View {
                 
                 Spacer()
                 
-                NavbarView(homeIcon: "homeIconWhite", quizIcon: "quizIconWhite", statsIcon: "statsIconWhite", profileIcon: "profileIconGradient")
+                NavbarView(isActive: .profile)
             }
         }
     }

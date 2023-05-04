@@ -18,7 +18,7 @@ struct StatsView: View {
                 
                 Spacer()
                 
-                NavbarView(homeIcon: "homeIconWhite", quizIcon: "quizIconWhite", statsIcon: "statsIconGradient", profileIcon: "profileIconWhite")
+                NavbarView(isActive: .stats)
             }
         }
     }
