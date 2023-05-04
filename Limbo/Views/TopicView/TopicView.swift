@@ -23,12 +23,12 @@ struct TopicView: View {
                     LazyVStack {
                         TopicElementView(gradient: K.greenGradient, mainColor: Color("greenColor"), topicTitle: "Operacje na danych", points: 15, circleTitle: "Gratulacje!", circleIcon: Image("checkmarkIcon"), percent: 100)
                         
-                        TopicElementView(gradient: K.orangeGradient, mainColor: Color("orangeColor"), topicTitle: "Instrukcje warunkowe", points: 7, circleTitle: "Gratulacje!", circleIcon: Image("flameWhite"), percent: 47)
+                        TopicElementView(gradient: K.orangeGradient, mainColor: Color("orangeColor"), topicTitle: "Instrukcje warunkowe", points: 7, circleTitle: "Kliknij, aby wykonać quiz", circleIcon: Image("flameWhite"), percent: 47)
                         
-                        TopicElementView(gradient: K.redGradient, mainColor: Color("redColor"), topicTitle: "Instrukcje iteracyjne", points: 7, circleTitle: "Zablokowany", circleIcon: Image("lockIcon"), percent: 47)
+                        TopicElementView(gradient: K.redGradient, mainColor: Color("redColor"), topicTitle: "Instrukcje iteracyjne", points: 0, circleTitle: "Zablokowany", circleIcon: Image("lockIcon"), percent: 0)
                             .opacity(0.5)
                         
-                        TopicElementView(gradient: K.redGradient, mainColor: Color("redColor"), topicTitle: "Tablice jednowymiarowe", points: 7, circleTitle: "Zablokowany", circleIcon: Image("lockIcon"), percent: 47)
+                        TopicElementView(gradient: K.redGradient, mainColor: Color("redColor"), topicTitle: "Tablice jednowymiarowe", points: 0, circleTitle: "Zablokowany", circleIcon: Image("lockIcon"), percent: 0)
                             .opacity(0.5)
                     }
                 }
@@ -83,9 +83,11 @@ struct TopicCircleView: View {
                     .foregroundColor(.white)
                 
                 Text(title)
-                    .font(.custom("Montserrat", size: 10))
+                    .font(.custom("Montserrat", size: 8))
                     .fontWeight(.light)
                     .foregroundColor(.white)
+                    .multilineTextAlignment(.center)
+                    .frame(width: 53)
             }
         }
     }
@@ -102,6 +104,8 @@ struct TopicTitleView: View {
                 .font(.custom("Montserrat", size: 15))
                 .fontWeight(.semibold)
                 .foregroundColor(.white)
+                .frame(width: 200)
+                .multilineTextAlignment(.center)
             
             Text("Zdobyte punkty")
                 .font(.custom("Montserrat", size: 12))
@@ -133,7 +137,7 @@ struct TopicElementView: View {
                 .padding(.trailing, 25)
                 .padding(.leading, 25)
             
-            HStack(spacing: 40) {
+            HStack(spacing: 20) {
                 TopicTitleView(title: topicTitle, points: points, pointsColor: mainColor)
                 
                 TopicCircleView(percent: percent, title: circleTitle, gradient: gradient, mainColor: mainColor, circleIcon: circleIcon)
