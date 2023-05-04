@@ -8,5 +8,7 @@
 import Foundation
 
 class ProfileViewModel: ObservableObject {
-    
+    @Published var oldPassword = ""
+    @Published var newPassword = ""
+    @Published var repeatNewPassword = ""
 }

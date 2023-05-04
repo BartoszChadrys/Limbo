@@ -30,28 +30,31 @@ struct ProfileView: View {
                         .padding(.leading, 85)
                 }
                 
-                Text("Maciej Kowalski")
-                    .font(.custom("Montserrat", size: 20))
+                VStack {
+                    Text("Maciej Kowalski")
+                        .font(.custom("Montserrat", size: 20))
+                        .fontWeight(.medium)
+                        .foregroundColor(.white)
+                    
+                    Text("maciejk@gmail.com")
+                        .font(.custom("Montserrat", size: 12))
+                        .fontWeight(.light)
+                        .foregroundColor(.white)
+                        .tint(.white)
+                }
+                
+                Text("Zmien hasło")
+                    .font(.custom("Montserrat", size: 15))
                     .fontWeight(.medium)
                     .foregroundColor(.white)
-                
-                ZStack {
-                    RoundedRectangle(cornerRadius: 25)
-                        .foregroundColor(Color("backgroundBoxColor"))
-                        .frame(width: 230, height: 45)
-                    
-                    HStack(spacing: 25) {
-                        Image("envelopeIconGradient")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 20, height: 20)
-                        
-                        Text("maciejk@gmail.com")
-                            .font(.custom("Montserrat", size: 12))
-                            .fontWeight(.light)
-                            .foregroundColor(.white)
-                    }
+
+                VStack(spacing: 10) {
+                    TextFieldView(title: "Stare hasło", holdText: $viewModel.oldPassword)
+                    TextFieldView(title: "Nowe hasło", holdText: $viewModel.newPassword)
+                    TextFieldView(title: "Powtórz nowe hasło", holdText: $viewModel.repeatNewPassword)
                 }
+                
+                ChangePasswordButtonView()
                 
                 Spacer()
                 
@@ -64,5 +67,21 @@ struct ProfileView: View {
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
         ProfileView()
+    }
+}
+
+struct ChangePasswordButtonView: View {
+    var body: some View {
+        ZStack {
+            LinearGradient(colors: [Color("redGradientColor"),Color("yellowGradientColor")], startPoint: .leading, endPoint: .trailing)
+            
+            Text("Zmień hasło")
+                .font(.custom("Montserrat", size: 13))
+                .fontWeight(.bold)
+                .foregroundColor(.white)
+        }
+        .frame(width: 130, height: 45)
+        .cornerRadius(25)
+        .padding(.top, 5)
     }
 }
