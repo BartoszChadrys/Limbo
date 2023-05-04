@@ -12,7 +12,13 @@ struct StatsView: View {
         ZStack {
             backgroundColorView()
             VStack {
+                LimboLogoWithPointsView()
                 
+                
+                
+                Spacer()
+                
+                NavbarView(homeIcon: "homeIconWhite", quizIcon: "quizIconWhite", statsIcon: "statsIconGradient", profileIcon: "profileIconWhite")
             }
         }
     }
