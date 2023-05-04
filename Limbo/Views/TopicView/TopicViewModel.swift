@@ -5,8 +5,8 @@
 //  Created by Bartek Chadryś on 03/05/2023.
 //
 
-import Foundation
+import SwiftUI
 
 class TopicViewModel: ObservableObject {
-    
+
 }
