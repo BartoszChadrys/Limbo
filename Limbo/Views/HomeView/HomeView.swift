@@ -265,12 +265,12 @@ struct CircleView: View {
     var body: some View {
         VStack(spacing: 0) {
             ZStack {
-                RoundedRectangle(cornerRadius: 50)
+                Circle()
                     .stroke(gradient, lineWidth: 4.5)
                     .foregroundColor(.white)
                     .frame(width: 45, height: 45)
                 
-                RoundedRectangle(cornerRadius: 50)
+                Circle()
                     .foregroundColor(circleColor)
                     .frame(width: 15, height: 15)
                     .padding(.bottom, 45)
