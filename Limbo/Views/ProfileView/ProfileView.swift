@@ -56,6 +56,14 @@ struct ProfileView: View {
                 
                 ChangePasswordButtonView()
                 
+                
+                VStack {
+                    Text("Wymień punkty na bonusy")
+                        .font(.custom("Montserrat", size: 15))
+                        .fontWeight(.medium)
+                        .foregroundColor(.white)
+                }
+                
                 Spacer()
                 
                 NavbarView(homeIcon: "homeIconWhite", quizIcon: "quizIconWhite", statsIcon: "statsIconWhite", profileIcon: "profileIconGradient")
