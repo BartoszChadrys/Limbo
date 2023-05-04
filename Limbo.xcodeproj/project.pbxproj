@@ -18,6 +18,8 @@
 		292E12422A02D6CF00190114 /* TopicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292E12412A02D6CF00190114 /* TopicViewModel.swift */; };
 		292E12452A043B2E00190114 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292E12442A043B2E00190114 /* StatsView.swift */; };
 		292E12472A043B3C00190114 /* StatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292E12462A043B3C00190114 /* StatsViewModel.swift */; };
+		292E124A2A04468600190114 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292E12492A04468600190114 /* ProfileView.swift */; };
+		292E124C2A04469500190114 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292E124B2A04469500190114 /* ProfileViewModel.swift */; };
 		294D609629F1D25B00CE0463 /* LimboApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294D609529F1D25B00CE0463 /* LimboApp.swift */; };
 		294D609829F1D25B00CE0463 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294D609729F1D25B00CE0463 /* MainView.swift */; };
 		294D609A29F1D25C00CE0463 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 294D609929F1D25C00CE0463 /* Assets.xcassets */; };
@@ -42,6 +44,8 @@
 		292E12412A02D6CF00190114 /* TopicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicViewModel.swift; sourceTree = "<group>"; };
 		292E12442A043B2E00190114 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
 		292E12462A043B3C00190114 /* StatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewModel.swift; sourceTree = "<group>"; };
+		292E12492A04468600190114 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		292E124B2A04469500190114 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		294D609229F1D25B00CE0463 /* Limbo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Limbo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		294D609529F1D25B00CE0463 /* LimboApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimboApp.swift; sourceTree = "<group>"; };
 		294D609729F1D25B00CE0463 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -112,6 +116,15 @@
 			path = StatsView;
 			sourceTree = "<group>";
 		};
+		292E12482A04467100190114 /* ProfileView */ = {
+			isa = PBXGroup;
+			children = (
+				292E12492A04468600190114 /* ProfileView.swift */,
+				292E124B2A04469500190114 /* ProfileViewModel.swift */,
+			);
+			path = ProfileView;
+			sourceTree = "<group>";
+		};
 		294D608929F1D25B00CE0463 = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +177,7 @@
 		294D60CB29F1E5F100CE0463 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				292E12482A04467100190114 /* ProfileView */,
 				292E12432A043B1F00190114 /* StatsView */,
 				292E123E2A02D6B000190114 /* TopicView */,
 				292E123729FBBB1800190114 /* HomeView */,
@@ -274,12 +288,14 @@
 				292E12402A02D6C300190114 /* TopicView.swift in Sources */,
 				290629FA29F711020048434E /* RegisterViewModel.swift in Sources */,
 				290629F729F482050048434E /* LoginViewModel.swift in Sources */,
+				292E124A2A04468600190114 /* ProfileView.swift in Sources */,
 				292E123D2A02AC9000190114 /* Constants.swift in Sources */,
 				294D60CA29F1E2C800CE0463 /* GradientButton.swift in Sources */,
 				292E123929FBBB2C00190114 /* HomeView.swift in Sources */,
 				292E12452A043B2E00190114 /* StatsView.swift in Sources */,
 				290629F229F286A60048434E /* LoginView.swift in Sources */,
 				292E12422A02D6CF00190114 /* TopicViewModel.swift in Sources */,
+				292E124C2A04469500190114 /* ProfileViewModel.swift in Sources */,
 				294D609629F1D25B00CE0463 /* LimboApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
