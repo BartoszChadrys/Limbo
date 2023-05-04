@@ -19,31 +19,10 @@ struct TopicView: View {
                     .fontWeight(.medium)
                     .foregroundColor(.white)
                 
-                ZStack {
-                    RoundedRectangle(cornerRadius: 25)
-                        .stroke(K.greenGradient, lineWidth: 3)
-                        .frame(height: 120)
-                        .padding(.trailing, 25)
-                        .padding(.leading, 25)
+                VStack {
+                    TopicElementView(gradient: K.greenGradient, mainColor: Color("greenColor"), topicTitle: "Operacje na danych", points: 15, circleTitle: "Gratulacje!", circleIcon: Image("checkmarkIcon"), percent: 100)
                     
-                    HStack(spacing: 40) {
-                        TopicTitleView(title: "Operacje na danych", points: 15, pointsColor: Color("greenColor"))
-                        TopicCircleView(percent: 100, title: "Gratulacje!", gradient: K.greenGradient, mainColor: Color("greenColor"), circleIcon: Image("checkmarkIcon"))
-                    }
-                }
-                .padding(.bottom, 15)
-                
-                ZStack {
-                    RoundedRectangle(cornerRadius: 25)
-                        .stroke(K.orangeGradient, lineWidth: 3)
-                        .frame(height: 120)
-                        .padding(.trailing, 25)
-                        .padding(.leading, 25)
-                    
-                    HStack(spacing: 40) {
-                        TopicTitleView(title: "Instrukcje warunkowe", points: 7, pointsColor: Color("orangeColor"))
-                        TopicCircleView(percent: 47, title: "Gratulacje!", gradient: K.orangeGradient, mainColor: Color("orangeColor"), circleIcon: Image("checkmarkIcon"))
-                    }
+                    TopicElementView(gradient: K.orangeGradient, mainColor: Color("orangeColor"), topicTitle: "Instrukcje warunkowe", points: 7, circleTitle: "Gratulacje!", circleIcon: Image("flameWhite"), percent: 47)
                 }
                 
                 Spacer()
@@ -124,5 +103,32 @@ struct TopicTitleView: View {
                 .fontWeight(.semibold)
                 .foregroundColor(pointsColor)
         }
+    }
+}
+
+struct TopicElementView: View {
+    var gradient: LinearGradient
+    var mainColor: Color
+    var topicTitle: String
+    var points: Int
+    var circleTitle: String
+    var circleIcon: Image
+    var percent: Int
+    
+    var body: some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 25)
+                .stroke(gradient, lineWidth: 3)
+                .frame(height: 120)
+                .padding(.trailing, 25)
+                .padding(.leading, 25)
+            
+            HStack(spacing: 40) {
+                TopicTitleView(title: topicTitle, points: points, pointsColor: mainColor)
+                
+                TopicCircleView(percent: percent, title: circleTitle, gradient: gradient, mainColor: mainColor, circleIcon: circleIcon)
+            }
+        }
+        .padding(.bottom, 15)
     }
 }
