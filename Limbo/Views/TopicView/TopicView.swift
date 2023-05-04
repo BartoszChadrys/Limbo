@@ -24,6 +24,12 @@ struct TopicView: View {
                         TopicElementView(gradient: K.greenGradient, mainColor: Color("greenColor"), topicTitle: "Operacje na danych", points: 15, circleTitle: "Gratulacje!", circleIcon: Image("checkmarkIcon"), percent: 100)
                         
                         TopicElementView(gradient: K.orangeGradient, mainColor: Color("orangeColor"), topicTitle: "Instrukcje warunkowe", points: 7, circleTitle: "Gratulacje!", circleIcon: Image("flameWhite"), percent: 47)
+                        
+                        TopicElementView(gradient: K.redGradient, mainColor: Color("redColor"), topicTitle: "Instrukcje iteracyjne", points: 7, circleTitle: "Zablokowany", circleIcon: Image("lockIcon"), percent: 47)
+                            .opacity(0.5)
+                        
+                        TopicElementView(gradient: K.redGradient, mainColor: Color("redColor"), topicTitle: "Tablice jednowymiarowe", points: 7, circleTitle: "Zablokowany", circleIcon: Image("lockIcon"), percent: 47)
+                            .opacity(0.5)
                     }
                 }
                 
