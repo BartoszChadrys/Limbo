@@ -19,10 +19,12 @@ struct TopicView: View {
                     .fontWeight(.medium)
                     .foregroundColor(.white)
                 
-                VStack {
-                    TopicElementView(gradient: K.greenGradient, mainColor: Color("greenColor"), topicTitle: "Operacje na danych", points: 15, circleTitle: "Gratulacje!", circleIcon: Image("checkmarkIcon"), percent: 100)
-                    
-                    TopicElementView(gradient: K.orangeGradient, mainColor: Color("orangeColor"), topicTitle: "Instrukcje warunkowe", points: 7, circleTitle: "Gratulacje!", circleIcon: Image("flameWhite"), percent: 47)
+                ScrollView {
+                    LazyVStack {
+                        TopicElementView(gradient: K.greenGradient, mainColor: Color("greenColor"), topicTitle: "Operacje na danych", points: 15, circleTitle: "Gratulacje!", circleIcon: Image("checkmarkIcon"), percent: 100)
+                        
+                        TopicElementView(gradient: K.orangeGradient, mainColor: Color("orangeColor"), topicTitle: "Instrukcje warunkowe", points: 7, circleTitle: "Gratulacje!", circleIcon: Image("flameWhite"), percent: 47)
+                    }
                 }
                 
                 Spacer()
@@ -45,17 +47,17 @@ struct TopicCircleView: View {
     var circleIcon: Image
     
     var body: some View {
-        ZStack {
+        ZStack() {
             Circle()
                 .foregroundColor(Color("backgroundColor"))
                 .frame(width: 75, height: 75)
                 .shadow(color: mainColor,radius: 15)
             
-            RoundedRectangle(cornerRadius: 50)
+            Circle()
                 .stroke(gradient, lineWidth: 4.5)
                 .frame(width: 75, height: 75)
             
-            RoundedRectangle(cornerRadius: 50)
+            Circle()
                 .foregroundColor(mainColor)
                 .frame(width: 20, height: 20)
                 .padding(.bottom, 75)
