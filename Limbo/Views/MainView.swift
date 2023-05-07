@@ -2,85 +2,49 @@
 //  ContentView.swift
 //  Limbo
 //
-//  Created by Bartek Chadryś on 20/04/2023.
+//  Created by Bartek Chadryś on 04/05/2023.
 //
 
 import SwiftUI
 
 struct MainView: View {
-    @State private var showLoginView = false
-    @State private var showRegisterView = false
+    @State private var activeTab = 0
     
+    init() {
+        UITabBar.appearance().isTranslucent = false
+        UITabBar.appearance().barTintColor = UIColor(named: "backgroundBoxColor")
+        UITabBar.appearance().backgroundColor = UIColor(named: "backgroundBoxColor")
+    }
+
     var body: some View {
-        ZStack() {
-            backgroundImageView()
-            VStack() {
-                VStack(alignment: .trailing) {
-                    Text("Limbo")
-                        .font(.custom("Montserrat", size: 100))
-                        .fontWeight(.semibold)
-                        .foregroundColor(.white)
-                        
-                    Text("Nauka programowania w C \n Aplikacja e-learningowa \n Politechniki Łódzkiej")
-                        .font(.custom("Montserrat", size: 20))
-                        .fontWeight(.medium)
-                        .foregroundColor(.white)
-                        .multilineTextAlignment(.trailing)
+        TabView(selection: $activeTab) {
+            HomeView()
+                .tabItem {
+                    Image(systemName: "house.fill")
                 }
-                .padding(.top, 70)
-                
-                Spacer()
-                
-                VStack() {
-                    Button() {
-                        showLoginView.toggle()
-                    } label: {
-                        GradientButton(text: "Zaloguj się")
-                            .frame(width: 250, height: 60)
-                    }
-                    .fullScreenCover(isPresented: $showLoginView) {
-                        LoginView()
-                    }
-                    
-                    Button() {
-                        showRegisterView.toggle()
-                    } label: {
-                        DarkButton()
-                            .frame(width: 250, height: 60)
-                            .background(Color("backgroundColor"))
-                            .cornerRadius(25)
-                    }
-                    .fullScreenCover(isPresented: $showRegisterView) {
-                        RegisterView()
-                    }
+                .tag(0)
+            TopicView()
+                .tabItem {
+                    Image(systemName: "timer")
                 }
-                .padding(.bottom, 90)
-            }
+                .tag(1)
+            StatsView()
+                .tabItem {
+                    Image(systemName: "chart.dots.scatter")
+                }
+                .tag(2)
+            ProfileView()
+                .tabItem {
+                    Image(systemName: "person.fill")
+                }
         }
+        .accentColor(Color("orangeColor"))
+        .ignoresSafeArea()
     }
 }
 
-struct MainView_Previews: PreviewProvider {
+struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
-    }
-}
-
-struct DarkButton: View {
-    var body: some View {
-        Text("Załóż konto")
-            .font(.custom("Montserrat", size: 16))
-            .fontWeight(.bold)
-            .foregroundColor(.white)
-    }
-}
-
-struct backgroundImageView: View {
-    var body: some View {
-        Image("backgroundFlames")
-            .resizable()
-            .renderingMode(.original)
-            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-            .ignoresSafeArea()
     }
 }
