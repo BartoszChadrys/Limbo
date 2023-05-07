@@ -16,7 +16,6 @@ class RegisterViewModel: ObservableObject {
     @Published var isPasswordHidden = true
     
     @Published var showLoginView = false
+    @Published var showMainView = false
     @Published var isCheckboxPressed = false
-    
-    
 }
