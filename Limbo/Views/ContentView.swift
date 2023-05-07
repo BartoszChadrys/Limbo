@@ -9,6 +9,12 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var activeTab = 0
+    
+    init() {
+        UITabBar.appearance().isTranslucent = false
+        UITabBar.appearance().barTintColor = UIColor(named: "backgroundBoxColor")
+        UITabBar.appearance().backgroundColor = UIColor(named: "backgroundBoxColor")
+    }
 
     var body: some View {
         TabView(selection: $activeTab) {
@@ -32,7 +38,7 @@ struct ContentView: View {
                     Image(systemName: "person.fill")
                 }
         }
-        .accentColor(.orange)
+        .accentColor(Color("orangeColor"))
         .ignoresSafeArea()
     }
 }
