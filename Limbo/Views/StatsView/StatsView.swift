@@ -16,9 +16,7 @@ struct StatsView: View {
                 
                 
                 
-                Spacer()
-                
-                NavbarView(isActive: .stats)
+                Spacer()                
             }
         }
     }

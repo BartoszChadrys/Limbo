@@ -65,8 +65,6 @@ struct ProfileView: View {
                 }
                 
                 Spacer()
-                
-                NavbarView(isActive: .profile)
             }
         }
     }

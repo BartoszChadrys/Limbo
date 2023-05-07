@@ -21,6 +21,7 @@
 		292E124A2A04468600190114 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292E12492A04468600190114 /* ProfileView.swift */; };
 		292E124C2A04469500190114 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292E124B2A04469500190114 /* ProfileViewModel.swift */; };
 		293F99C32A0454D3003D646E /* NavbarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293F99C22A0454D3003D646E /* NavbarItem.swift */; };
+		293F99C52A046171003D646E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293F99C42A046171003D646E /* ContentView.swift */; };
 		294D609629F1D25B00CE0463 /* LimboApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294D609529F1D25B00CE0463 /* LimboApp.swift */; };
 		294D609829F1D25B00CE0463 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294D609729F1D25B00CE0463 /* MainView.swift */; };
 		294D609A29F1D25C00CE0463 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 294D609929F1D25C00CE0463 /* Assets.xcassets */; };
@@ -48,6 +49,7 @@
 		292E12492A04468600190114 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		292E124B2A04469500190114 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		293F99C22A0454D3003D646E /* NavbarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavbarItem.swift; sourceTree = "<group>"; };
+		293F99C42A046171003D646E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		294D609229F1D25B00CE0463 /* Limbo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Limbo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		294D609529F1D25B00CE0463 /* LimboApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimboApp.swift; sourceTree = "<group>"; };
 		294D609729F1D25B00CE0463 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				290629F529F481EA0048434E /* LoginView */,
 				290629F829F710F40048434E /* RegisterView */,
 				294D609729F1D25B00CE0463 /* MainView.swift */,
+				293F99C42A046171003D646E /* ContentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				292E123929FBBB2C00190114 /* HomeView.swift in Sources */,
 				292E12452A043B2E00190114 /* StatsView.swift in Sources */,
 				290629F229F286A60048434E /* LoginView.swift in Sources */,
+				293F99C52A046171003D646E /* ContentView.swift in Sources */,
 				292E12422A02D6CF00190114 /* TopicViewModel.swift in Sources */,
 				292E124C2A04469500190114 /* ProfileViewModel.swift in Sources */,
 				294D609629F1D25B00CE0463 /* LimboApp.swift in Sources */,

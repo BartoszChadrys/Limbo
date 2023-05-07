@@ -18,6 +18,7 @@ struct TopicView: View {
                     .font(.custom("Montserrat", size: 20))
                     .fontWeight(.medium)
                     .foregroundColor(.white)
+                    .padding(.bottom, 10)
                 
                 ScrollView {
                     LazyVStack {
@@ -33,9 +34,7 @@ struct TopicView: View {
                     }
                 }
                 
-                Spacer()
-                
-                NavbarView(isActive: .quiz)
+                Spacer()                
             }
         }
     }
