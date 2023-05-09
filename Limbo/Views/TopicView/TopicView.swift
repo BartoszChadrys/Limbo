@@ -61,8 +61,10 @@ struct TopicCircleView: View {
                 .shadow(color: mainColor,radius: 15)
             
             Circle()
+                .trim(from: 0, to: CGFloat(percent)/100)
                 .stroke(gradient, lineWidth: 4.5)
                 .frame(width: 75, height: 75)
+                .rotationEffect(.degrees(-90))
             
             Circle()
                 .foregroundColor(mainColor)

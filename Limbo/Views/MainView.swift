@@ -37,6 +37,7 @@ struct MainView: View {
                 .tabItem {
                     Image(systemName: "person.fill")
                 }
+                .tag(3)
         }
         .accentColor(Color("orangeColor"))
         .ignoresSafeArea()
