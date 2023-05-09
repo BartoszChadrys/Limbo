@@ -11,14 +11,8 @@ struct TopicView: View {
     var body: some View {
         ZStack {
             backgroundColorView()
-            VStack() {
+            VStack(spacing: 15) {
                 LimboLogoWithPointsView()
-                
-                Text("Rozdziały")
-                    .font(.custom("Montserrat", size: 20))
-                    .fontWeight(.medium)
-                    .foregroundColor(.white)
-                    .padding(.bottom, 10)
                 
                 ScrollView {
                     LazyVStack {
@@ -32,6 +26,7 @@ struct TopicView: View {
                         TopicElementView(gradient: K.redGradient, mainColor: Color("redColor"), topicTitle: "Tablice jednowymiarowe", points: 0, circleTitle: "Zablokowany", circleIcon: Image("lockIcon"), percent: 0)
                             .opacity(0.5)
                     }
+                    .padding(.top, 5)
                 }
                 
                 Spacer()                

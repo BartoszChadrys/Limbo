@@ -149,7 +149,7 @@ struct LimboLogoView: View {
                 .fontWeight(.semibold)
                 .foregroundColor(Color("orangeColor"))
         }
-        .padding(.top,50)
+        .padding(.top, 35)
     }
 }
 

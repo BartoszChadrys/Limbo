@@ -19,7 +19,7 @@ struct HomeView: View {
                 LimboLogoWithPointsView()
                 
                 ScrollView {
-                    VStack(alignment: .leading) {
+                    VStack(alignment: .leading, spacing: 15) {
                         Text("Najlepsi w grupie")
                             .font(.custom("Montserrat", size: 20))
                             .fontWeight(.medium)
@@ -67,6 +67,7 @@ struct HomeView: View {
                         ZStack {
                             Rectangle()
                                 .padding(.leading, 15)
+                                .foregroundColor(Color("backgroundColor"))
                             
                             VStack(spacing: 15) {
                                 HStack(spacing: 50) {
@@ -92,13 +93,14 @@ struct HomeView: View {
                                     }
                                 }
                             }
+                            .backgroundStyle(.clear)
                         }
                     }
                 }
             }
-            }
         }
     }
+}
 
 
 struct HomeView_Previews: PreviewProvider {
@@ -168,7 +170,6 @@ struct PointsView: View {
                     .foregroundColor(.white)
             }
         }
-        .padding(.top, 50)
     }
 }
 
@@ -286,6 +287,7 @@ struct LimboLogoWithPointsView: View {
     var body: some View {
         HStack(spacing: 20) {
             PointsView(points: 50)
+                .padding(.top, 40)
             
             LimboLogoView()
             
@@ -293,8 +295,8 @@ struct LimboLogoWithPointsView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 35, height: 35)
-                .padding(.top, 50)
+                .padding(.top, 40)
         }
-        .padding(.top, 50)
+        .padding(.top, 25)
     }
 }
