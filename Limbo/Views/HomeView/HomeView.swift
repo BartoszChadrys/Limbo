@@ -21,9 +21,7 @@ struct HomeView: View {
                 ScrollView {
                     VStack(alignment: .leading) {
                         Text("Najlepsi w grupie")
-                            .font(.custom("Montserrat", size: 20))
-                            .fontWeight(.medium)
-                            .foregroundColor(.white)
+                            .modifier(SectionTextModifier())
                         
                         ScrollView(.horizontal) {
                             LazyHStack(spacing: 25) {
@@ -37,9 +35,7 @@ struct HomeView: View {
                     
                     VStack(alignment: .leading) {
                         Text("Statystyki")
-                            .font(.custom("Montserrat", size: 20))
-                            .fontWeight(.medium)
-                            .foregroundColor(.white)
+                            .modifier(SectionTextModifier())
                         
                         VStack {
                             Text("Twoja aktywność w tym tygodniu")
@@ -57,11 +53,9 @@ struct HomeView: View {
                     
                     VStack(alignment: .leading, spacing: 5) {
                         Text("Nauka")
-                            .font(.custom("Montserrat", size: 20))
-                            .fontWeight(.medium)
-                            .foregroundColor(.white)
+                            .modifier(SectionTextModifier())
                             .padding(.leading, 15)
-                            .padding(.bottom, 3)
+                            .padding(.bottom, 5)
                         
                         ZStack {
                             Rectangle()
@@ -105,6 +99,15 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
+    }
+}
+
+struct SectionTextModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.custom("Montserrat", size: 20))
+            .fontWeight(.medium)
+            .foregroundColor(.white)
     }
 }
 
