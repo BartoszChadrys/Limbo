@@ -21,7 +21,7 @@ struct HomeView: View {
                 ScrollView {
                     VStack(alignment: .leading) {
                         Text("Najlepsi w grupie")
-                            .modifier(SectionTextModifier())
+                            .sectionTextStyle()
                         
                         ScrollView(.horizontal) {
                             LazyHStack(spacing: 25) {
@@ -35,7 +35,7 @@ struct HomeView: View {
                     
                     VStack(alignment: .leading) {
                         Text("Statystyki")
-                            .modifier(SectionTextModifier())
+                            .sectionTextStyle()
                         
                         VStack {
                             Text("Twoja aktywność w tym tygodniu")
@@ -53,7 +53,7 @@ struct HomeView: View {
                     
                     VStack(alignment: .leading, spacing: 5) {
                         Text("Nauka")
-                            .modifier(SectionTextModifier())
+                            .sectionTextStyle()
                             .padding(.leading, 15)
                             .padding(.bottom, 5)
                         
@@ -99,6 +99,12 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
+    }
+}
+
+extension View {
+    func sectionTextStyle() -> some View {
+        modifier(SectionTextModifier())
     }
 }
 
