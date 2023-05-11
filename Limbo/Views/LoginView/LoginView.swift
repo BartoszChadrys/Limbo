@@ -142,10 +142,10 @@ struct LimboLogoView: View {
             Image("flame")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 50, height: 50)
+                .frame(width: 45, height: 45)
             
             Text("Limbo")
-                .font(.custom("Montserrat", size: 50))
+                .font(.custom("Montserrat", size: 40))
                 .fontWeight(.semibold)
                 .foregroundColor(Color("orangeColor"))
         }

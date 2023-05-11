@@ -28,6 +28,7 @@ struct TopicView: View {
                     }
                     .padding(.top, 5)
                 }
+                .scrollIndicators(.hidden)
                 
                 Spacer()                
             }

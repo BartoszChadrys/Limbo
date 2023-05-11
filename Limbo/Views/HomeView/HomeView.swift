@@ -15,11 +15,11 @@ struct HomeView: View {
         ZStack {
             backgroundColorView()
             
-            VStack {
+            VStack(spacing: 15) {
                 LimboLogoWithPointsView()
                 
                 ScrollView {
-                    VStack(alignment: .leading, spacing: 15) {
+                    VStack(alignment: .leading) {
                         Text("Najlepsi w grupie")
                             .font(.custom("Montserrat", size: 20))
                             .fontWeight(.medium)
@@ -32,7 +32,6 @@ struct HomeView: View {
                                 }
                             }
                         }
-                        .frame(maxHeight: 90)
                     }
                     .padding(.leading, 15)
                     
@@ -93,10 +92,10 @@ struct HomeView: View {
                                     }
                                 }
                             }
-                            .backgroundStyle(.clear)
                         }
                     }
                 }
+                .scrollIndicators(.hidden)
             }
         }
     }
@@ -170,6 +169,8 @@ struct PointsView: View {
                     .foregroundColor(.white)
             }
         }
+        .frame(maxWidth: .infinity, maxHeight: 35, alignment: .leading)
+        .padding(.leading, 15)
     }
 }
 
@@ -285,7 +286,7 @@ struct ActivityChartView: View {
 
 struct LimboLogoWithPointsView: View {
     var body: some View {
-        HStack(spacing: 20) {
+        ZStack() {
             PointsView(points: 50)
                 .padding(.top, 40)
             
@@ -294,8 +295,9 @@ struct LimboLogoWithPointsView: View {
             Image("exampleAvatar")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 35, height: 35)
+                .frame(maxWidth: .infinity, maxHeight: 35, alignment: .trailing)
                 .padding(.top, 40)
+                .padding(.trailing, 15)
         }
         .padding(.top, 25)
     }
