@@ -60,7 +60,7 @@ struct LoginView: View {
                             Text("Zarejestruj się")
                                 .font(.custom("Montserrat", size: 16))
                                 .fontWeight(.semibold)
-                                .foregroundColor(Color("orangeColor"))
+                                .foregroundColor(.orangeColor())
                         }
                         .fullScreenCover(isPresented: $viewModel.showRegisterView) {
                             RegisterView()
@@ -89,7 +89,7 @@ struct TextFieldView: View {
             .font(.custom("Montserrat", size: 12))
             .fontWeight(.semibold)
             .frame(width: 250, height: 50)
-            .background(Color("backgroundBoxColor"))
+            .background(Color.backgroundBoxColor())
             .cornerRadius(20)
             .foregroundColor(.white)
             .autocorrectionDisabled()
@@ -106,7 +106,7 @@ struct SecureFieldView: View {
             .font(.custom("Montserrat", size: 12))
             .fontWeight(.semibold)
             .frame(width: 250, height: 50)
-            .background(Color("backgroundBoxColor"))
+            .background(Color.backgroundBoxColor())
             .cornerRadius(20)
             .foregroundColor(.white)
             .autocorrectionDisabled()
@@ -127,7 +127,7 @@ struct EyeButton: View {
 
 struct backgroundColorView: View {
     var body: some View {
-        Color("backgroundColor")
+        Color.backgroundColor()
             .ignoresSafeArea()
             .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
             .onTapGesture {
@@ -147,7 +147,7 @@ struct LimboLogoView: View {
             Text("Limbo")
                 .font(.custom("Montserrat", size: 40))
                 .fontWeight(.semibold)
-                .foregroundColor(Color("orangeColor"))
+                .foregroundColor(.orangeColor())
         }
         .padding(.top, 35)
     }
@@ -188,7 +188,6 @@ struct TextFieldViewWithUserIcon: View {
             TextFieldView(title: "Email użytkownika", holdText: $email)
                 .textContentType(.emailAddress)
                 
-            
             Image("userIcon")
                 .resizable()
                 .aspectRatio(contentMode: .fit)

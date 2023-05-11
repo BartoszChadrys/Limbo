@@ -76,7 +76,7 @@ struct RegisterView: View {
                             Text("Zaloguj się")
                                 .font(.custom("Montserrat", size: 16))
                                 .fontWeight(.semibold)
-                                .foregroundColor(Color("orangeColor"))
+                                .foregroundColor(.orangeColor())
                         }
                         .fullScreenCover(isPresented: $viewModel.showLoginView) {
                             LoginView()
@@ -135,7 +135,7 @@ struct CheckBoxView: View {
                         .foregroundColor(.white)
                 } else {
                     Image(systemName: "square")
-                        .foregroundColor(Color("backgroundBoxColor"))
+                        .foregroundColor(.backgroundBoxColor())
                 }
             }
             .frame(width: 20, height: 20)

@@ -60,29 +60,29 @@ struct HomeView: View {
                         ZStack {
                             Rectangle()
                                 .padding(.leading, 15)
-                                .foregroundColor(Color("backgroundColor"))
+                                .foregroundColor(.backgroundColor())
                             
                             VStack(spacing: 15) {
                                 HStack(spacing: 50) {
                                     ZStack {
                                         RoundedRectangleView(gradient: K.greenGradient)
-                                        CircleView(percent: 100, title: "Operacje na danych", gradient: K.greenGradient, circleColor: Color("greenColor"), circleIcon: Image("checkmarkIcon"))
+                                        CircleView(percent: 100, title: "Operacje na danych", gradient: K.greenGradient, circleColor: .greenColor(), circleIcon: Image("checkmarkIcon"))
                                     }
                                     
                                     ZStack {
                                         RoundedRectangleView(gradient: K.orangeGradient)
-                                        CircleView(percent: 47, title: "Instrukcje warunkowe", gradient: K.orangeGradient, circleColor: Color("orangeColor"), circleIcon: Image("flameWhite"))
+                                        CircleView(percent: 47, title: "Instrukcje warunkowe", gradient: K.orangeGradient, circleColor: .orangeColor(), circleIcon: Image("flameWhite"))
                                     }
                                 }
                                 HStack(spacing: 50) {
                                     ZStack {
                                         RoundedRectangleView(gradient: K.redGradient)
-                                        CircleView(percent: 0, title: "Instrukcje iteracyjne", gradient: K.redGradient, circleColor: Color("redColor"), circleIcon: Image("lockIcon"))
+                                        CircleView(percent: 0, title: "Instrukcje iteracyjne", gradient: K.redGradient, circleColor: .redColor(), circleIcon: Image("lockIcon"))
                                     }
                                     
                                     ZStack {
                                         RoundedRectangleView(gradient: K.redGradient)
-                                        CircleView(percent: 0, title: "Tablice jednowymiarowe", gradient: K.redGradient, circleColor: Color("redColor"), circleIcon: Image("lockIcon"))
+                                        CircleView(percent: 0, title: "Tablice jednowymiarowe", gradient: K.redGradient, circleColor: .redColor(), circleIcon: Image("lockIcon"))
                                     }
                                 }
                             }
@@ -131,7 +131,7 @@ struct PersonInfoView: View {
                 ZStack() {
                     Rectangle()
                         .frame(width: 40, height: 25)
-                        .foregroundColor(Color("backgroundBoxColor"))
+                        .foregroundColor(.backgroundBoxColor())
                         .cornerRadius(20)
                         .opacity(0.8)
                     
@@ -153,7 +153,7 @@ struct PersonInfoView: View {
             Text("Ty")
                 .font(.custom("Montserrat", size: 12))
                 .fontWeight(.semibold)
-                .foregroundColor(Color("orangeColor"))
+                .foregroundColor(.orangeColor())
         }
     }
 }
@@ -165,7 +165,7 @@ struct PointsView: View {
         ZStack {
             Rectangle()
                 .frame(width: 65, height: 35)
-                .foregroundColor(Color("backgroundBoxColor"))
+                .foregroundColor(.backgroundBoxColor())
                 .cornerRadius(20)
             HStack() {
                 Image("flame")
@@ -191,7 +191,7 @@ struct AnnotationView: View {
             Image("bubblePointsChart")
                 .resizable()
                 .frame(width: 33, height: 25)
-                .foregroundColor(Color("backgroundBoxColor"))
+                .foregroundColor(.backgroundBoxColor())
                 .cornerRadius(5)
             
             HStack(spacing: 3) {
@@ -290,7 +290,7 @@ struct ActivityChartView: View {
             }
         }
         .frame(maxHeight: 140)
-        .foregroundColor(Color("orangeColor"))
+        .foregroundColor(.orangeColor())
         .chartYAxis(.hidden)
         .chartXAxis {
             AxisMarks(values: localViewModel.activityArray.map {$0.date}) { date in
