@@ -48,6 +48,7 @@ struct TopicCircleView: View {
     var gradient: LinearGradient
     var mainColor: Color
     var circleIcon: Image
+    @State var drawProgress = false
     
     var body: some View {
         ZStack() {
@@ -57,10 +58,17 @@ struct TopicCircleView: View {
                 .shadow(color: mainColor,radius: 15)
             
             Circle()
-                .trim(from: 0, to: CGFloat(percent)/100)
-                .stroke(gradient, lineWidth: 4.5)
+                .trim(from: 0, to: drawProgress ? CGFloat(percent)/100 : 0)
+                .stroke(gradient, style: StrokeStyle(lineWidth: 4.5, lineCap: .round))
                 .frame(width: 75, height: 75)
                 .rotationEffect(.degrees(-90))
+                .animation(.easeOut, value: drawProgress)
+                .onAppear {
+                    drawProgress = true
+                }
+                .onDisappear {
+                    drawProgress = false
+                }
             
             Circle()
                 .foregroundColor(mainColor)
