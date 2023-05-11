@@ -268,7 +268,7 @@ struct ActivityChartView: View {
                 .foregroundStyle(LinearGradient(colors: [Color("redGradientColor"), Color("yellowGradientColor")],
                                                 startPoint: .leading, endPoint: .trailing))
                 .annotation {
-                    if activity.activityCount == 7 {
+                    if activity.activityCount == localViewModel.activityArray.map({$0.activityCount}).max() {
                         AnnotationView(points: activity.activityCount)
                     }
                 }
