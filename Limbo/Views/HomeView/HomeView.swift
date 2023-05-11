@@ -65,24 +65,24 @@ struct HomeView: View {
                             VStack(spacing: 15) {
                                 HStack(spacing: 50) {
                                     ZStack {
-                                        RoundedRectangleView(gradient: K.greenGradient)
-                                        CircleView(percent: 100, title: "Operacje na danych", gradient: K.greenGradient, circleColor: .greenColor(), circleIcon: Image("checkmarkIcon"))
+                                        RoundedRectangleView(gradient: .greenGradient())
+                                        CircleView(percent: 100, title: "Operacje na danych", gradient: .greenGradient(), circleColor: .greenColor(), circleIcon: Image("checkmarkIcon"))
                                     }
                                     
                                     ZStack {
-                                        RoundedRectangleView(gradient: K.orangeGradient)
-                                        CircleView(percent: 47, title: "Instrukcje warunkowe", gradient: K.orangeGradient, circleColor: .orangeColor(), circleIcon: Image("flameWhite"))
+                                        RoundedRectangleView(gradient: .orangeGradient())
+                                        CircleView(percent: 47, title: "Instrukcje warunkowe", gradient: .orangeGradient(), circleColor: .orangeColor(), circleIcon: Image("flameWhite"))
                                     }
                                 }
                                 HStack(spacing: 50) {
                                     ZStack {
-                                        RoundedRectangleView(gradient: K.redGradient)
-                                        CircleView(percent: 0, title: "Instrukcje iteracyjne", gradient: K.redGradient, circleColor: .redColor(), circleIcon: Image("lockIcon"))
+                                        RoundedRectangleView(gradient: .redGradient())
+                                        CircleView(percent: 0, title: "Instrukcje iteracyjne", gradient: .redGradient(), circleColor: .redColor(), circleIcon: Image("lockIcon"))
                                     }
                                     
                                     ZStack {
-                                        RoundedRectangleView(gradient: K.redGradient)
-                                        CircleView(percent: 0, title: "Tablice jednowymiarowe", gradient: K.redGradient, circleColor: .redColor(), circleIcon: Image("lockIcon"))
+                                        RoundedRectangleView(gradient: .redGradient())
+                                        CircleView(percent: 0, title: "Tablice jednowymiarowe", gradient: .redGradient(), circleColor: .redColor(), circleIcon: Image("lockIcon"))
                                     }
                                 }
                             }

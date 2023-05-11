@@ -8,7 +8,5 @@
 import SwiftUI
 
 struct K {
-    static let orangeGradient = LinearGradient(colors: [Color("redGradientColor"),Color("yellowGradientColor")], startPoint: .leading, endPoint: .trailing)
-    static let greenGradient = LinearGradient(colors: [Color("lightGreenColor"), Color("darkGreenColor")], startPoint: .leading, endPoint: .trailing)
-    static let redGradient = LinearGradient(colors: [Color("lightRedColor"), Color("darkRedColor")], startPoint: .leading, endPoint: .trailing)
+    
 }

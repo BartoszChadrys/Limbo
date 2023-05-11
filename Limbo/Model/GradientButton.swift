@@ -12,7 +12,7 @@ struct GradientButton: View {
     
     var body: some View {
         ZStack {
-            LinearGradient(colors: [Color("redGradientColor"),Color("yellowGradientColor")], startPoint: .leading, endPoint: .trailing)
+            LinearGradient.orangeGradient()
             
             Text(text)
                 .font(.custom("Montserrat", size: 16))

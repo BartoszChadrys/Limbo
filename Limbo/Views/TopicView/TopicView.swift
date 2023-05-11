@@ -16,14 +16,14 @@ struct TopicView: View {
                 
                 ScrollView {
                     LazyVStack {
-                        TopicElementView(gradient: K.greenGradient, mainColor: .greenColor(), topicTitle: "Operacje na danych", points: 15, circleTitle: "Gratulacje!", circleIcon: Image("checkmarkIcon"), percent: 100)
+                        TopicElementView(gradient: .greenGradient(), mainColor: .greenColor(), topicTitle: "Operacje na danych", points: 15, circleTitle: "Gratulacje!", circleIcon: Image("checkmarkIcon"), percent: 100)
                         
-                        TopicElementView(gradient: K.orangeGradient, mainColor: .orangeColor(), topicTitle: "Instrukcje warunkowe", points: 7, circleTitle: "Kliknij, aby wykonać quiz", circleIcon: Image("flameWhite"), percent: 47)
+                        TopicElementView(gradient: .orangeGradient(), mainColor: .orangeColor(), topicTitle: "Instrukcje warunkowe", points: 7, circleTitle: "Kliknij, aby wykonać quiz", circleIcon: Image("flameWhite"), percent: 47)
                         
-                        TopicElementView(gradient: K.redGradient, mainColor: .redColor(), topicTitle: "Instrukcje iteracyjne", points: 0, circleTitle: "Zablokowany", circleIcon: Image("lockIcon"), percent: 0)
+                        TopicElementView(gradient: .redGradient(), mainColor: .redColor(), topicTitle: "Instrukcje iteracyjne", points: 0, circleTitle: "Zablokowany", circleIcon: Image("lockIcon"), percent: 0)
                             .opacity(0.5)
                         
-                        TopicElementView(gradient: K.redGradient, mainColor: .redColor(), topicTitle: "Tablice jednowymiarowe", points: 0, circleTitle: "Zablokowany", circleIcon: Image("lockIcon"), percent: 0)
+                        TopicElementView(gradient: .redGradient(), mainColor: .redColor(), topicTitle: "Tablice jednowymiarowe", points: 0, circleTitle: "Zablokowany", circleIcon: Image("lockIcon"), percent: 0)
                             .opacity(0.5)
                     }
                     .padding(.top, 5)

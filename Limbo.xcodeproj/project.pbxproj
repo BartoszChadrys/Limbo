@@ -33,6 +33,7 @@
 		294D60C629F1D54500CE0463 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 294D60B429F1D54500CE0463 /* Montserrat-Regular.ttf */; };
 		294D60CA29F1E2C800CE0463 /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294D60C929F1E2C800CE0463 /* GradientButton.swift */; };
 		294F37B52A0D3BCB00354BED /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294F37B42A0D3BCB00354BED /* Colors.swift */; };
+		294F37B72A0D411200354BED /* LinearGradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294F37B62A0D411200354BED /* LinearGradients.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		294D60C829F1D5C100CE0463 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		294D60C929F1E2C800CE0463 /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
 		294F37B42A0D3BCB00354BED /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		294F37B62A0D411200354BED /* LinearGradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearGradients.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +213,7 @@
 				294D60C929F1E2C800CE0463 /* GradientButton.swift */,
 				293F99C22A0454D3003D646E /* NavbarItem.swift */,
 				294F37B42A0D3BCB00354BED /* Colors.swift */,
+				294F37B62A0D411200354BED /* LinearGradients.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 				294D609829F1D25B00CE0463 /* FirstView.swift in Sources */,
 				292E123B29FBBB3900190114 /* HomeViewModel.swift in Sources */,
 				290629F429F480260048434E /* RegisterView.swift in Sources */,
+				294F37B72A0D411200354BED /* LinearGradients.swift in Sources */,
 				293F99C32A0454D3003D646E /* NavbarItem.swift in Sources */,
 				292E12402A02D6C300190114 /* TopicView.swift in Sources */,
 				290629FA29F711020048434E /* RegisterViewModel.swift in Sources */,
