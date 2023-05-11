@@ -57,11 +57,18 @@ struct ProfileView: View {
                 ChangePasswordButtonView()
                 
                 
-                VStack {
+                VStack(spacing: 15) {
                     Text("Wymień punkty na bonusy")
                         .font(.custom("Montserrat", size: 15))
                         .fontWeight(.medium)
                         .foregroundColor(.white)
+                    
+                    Button() {
+                        print("Redeem points clicked!")
+                    } label: {
+                        ReedemPointsButtonView()
+                    }
+                    
                 }
                 
                 Spacer()
@@ -79,7 +86,7 @@ struct ProfileView_Previews: PreviewProvider {
 struct ChangePasswordButtonView: View {
     var body: some View {
         ZStack {
-            LinearGradient(colors: [Color("redGradientColor"),Color("yellowGradientColor")], startPoint: .leading, endPoint: .trailing)
+            LinearGradient.orangeGradient()
             
             Text("Zmień hasło")
                 .font(.custom("Montserrat", size: 13))
@@ -89,5 +96,47 @@ struct ChangePasswordButtonView: View {
         .frame(width: 130, height: 45)
         .cornerRadius(25)
         .padding(.top, 5)
+    }
+}
+
+struct ReedemPointsButtonView: View {
+    var body: some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 25)
+                .stroke(LinearGradient.orangeGradient(), lineWidth: 3)
+                .frame(maxHeight: 120)
+            
+            HStack(spacing: 40) {
+                VStack {
+                    Text("Punkty do wymiany")
+                        .font(.custom("Montserrat", size: 15))
+                        .fontWeight(.semibold)
+                        .foregroundColor(.white)
+                    
+                    Text("49")
+                        .font(.custom("Montserrat", size: 30))
+                        .fontWeight(.semibold)
+                        .overlay {
+                            LinearGradient.orangeGradient()
+                        }
+                        .mask(Text("49")
+                            .font(.custom("Montserrat", size: 30))
+                            .fontWeight(.semibold))
+                    
+                    Text("Kliknij, aby przejść do ekranu \nwymiany punktów")
+                        .font(.custom("Montserrat", size: 10))
+                        .fontWeight(.light)
+                        .foregroundColor(.white)
+                        .multilineTextAlignment(.center)
+                }
+                
+                Image("redeemPointsIcon")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(maxWidth: 80, maxHeight: 80)
+            }
+        }
+        .padding(.leading, 15)
+        .padding(.trailing, 15)
     }
 }
