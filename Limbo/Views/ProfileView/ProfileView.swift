@@ -18,59 +18,63 @@ struct ProfileView: View {
                 LimboLogoWithPointsView()
                 
                 ScrollView {
-                    VStack(spacing: 0) {
-                        Image("exampleAvatar")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 100, height: 100)
-                        
-                        Image("arrowsRotateIcon")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 17, height: 17)
-                            .padding(.leading, 85)
-                    }
-                    
                     VStack {
-                        Text("Maciej Kowalski")
-                            .font(.custom("Montserrat", size: 20))
-                            .fontWeight(.medium)
-                            .foregroundColor(.white)
+                        VStack(spacing: 0) {
+                            Image("exampleAvatar")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 100, height: 100)
+                            
+                            Image("arrowsRotateIcon")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 17, height: 17)
+                                .padding(.leading, 85)
+                        }
                         
-                        Text("maciejk@gmail.com")
-                            .font(.custom("Montserrat", size: 12))
-                            .fontWeight(.light)
-                            .foregroundColor(.white)
-                            .tint(.white)
-                    }
-                    
-                    Text("Zmien hasło")
-                        .font(.custom("Montserrat", size: 15))
-                        .fontWeight(.medium)
-                        .foregroundColor(.white)
-
-                    VStack(spacing: 10) {
-                        TextFieldView(title: "Stare hasło", holdText: $viewModel.oldPassword)
-                        TextFieldView(title: "Nowe hasło", holdText: $viewModel.newPassword)
-                        TextFieldView(title: "Powtórz nowe hasło", holdText: $viewModel.repeatNewPassword)
-                    }
-                    
-                    ChangePasswordButtonView()
-                    
-                    VStack(spacing: 15) {
-                        Text("Wymień punkty na bonusy")
+                        VStack {
+                            Text("Maciej Kowalski")
+                                .font(.custom("Montserrat", size: 20))
+                                .fontWeight(.medium)
+                                .foregroundColor(.white)
+                            
+                            Text("maciejk@gmail.com")
+                                .font(.custom("Montserrat", size: 12))
+                                .fontWeight(.light)
+                                .foregroundColor(.white)
+                                .tint(.white)
+                        }
+                        
+                        Text("Zmien hasło")
                             .font(.custom("Montserrat", size: 15))
                             .fontWeight(.medium)
                             .foregroundColor(.white)
-                        
-                        Button() {
-                            print("Redeem points clicked!")
-                        } label: {
-                            ReedemPointsButtonView()
+
+                        VStack(spacing: 10) {
+                            TextFieldView(title: "Stare hasło", holdText: $viewModel.oldPassword)
+                            TextFieldView(title: "Nowe hasło", holdText: $viewModel.newPassword)
+                            TextFieldView(title: "Powtórz nowe hasło", holdText: $viewModel.repeatNewPassword)
                         }
                         
+                        ChangePasswordButtonView()
+                        
+                        VStack(spacing: 15) {
+                            Text("Wymień punkty na bonusy")
+                                .font(.custom("Montserrat", size: 15))
+                                .fontWeight(.medium)
+                                .foregroundColor(.white)
+                            
+                            Button() {
+                                print("Redeem points clicked!")
+                            } label: {
+                                ReedemPointsButtonView()
+                            }
+                        }
+                        .padding(.bottom, 3)
                     }
                 }
+                .scrollIndicators(.hidden)
+                .padding(.bottom, 50)
             }
         }
     }
