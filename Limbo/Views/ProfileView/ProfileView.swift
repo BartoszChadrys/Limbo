@@ -17,61 +17,60 @@ struct ProfileView: View {
             VStack(spacing: 15) {
                 LimboLogoWithPointsView()
                 
-                VStack(spacing: 0) {
-                    Image("exampleAvatar")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 100, height: 100)
+                ScrollView {
+                    VStack(spacing: 0) {
+                        Image("exampleAvatar")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 100, height: 100)
+                        
+                        Image("arrowsRotateIcon")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 17, height: 17)
+                            .padding(.leading, 85)
+                    }
                     
-                    Image("arrowsRotateIcon")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 17, height: 17)
-                        .padding(.leading, 85)
-                }
-                
-                VStack {
-                    Text("Maciej Kowalski")
-                        .font(.custom("Montserrat", size: 20))
-                        .fontWeight(.medium)
-                        .foregroundColor(.white)
+                    VStack {
+                        Text("Maciej Kowalski")
+                            .font(.custom("Montserrat", size: 20))
+                            .fontWeight(.medium)
+                            .foregroundColor(.white)
+                        
+                        Text("maciejk@gmail.com")
+                            .font(.custom("Montserrat", size: 12))
+                            .fontWeight(.light)
+                            .foregroundColor(.white)
+                            .tint(.white)
+                    }
                     
-                    Text("maciejk@gmail.com")
-                        .font(.custom("Montserrat", size: 12))
-                        .fontWeight(.light)
-                        .foregroundColor(.white)
-                        .tint(.white)
-                }
-                
-                Text("Zmien hasło")
-                    .font(.custom("Montserrat", size: 15))
-                    .fontWeight(.medium)
-                    .foregroundColor(.white)
-
-                VStack(spacing: 10) {
-                    TextFieldView(title: "Stare hasło", holdText: $viewModel.oldPassword)
-                    TextFieldView(title: "Nowe hasło", holdText: $viewModel.newPassword)
-                    TextFieldView(title: "Powtórz nowe hasło", holdText: $viewModel.repeatNewPassword)
-                }
-                
-                ChangePasswordButtonView()
-                
-                
-                VStack(spacing: 15) {
-                    Text("Wymień punkty na bonusy")
+                    Text("Zmien hasło")
                         .font(.custom("Montserrat", size: 15))
                         .fontWeight(.medium)
                         .foregroundColor(.white)
-                    
-                    Button() {
-                        print("Redeem points clicked!")
-                    } label: {
-                        ReedemPointsButtonView()
+
+                    VStack(spacing: 10) {
+                        TextFieldView(title: "Stare hasło", holdText: $viewModel.oldPassword)
+                        TextFieldView(title: "Nowe hasło", holdText: $viewModel.newPassword)
+                        TextFieldView(title: "Powtórz nowe hasło", holdText: $viewModel.repeatNewPassword)
                     }
                     
+                    ChangePasswordButtonView()
+                    
+                    VStack(spacing: 15) {
+                        Text("Wymień punkty na bonusy")
+                            .font(.custom("Montserrat", size: 15))
+                            .fontWeight(.medium)
+                            .foregroundColor(.white)
+                        
+                        Button() {
+                            print("Redeem points clicked!")
+                        } label: {
+                            ReedemPointsButtonView()
+                        }
+                        
+                    }
                 }
-                
-                Spacer()
             }
         }
     }
@@ -88,10 +87,14 @@ struct ChangePasswordButtonView: View {
         ZStack {
             LinearGradient.orangeGradient()
             
-            Text("Zmień hasło")
-                .font(.custom("Montserrat", size: 13))
-                .fontWeight(.bold)
-                .foregroundColor(.white)
+            Button() {
+                print("Change password clicked!")
+            } label: {
+                Text("Zmień hasło")
+                    .font(.custom("Montserrat", size: 13))
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+            }
         }
         .frame(width: 130, height: 45)
         .cornerRadius(25)
@@ -104,7 +107,7 @@ struct ReedemPointsButtonView: View {
         ZStack {
             RoundedRectangle(cornerRadius: 25)
                 .stroke(LinearGradient.orangeGradient(), lineWidth: 3)
-                .frame(maxHeight: 120)
+                .frame(height: 120)
             
             HStack(spacing: 40) {
                 VStack {
