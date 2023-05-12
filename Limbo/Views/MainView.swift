@@ -21,6 +21,9 @@ struct MainView: View {
             HomeView()
                 .tabItem {
                     Image(systemName: "house.fill")
+                    Circle()
+                        .frame(width: 5, height: 5)
+                        .foregroundColor(.orangeColor())
                 }
                 .tag(0)
             TopicView()

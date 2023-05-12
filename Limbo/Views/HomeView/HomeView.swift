@@ -63,27 +63,35 @@ struct HomeView: View {
                                 .foregroundColor(.backgroundColor())
                             
                             VStack(spacing: 15) {
-                                HStack(spacing: 50) {
+                                HStack() {
                                     ZStack {
                                         RoundedRectangleView(gradient: .greenGradient())
                                         CircleView(percent: 100, title: "Operacje na danych", gradient: .greenGradient(), circleColor: .greenColor(), circleIcon: Image("checkmarkIcon"))
                                     }
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .padding(.leading, 15)
                                     
                                     ZStack {
                                         RoundedRectangleView(gradient: .orangeGradient())
                                         CircleView(percent: 47, title: "Instrukcje warunkowe", gradient: .orangeGradient(), circleColor: .orangeColor(), circleIcon: Image("flameWhite"))
                                     }
+                                    .frame(maxWidth: .infinity, alignment: .trailing)
+                                    .padding(.trailing, 15)
                                 }
-                                HStack(spacing: 50) {
+                                HStack() {
                                     ZStack {
                                         RoundedRectangleView(gradient: .redGradient())
                                         CircleView(percent: 0, title: "Instrukcje iteracyjne", gradient: .redGradient(), circleColor: .redColor(), circleIcon: Image("lockIcon"))
                                     }
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .padding(.leading, 15)
                                     
                                     ZStack {
                                         RoundedRectangleView(gradient: .redGradient())
                                         CircleView(percent: 0, title: "Tablice jednowymiarowe", gradient: .redGradient(), circleColor: .redColor(), circleIcon: Image("lockIcon"))
                                     }
+                                    .frame(maxWidth: .infinity, alignment: .trailing)
+                                    .padding(.trailing, 15)
                                 }
                             }
                         }
@@ -216,6 +224,7 @@ struct RoundedRectangleView: View {
         RoundedRectangle(cornerRadius: 25)
             .stroke(gradient, lineWidth: 3)
             .frame(width: 140, height: 90)
+            .foregroundColor(.backgroundBoxColor())
     }
 }
 
