@@ -27,8 +27,10 @@ struct TopicView: View {
                             .opacity(0.5)
                     }
                     .padding(.top, 5)
+                    .padding(.bottom, 3)
                 }
                 .scrollIndicators(.hidden)
+                .padding(.bottom, K.navbarBottomPadding)
                 
                 Spacer()                
             }

@@ -92,12 +92,14 @@ struct HomeView: View {
                                     }
                                     .frame(maxWidth: .infinity, alignment: .trailing)
                                     .padding(.trailing, 15)
+                                    .padding(.bottom, 3)
                                 }
                             }
                         }
                     }
                 }
                 .scrollIndicators(.hidden)
+                .padding(.bottom, K.navbarBottomPadding)
             }
         }
     }

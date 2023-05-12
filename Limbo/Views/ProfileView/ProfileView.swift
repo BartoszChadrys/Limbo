@@ -74,7 +74,7 @@ struct ProfileView: View {
                     }
                 }
                 .scrollIndicators(.hidden)
-                .padding(.bottom, 50)
+                .padding(.bottom, K.navbarBottomPadding)
             }
         }
     }

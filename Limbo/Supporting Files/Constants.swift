@@ -8,5 +8,5 @@
 import SwiftUI
 
 struct K {
-    
+    static let navbarBottomPadding: CGFloat = 50.0
 }
