@@ -18,7 +18,7 @@ struct ProfileView: View {
                 LimboLogoWithPointsView()
                 
                 ScrollView {
-                    VStack {
+                    VStack(spacing: 15) {
                         VStack(spacing: 0) {
                             Image("exampleAvatar")
                                 .resizable()
@@ -50,7 +50,7 @@ struct ProfileView: View {
                             .fontWeight(.medium)
                             .foregroundColor(.white)
 
-                        VStack(spacing: 10) {
+                        VStack(spacing: 12) {
                             TextFieldView(title: "Stare hasło", holdText: $viewModel.oldPassword)
                             TextFieldView(title: "Nowe hasło", holdText: $viewModel.newPassword)
                             TextFieldView(title: "Powtórz nowe hasło", holdText: $viewModel.repeatNewPassword)
