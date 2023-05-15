@@ -26,7 +26,7 @@ struct TopicView: View {
                         TopicElementView(gradient: .redGradient(), mainColor: .redColor(), topicTitle: "Tablice jednowymiarowe", points: 0, circleTitle: "Zablokowany", circleIcon: Image("lockIcon"), percent: 0)
                             .opacity(0.5)
                     }
-                    .padding(.top, 5)
+                    .padding(.top, 3)
                     .padding(.bottom, 3)
                 }
                 .scrollIndicators(.hidden)

@@ -63,7 +63,7 @@ struct HomeView: View {
                                 .foregroundColor(.backgroundColor())
                             
                             VStack(spacing: 15) {
-                                HStack() {
+                                HStack(spacing: K.topicsHomeViewPadding) {
                                     ZStack {
                                         RoundedRectangleView(gradient: .greenGradient())
                                         CircleView(percent: 100, title: "Operacje na danych", gradient: .greenGradient(), circleColor: .greenColor(), circleIcon: Image("checkmarkIcon"))
@@ -78,7 +78,7 @@ struct HomeView: View {
                                     .frame(maxWidth: .infinity, alignment: .trailing)
                                     .padding(.trailing, 15)
                                 }
-                                HStack() {
+                                HStack(spacing: K.topicsHomeViewPadding) {
                                     ZStack {
                                         RoundedRectangleView(gradient: .redGradient())
                                         CircleView(percent: 0, title: "Instrukcje iteracyjne", gradient: .redGradient(), circleColor: .redColor(), circleIcon: Image("lockIcon"))
@@ -225,7 +225,7 @@ struct RoundedRectangleView: View {
     var body: some View {
         RoundedRectangle(cornerRadius: 25)
             .stroke(gradient, lineWidth: 3)
-            .frame(width: 140, height: 90)
+            .frame(height: 90)
             .foregroundColor(.backgroundBoxColor())
     }
 }
