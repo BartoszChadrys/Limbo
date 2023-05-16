@@ -8,42 +8,29 @@
 import SwiftUI
 
 struct MainView: View {
-    @State private var activeTab = 0
+    @State private var activeTab: Tab = .home
     
     init() {
-        UITabBar.appearance().isTranslucent = false
-        UITabBar.appearance().barTintColor = UIColor(named: "backgroundBoxColor")
-        UITabBar.appearance().backgroundColor = UIColor(named: "backgroundBoxColor")
+        UITabBar.appearance().isHidden = true
     }
 
     var body: some View {
-        TabView(selection: $activeTab) {
-            HomeView()
-                .tabItem {
-                    Image(systemName: "house.fill")
-                    Circle()
-                        .frame(width: 5, height: 5)
-                        .foregroundColor(.orangeColor())
-                }
-                .tag(0)
-            TopicView()
-                .tabItem {
-                    Image(systemName: "timer")
-                }
-                .tag(1)
-            StatsView()
-                .tabItem {
-                    Image(systemName: "chart.dots.scatter")
-                }
-                .tag(2)
-            ProfileView()
-                .tabItem {
-                    Image(systemName: "person.fill")
-                }
-                .tag(3)
+        VStack {
+            TabView(selection: $activeTab) {
+                HomeView()
+                    .tag(Tab.home)
+                
+                TopicView()
+                    .tag(Tab.quiz)
+                
+                StatsView()
+                    .tag(Tab.stats)
+                
+                ProfileView()
+                    .tag(Tab.profile)
+            }
+            .accentColor(Color("orangeColor"))
         }
-        .accentColor(Color("orangeColor"))
-        .ignoresSafeArea()
     }
 }
 
