@@ -15,21 +15,25 @@ struct MainView: View {
     }
 
     var body: some View {
-        VStack {
-            TabView(selection: $activeTab) {
-                HomeView()
-                    .tag(Tab.home)
+        ZStack {
+            Color.backgroundColor()
+            VStack {
+                TabView(selection: $activeTab) {
+                    HomeView()
+                        .tag(Tab.home)
+                    
+                    TopicView()
+                        .tag(Tab.quiz)
+                    
+                    StatsView()
+                        .tag(Tab.stats)
+                    
+                    ProfileView()
+                        .tag(Tab.profile)
+                }
                 
-                TopicView()
-                    .tag(Tab.quiz)
-                
-                StatsView()
-                    .tag(Tab.stats)
-                
-                ProfileView()
-                    .tag(Tab.profile)
+                CustomTabBar(currentTab: $activeTab)
             }
-            .accentColor(Color("orangeColor"))
         }
     }
 }
