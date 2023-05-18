@@ -23,6 +23,7 @@ struct CustomTabBar: View {
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(maxWidth: .infinity)
+                            .frame(maxHeight: 20)
                             .foregroundColor(currentTab == tab ? .orangeColor() : .white)
                             .offset(y: currentTab == tab ? -10 : 0)
                     }
@@ -32,6 +33,7 @@ struct CustomTabBar: View {
         }
         .frame(height: 24)
         .padding(.top, 30)
+        .padding(.bottom, 15)
         .background(Color.backgroundBoxColor())
     }
 }

@@ -327,6 +327,6 @@ struct LimboLogoWithPointsView: View {
                 .padding(.top, 40)
                 .padding(.trailing, 15)
         }
-        .padding(.top, 25)
+        .padding(.top, 35)
     }
 }
