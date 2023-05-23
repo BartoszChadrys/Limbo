@@ -16,43 +16,45 @@ struct StatsView: View {
             VStack(spacing: 15) {
                 LimboLogoWithPointsView()
                 
-                VStack {
-                    Text("Twoja aktywność w tym tygodniu")
-                        .font(.custom("Montserrat", size: 14))
-                        .fontWeight(.medium)
-                        .foregroundColor(.white)
-                        .padding(3)
-                    
-                    ActivityChartView(activityModel: activityModel)
-                }
-                
-                VStack(spacing: 20) {
-                    StatsRectangleView(title: "Wykonanych pytań", score: "25")
-                    StatsRectangleView(title: "Ukończonych działów", score: "1")
-                    StatsRectangleView(title: "Średni czas na pytanie", score: "5,5s")
-                    StatsRectangleView(title: "Najwięcej pytań w ciągu dnia", score: "15")
-                }
-                .padding(.top, 15)
-                
-                VStack {
-                    Text("Otrzymane bonusy")
-                        .font(.custom("Montserrat", size: 16))
-                        .fontWeight(.medium)
-                        .foregroundColor(.white)
-                        .padding(.top, 10)
-                        .padding(.bottom, 10)
-                    
-                    HStack(spacing: 35) {
-                        BonusRectangleView(title: "Dodatkowe punkty na egzaminie", points: 21)
-                            .padding(.leading, 15)
+                ScrollView {
+                    VStack {
+                        Text("Twoja aktywność w tym tygodniu")
+                            .font(.custom("Montserrat", size: 14))
+                            .fontWeight(.medium)
+                            .foregroundColor(.white)
+                            .padding(3)
                         
-                        BonusRectangleView(title: "Dodatkowe punkty w Dante", points: 37)
-                            .padding(.trailing, 15)
+                        ActivityChartView(activityModel: activityModel)
+                    }
+                    
+                    VStack(spacing: 20) {
+                        StatsRectangleView(title: "Wykonanych pytań", score: "25")
+                        StatsRectangleView(title: "Ukończonych działów", score: "1")
+                        StatsRectangleView(title: "Średni czas na pytanie", score: "5,5s")
+                        StatsRectangleView(title: "Najwięcej pytań w ciągu dnia", score: "15")
+                    }
+                    .padding(.top, 15)
+                    
+                    VStack {
+                        Text("Otrzymane bonusy")
+                            .font(.custom("Montserrat", size: 16))
+                            .fontWeight(.medium)
+                            .foregroundColor(.white)
+                            .padding(.top, 10)
+                            .padding(.bottom, 10)
+                        
+                        HStack(spacing: 35) {
+                            BonusRectangleView(title: "Dodatkowe punkty na egzaminie", points: 21)
+                                .padding(.leading, 15)
+                            
+                            BonusRectangleView(title: "Dodatkowe punkty w Dante", points: 37)
+                                .padding(.trailing, 15)
+                        }
+                        .padding(.bottom, 3)
                     }
                 }
-                
-                
-                Spacer()                
+                .scrollIndicators(.hidden)
+                .padding(.bottom, K.navbarBottomPadding)
             }
         }
     }
