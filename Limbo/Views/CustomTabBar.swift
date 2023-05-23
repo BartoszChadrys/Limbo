@@ -22,8 +22,7 @@ struct CustomTabBar: View {
                         Image(systemName: tab.rawValue)
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .frame(maxWidth: .infinity)
-                            .frame(maxHeight: 20)
+                            .frame(maxWidth: .infinity, maxHeight: 20)
                             .foregroundColor(currentTab == tab ? .orangeColor() : .white)
                             .offset(y: currentTab == tab ? -10 : 0)
                     }

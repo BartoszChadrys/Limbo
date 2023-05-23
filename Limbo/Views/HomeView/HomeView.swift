@@ -10,6 +10,7 @@ import Charts
 
 struct HomeView: View {
     @StateObject private var viewModel = HomeViewModel()
+    @StateObject private var activityModel = Activity()
     
     var body: some View {
         ZStack {
@@ -44,7 +45,7 @@ struct HomeView: View {
                                 .foregroundColor(.white)
                                 .padding(3)
                             
-                            ActivityChartView(localViewModel: viewModel)
+                            ActivityChartView(localViewModel: activityModel)
                         }
                     }
                     .padding(.leading, 15)
@@ -280,7 +281,7 @@ struct CircleView: View {
 }
 
 struct ActivityChartView: View {
-    var localViewModel: HomeViewModel
+    var localViewModel: Activity
     
     var body: some View {
         Chart {
