@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct StatsView: View {
+    @StateObject private var activityModel = Activity()
+    
     var body: some View {
         ZStack {
             backgroundColorView()
             VStack {
                 LimboLogoWithPointsView()
                 
-                
+                ActivityChartView(activityModel: activityModel)
                 
                 Spacer()                
             }

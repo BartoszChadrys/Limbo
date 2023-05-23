@@ -45,7 +45,7 @@ struct HomeView: View {
                                 .foregroundColor(.white)
                                 .padding(3)
                             
-                            ActivityChartView(localViewModel: activityModel)
+                            ActivityChartView(activityModel: activityModel)
                         }
                     }
                     .padding(.leading, 15)
@@ -281,11 +281,11 @@ struct CircleView: View {
 }
 
 struct ActivityChartView: View {
-    var localViewModel: Activity
+    var activityModel: Activity
     
     var body: some View {
         Chart {
-            ForEach(localViewModel.activityArray) { activity in
+            ForEach(activityModel.activityArray) { activity in
                 LineMark(x: .value("Day", activity.date, unit: .day),
                          y: .value("Flickers", activity.activityCount))
                 
@@ -294,7 +294,7 @@ struct ActivityChartView: View {
                 .foregroundStyle(LinearGradient(colors: [Color("redGradientColor"), Color("yellowGradientColor")],
                                                 startPoint: .leading, endPoint: .trailing))
                 .annotation {
-                    if activity.activityCount == localViewModel.activityArray.map({$0.activityCount}).max() {
+                    if activity.activityCount == activityModel.activityArray.map({$0.activityCount}).max() {
                         AnnotationView(points: activity.activityCount)
                     }
                 }
@@ -305,7 +305,7 @@ struct ActivityChartView: View {
         .foregroundColor(.orangeColor())
         .chartYAxis(.hidden)
         .chartXAxis {
-            AxisMarks(values: localViewModel.activityArray.map {$0.date}) { date in
+            AxisMarks(values: activityModel.activityArray.map {$0.date}) { date in
                 AxisValueLabel(format: .dateTime.weekday(), horizontalSpacing: 15)
                     .foregroundStyle(Color.white)
             }
