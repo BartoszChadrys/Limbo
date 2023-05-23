@@ -45,19 +45,6 @@ struct ProfileView: View {
                                 .tint(.white)
                         }
                         
-                        Text("Zmien hasło")
-                            .font(.custom("Montserrat", size: 15))
-                            .fontWeight(.medium)
-                            .foregroundColor(.white)
-
-                        VStack(spacing: 12) {
-                            TextFieldView(title: "Stare hasło", holdText: $viewModel.oldPassword)
-                            TextFieldView(title: "Nowe hasło", holdText: $viewModel.newPassword)
-                            TextFieldView(title: "Powtórz nowe hasło", holdText: $viewModel.repeatNewPassword)
-                        }
-                        
-                        ChangePasswordButtonView()
-                        
                         VStack(spacing: 15) {
                             Text("Wymień punkty na bonusy")
                                 .font(.custom("Montserrat", size: 15))
@@ -70,7 +57,21 @@ struct ProfileView: View {
                                 ReedemPointsButtonView()
                             }
                         }
-                        .padding(.bottom, 3)
+                        .padding(.bottom, 10)
+                        .padding(.top, 10)
+                        
+                        Text("Zmien hasło")
+                            .font(.custom("Montserrat", size: 15))
+                            .fontWeight(.medium)
+                            .foregroundColor(.white)
+
+                        VStack(spacing: 12) {
+                            TextFieldView(title: "Stare hasło", holdText: $viewModel.oldPassword)
+                            TextFieldView(title: "Nowe hasło", holdText: $viewModel.newPassword)
+                            TextFieldView(title: "Powtórz nowe hasło", holdText: $viewModel.repeatNewPassword)
+                        }
+                        
+                        ChangePasswordButtonView()
                     }
                 }
                 .scrollIndicators(.hidden)
