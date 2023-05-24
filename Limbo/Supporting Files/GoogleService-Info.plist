@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>523003062157-4hfpvlouefqjlep6ktljas5b2l9c2b1b.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.523003062157-4hfpvlouefqjlep6ktljas5b2l9c2b1b</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCJaIiBtJPAxmNWYu6geRIHDTwjoTf9n48</string>
+	<key>GCM_SENDER_ID</key>
+	<string>523003062157</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>bartek.chadrys.Limbo</string>
+	<key>PROJECT_ID</key>
+	<string>limbo-61a65</string>
+	<key>STORAGE_BUCKET</key>
+	<string>limbo-61a65.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:523003062157:ios:966a2386f05ad3bffa3fc4</string>
+</dict>
+</plist>
