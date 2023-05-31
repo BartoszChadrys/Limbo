@@ -6,12 +6,30 @@
 //
 
 import Foundation
+import FirebaseAuth
 
 class LoginViewModel: ObservableObject {
     @Published var email: String = ""
     @Published var password: String = ""
     @Published var isPasswordHidden = true
+    @Published var user: User?
     
     @Published var showRegisterView = false
     @Published var showMainView = false
+}
+
+//MARK: - Login authentication
+
+extension LoginViewModel {
+    func signIn() async -> Bool {
+        do {
+            let authResult = try await Auth.auth().signIn(withEmail: email, password: password)
+            user = authResult.user
+            print("User \(authResult.user.uid) signed in")
+            return true
+        } catch {
+            print(error)
+            return false
+        }
+    }
 }
