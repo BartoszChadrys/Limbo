@@ -11,11 +11,12 @@ import FirebaseAuth
 class LoginViewModel: ObservableObject {
     @Published var email: String = ""
     @Published var password: String = ""
-    @Published var isPasswordHidden = true
+    @Published var isPasswordHidden: Bool = true
+    @Published var isValid: Bool = true
     @Published var user: User?
     
-    @Published var showRegisterView = false
-    @Published var showMainView = false
+    @Published var showRegisterView: Bool = false
+    @Published var showMainView: Bool = false
 }
 
 //MARK: - Login authentication

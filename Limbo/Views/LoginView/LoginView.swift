@@ -30,6 +30,12 @@ struct LoginView: View {
                         LoginSecureFieldViewWithEyeIcon(
                             localViewModel: viewModel,
                             password: $viewModel.password)
+                        if !viewModel.isValid {
+                            Text("Nieprawidłowy email lub hasło!")
+                                .font(.custom("Montserrat", size: 10))
+                                .fontWeight(.medium)
+                                .foregroundColor(.red)
+                        }
                     }
                 }
                 .padding(.top, 50)
@@ -42,7 +48,7 @@ struct LoginView: View {
                             if await viewModel.signIn() {
                                 viewModel.showMainView.toggle()
                             } else {
-                                // errorLabel
+                                viewModel.isValid = false
                             }
                         }
                     } label: {
