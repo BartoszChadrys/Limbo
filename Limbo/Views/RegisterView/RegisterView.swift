@@ -50,11 +50,21 @@ struct RegisterView: View {
                 .frame(maxHeight: 310)
                 .padding(.bottom, 15)
                 
+                if !viewModel.isValid {
+                    ErrorTextView(text: viewModel.errorText)
+                }
+                
                 Spacer()
                 
                 VStack {
                     Button() {
-                        viewModel.showMainView.toggle()
+                        Task {
+                            if viewModel.checkUserInfo(), await viewModel.signUp() {
+                                viewModel.showMainView.toggle()
+                            } else {
+                                viewModel.isValid = false
+                            }
+                        }
                     } label: {
                         GradientButton(text: "Załóż konto")
                             .frame(width: 250, height: 60)

@@ -31,10 +31,7 @@ struct LoginView: View {
                             localViewModel: viewModel,
                             password: $viewModel.password)
                         if !viewModel.isValid {
-                            Text("Nieprawidłowy email lub hasło!")
-                                .font(.custom("Montserrat", size: 10))
-                                .fontWeight(.medium)
-                                .foregroundColor(.red)
+                            ErrorTextView(text: "Nieprawidłowy email lub hasło!")
                         }
                     }
                 }
@@ -88,6 +85,17 @@ struct LoginView: View {
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
         LoginView()
+    }
+}
+
+struct ErrorTextView: View {
+    var text: String
+    
+    var body: some View {
+        Text(text)
+            .font(.custom("Montserrat", size: 10))
+            .fontWeight(.medium)
+            .foregroundColor(.red)
     }
 }
 

@@ -15,6 +15,8 @@ class RegisterViewModel: ObservableObject {
     @Published var password: String = ""
     @Published var repeatedPassword: String = ""
     @Published var isPasswordHidden: Bool = true
+    @Published var isValid: Bool = true
+    @Published var errorText: String = ""
     
     @Published var user: User?
     
@@ -36,5 +38,46 @@ extension RegisterViewModel {
             print(error)
             return false
         }
+    }
+}
+
+//MARK: - Check user information
+
+extension RegisterViewModel {
+    func checkUserInfo() -> Bool {
+        if checkName(), checkEmail(), checkPassword() {
+            return true
+        }
+        return false
+    }
+    
+    func checkPassword() -> Bool {
+        if password != repeatedPassword {
+            errorText = "Podane hasła się różnią!"
+            return false
+        } else if password.count < 6 {
+            errorText = "Hasło musi mieć conajmniej 6 znaków!"
+            return false
+        }
+        return true
+    }
+    
+    func checkEmail() -> Bool {
+        let emailFormat = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+
+        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailFormat)
+        if !emailPred.evaluate(with: email) {
+            errorText = "Zły format email!"
+            return false
+        }
+        return true
+    }
+    
+    func checkName() -> Bool {
+        if name == "" {
+            errorText = "Błędne imie i nazwisko!"
+            return false
+        }
+        return true
     }
 }
