@@ -14,12 +14,13 @@ class RegisterViewModel: ObservableObject {
     @Published var name: String = ""
     @Published var password: String = ""
     @Published var repeatedPassword: String = ""
-    @Published var isPasswordHidden = true
+    @Published var isPasswordHidden: Bool = true
+    
     @Published var user: User?
     
-    @Published var showLoginView = false
-    @Published var showMainView = false
-    @Published var isCheckboxPressed = false
+    @Published var showLoginView: Bool = false
+    @Published var showMainView: Bool = false
+    @Published var isCheckboxPressed: Bool = false
 }
 
 //MARK: - Register authentication

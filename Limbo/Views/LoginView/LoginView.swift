@@ -38,7 +38,13 @@ struct LoginView: View {
                 
                 VStack {
                     Button() {
-                        viewModel.showMainView.toggle()
+                        Task {
+                            if await viewModel.signIn() {
+                                viewModel.showMainView.toggle()
+                            } else {
+                                // errorLabel
+                            }
+                        }
                     } label: {
                         GradientButton(text: "Zaloguj się")
                             .frame(width: 250, height: 60)
@@ -85,14 +91,7 @@ struct TextFieldView: View {
     
     var body: some View {
         TextField(title, text: $holdText)
-            .padding(15)
-            .font(.custom("Montserrat", size: 12))
-            .fontWeight(.semibold)
-            .frame(width: 250, height: 50)
-            .background(Color.backgroundBoxColor())
-            .cornerRadius(20)
-            .foregroundColor(.white)
-            .autocorrectionDisabled()
+            .textFieldStyle()
     }
 }
 
@@ -102,6 +101,13 @@ struct SecureFieldView: View {
     
     var body: some View {
         SecureField(title, text: $holdText)
+            .textFieldStyle()
+    }
+}
+
+struct TextFieldModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content
             .padding(15)
             .font(.custom("Montserrat", size: 12))
             .fontWeight(.semibold)
@@ -110,6 +116,13 @@ struct SecureFieldView: View {
             .cornerRadius(20)
             .foregroundColor(.white)
             .autocorrectionDisabled()
+            .textInputAutocapitalization(.never)
+    }
+}
+
+extension View {
+    func textFieldStyle() -> some View {
+        modifier(TextFieldModifier())
     }
 }
 
