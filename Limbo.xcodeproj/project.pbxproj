@@ -36,6 +36,8 @@
 		294D60C429F1D54500CE0463 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 294D60B229F1D54500CE0463 /* Montserrat-Medium.ttf */; };
 		294D60C629F1D54500CE0463 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 294D60B429F1D54500CE0463 /* Montserrat-Regular.ttf */; };
 		294D60CA29F1E2C800CE0463 /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294D60C929F1E2C800CE0463 /* GradientButton.swift */; };
+		29A875A82A2936A7004164D6 /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A875A72A2936A7004164D6 /* QuizView.swift */; };
+		29A875AB2A2936C2004164D6 /* QuizViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A875AA2A2936C2004164D6 /* QuizViewModel.swift */; };
 		29E4A92A2A1EB0B200857EAE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 29E4A9292A1EB0B200857EAE /* GoogleService-Info.plist */; };
 		29E4A92D2A1EB11E00857EAE /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 29E4A92C2A1EB11E00857EAE /* FirebaseAuth */; };
 		29E4A92F2A1EB11E00857EAE /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 29E4A92E2A1EB11E00857EAE /* FirebaseAuthCombine-Community */; };
@@ -79,6 +81,8 @@
 		294D60B429F1D54500CE0463 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		294D60C829F1D5C100CE0463 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		294D60C929F1E2C800CE0463 /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
+		29A875A72A2936A7004164D6 /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
+		29A875AA2A2936C2004164D6 /* QuizViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewModel.swift; sourceTree = "<group>"; };
 		29E4A9292A1EB0B200857EAE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -216,6 +220,7 @@
 		294D60CB29F1E5F100CE0463 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				29A875A92A2936B0004164D6 /* QuizView */,
 				292E12482A04467100190114 /* ProfileView */,
 				292E12432A043B1F00190114 /* StatsView */,
 				292E123E2A02D6B000190114 /* TopicView */,
@@ -249,6 +254,15 @@
 				2911032C2A1D17DC007D5A8F /* Activity.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		29A875A92A2936B0004164D6 /* QuizView */ = {
+			isa = PBXGroup;
+			children = (
+				29A875A72A2936A7004164D6 /* QuizView.swift */,
+				29A875AA2A2936C2004164D6 /* QuizViewModel.swift */,
+			);
+			path = QuizView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -343,9 +357,11 @@
 				292E12472A043B3C00190114 /* StatsViewModel.swift in Sources */,
 				294D609829F1D25B00CE0463 /* FirstView.swift in Sources */,
 				292E123B29FBBB3900190114 /* HomeViewModel.swift in Sources */,
+				29A875AB2A2936C2004164D6 /* QuizViewModel.swift in Sources */,
 				290629F429F480260048434E /* RegisterView.swift in Sources */,
 				291103282A163590007D5A8F /* LinearGradients.swift in Sources */,
 				292E12402A02D6C300190114 /* TopicView.swift in Sources */,
+				29A875A82A2936A7004164D6 /* QuizView.swift in Sources */,
 				290629FA29F711020048434E /* RegisterViewModel.swift in Sources */,
 				290629F729F482050048434E /* LoginViewModel.swift in Sources */,
 				292E124A2A04468600190114 /* ProfileView.swift in Sources */,
