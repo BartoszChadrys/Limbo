@@ -11,7 +11,9 @@ struct QuizView: View {
     var body: some View {
         ZStack {
             backgroundColorView()
-            VStack {
+            // TODO: Fix background gradient
+            // LinearGradient.yellowGradient()
+            VStack() {
                 LimboLogoWithPointsView()
                 
                 HStack(spacing: 30) {
@@ -19,6 +21,10 @@ struct QuizView: View {
                     
                     QuestionNumberView(questionNumber: "3/10")
                 }
+                
+                QuestionTextView(text: "Która funkcja jest poprawnie wywołana?")
+                
+                
 
                 Spacer()
                 
@@ -71,5 +77,18 @@ struct QuestionNumberView: View {
                 .fontWeight(.semibold)
                 .foregroundColor(.white)
         }
+    }
+}
+
+struct QuestionTextView: View {
+    var text: String
+    
+    var body: some View {
+        Text(text)
+            .font(.custom("Montserrat", size: 20))
+            .fontWeight(.medium)
+            .foregroundColor(.white)
+            .multilineTextAlignment(.center)
+            .padding(.top, 15)
     }
 }
