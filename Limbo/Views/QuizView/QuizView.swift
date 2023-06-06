@@ -13,7 +13,7 @@ struct QuizView: View {
             backgroundColorView()
             // TODO: Fix background gradient
             // LinearGradient.yellowGradient()
-            VStack {
+            VStack(spacing: 30) {
                 LimboLogoWithPointsView()
                 
                 HStack(spacing: 30) {
@@ -30,8 +30,16 @@ struct QuizView: View {
                     AnswerRectangleView(text: "printf(“%s”)")
                     AnswerRectangleView(text: "printf(Hello world)")
                 }
-                .padding(.top, 50)
-
+                .padding(.top, 20)
+                
+                Button {
+                    
+                } label: {
+                    GradientButton(text: "Kontynuuj")
+                        .frame(width: 250, height: 60)
+                        .padding(.top, 60)
+                }
+                
                 Spacer()
             }
         }
@@ -94,7 +102,6 @@ struct QuestionTextView: View {
             .fontWeight(.medium)
             .foregroundColor(.white)
             .multilineTextAlignment(.center)
-            .padding(.top, 15)
     }
 }
 
