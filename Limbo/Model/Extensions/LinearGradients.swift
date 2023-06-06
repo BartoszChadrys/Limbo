@@ -21,6 +21,6 @@ extension LinearGradient {
     }
     
     internal static func yellowGradient() -> LinearGradient {
-        .init(colors: [Color("yellowQuizGradientColor"), Color("backgroundColor")], startPoint: .top, endPoint: .bottom)
+        .init(colors: [Color("orangeColor"), Color("backgroundColor")], startPoint: .top, endPoint: .bottom)
     }
 }

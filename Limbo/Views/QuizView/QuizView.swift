@@ -13,7 +13,7 @@ struct QuizView: View {
             backgroundColorView()
             // TODO: Fix background gradient
             // LinearGradient.yellowGradient()
-            VStack() {
+            VStack {
                 LimboLogoWithPointsView()
                 
                 HStack(spacing: 30) {
@@ -24,10 +24,15 @@ struct QuizView: View {
                 
                 QuestionTextView(text: "Która funkcja jest poprawnie wywołana?")
                 
-                
+                VStack(spacing: 30) {
+                    AnswerRectangleView(text: "printf(\"Hello)")
+                    AnswerRectangleView(text: "printf(“%.1f”,1.56)")
+                    AnswerRectangleView(text: "printf(“%s”)")
+                    AnswerRectangleView(text: "printf(Hello world)")
+                }
+                .padding(.top, 50)
 
                 Spacer()
-                
             }
         }
     }
@@ -90,5 +95,30 @@ struct QuestionTextView: View {
             .foregroundColor(.white)
             .multilineTextAlignment(.center)
             .padding(.top, 15)
+    }
+}
+
+struct AnswerRectangleView: View {
+    var text: String
+    
+    var body: some View {
+        ZStack {
+            ZStack(alignment: .trailing) {
+                RoundedRectangle(cornerRadius: 25)
+                    .stroke(LinearGradient.orangeGradient(), lineWidth: 1.75)
+                    .frame(width: 200, height: 45)
+                
+                Circle()
+                    .stroke(LinearGradient.orangeGradient())
+                    .frame(width: 20, height: 20)
+                    .padding(.trailing, 15)
+            }
+            
+            Text(text)
+                .font(.custom("Montserrat", size: 13))
+                .fontWeight(.medium)
+                .foregroundColor(.white)
+                .padding(.trailing, 20)
+        }
     }
 }
