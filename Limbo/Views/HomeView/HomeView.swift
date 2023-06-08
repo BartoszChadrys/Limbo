@@ -103,6 +103,15 @@ struct HomeView: View {
                 .padding(.bottom, K.navbarBottomPadding)
             }
         }
+        .overlay {
+            ZStack {
+                Color.black
+                    .opacity(0.75)
+                    .frame(width: .infinity, height: .infinity)
+                
+                PointsAlertView()
+            }
+        }
     }
 }
 
@@ -110,6 +119,7 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
+        PointsAlertView()
     }
 }
 
@@ -171,26 +181,84 @@ struct PersonInfoView: View {
 
 struct PointsView: View {
     var points: Int
+    @State var showAlert: Bool
     
     var body: some View {
-        ZStack {
-            Rectangle()
-                .frame(width: 65, height: 35)
-                .foregroundColor(.backgroundBoxColor())
-                .cornerRadius(20)
-            HStack() {
-                Image("flame")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 20, height: 20, alignment: .leading)
-                Text("\(points)")
-                    .font(.custom("Montserrat", size: 14))
-                    .fontWeight(.semibold)
-                    .foregroundColor(.white)
+        Button {
+            showAlert.toggle()
+        } label: {
+            ZStack {
+                Rectangle()
+                    .frame(width: 65, height: 35)
+                    .foregroundColor(.backgroundBoxColor())
+                    .cornerRadius(20)
+                HStack() {
+                    Image("flame")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 20, height: 20, alignment: .leading)
+                    Text("\(points)")
+                        .font(.custom("Montserrat", size: 14))
+                        .fontWeight(.semibold)
+                        .foregroundColor(.white)
+                }
             }
+            .frame(maxWidth: .infinity, maxHeight: 35, alignment: .leading)
+            .padding(.leading, 15)
         }
-        .frame(maxWidth: .infinity, maxHeight: 35, alignment: .leading)
-        .padding(.leading, 15)
+    }
+}
+
+struct PointsAlertView: View {
+    var body: some View {
+        ZStack(alignment: .trailing) {
+            RoundedRectangle(cornerRadius: 25)
+                .foregroundColor(.backgroundColor())
+                .overlay(content: {
+                    RoundedRectangle(cornerRadius: 25)
+                        .stroke(LinearGradient.orangeGradient(), lineWidth: 1.5)
+                        .frame(width: 240, height: 150)
+                })
+                .frame(width: 240, height: 150)
+            
+            Button {
+                
+            } label: {
+                Text("X")
+                    .font(.custom("Montserrat", size: 14))
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+                    .padding(.bottom, 110)
+                    .padding(.trailing, 15)
+            }
+            
+            VStack(spacing: 15) {
+                HStack {
+                    Image("flame")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 20, height: 20)
+                    
+                    Text("Co to za punkty?")
+                        .font(.custom("Montserrat", size: 15))
+                        .fontWeight(.semibold)
+                        .foregroundColor(.white)
+                }
+                .padding(.top, 10)
+                
+                Text("Punkty możesz wymieniać na nagrody, np. dodatkowe punkty na egzaminie lub w dziale. Dodatkowo dzięki tym punktom tworzymy ranking osób w twojej grupie.")
+                    .font(.custom("Montserrat", size: 12))
+                    .fontWeight(.light)
+                    .foregroundColor(.white)
+                    .multilineTextAlignment(.center)
+                    .frame(maxWidth: 230)
+                    .minimumScaleFactor(0.5)
+                    .padding(.bottom, 10)
+            }
+            .frame(width: 240, height: 150)
+        }
+        .frame(width: .infinity, height: .infinity, alignment: .center)
+        .transition(.opacity)
     }
 }
 
@@ -316,7 +384,7 @@ struct ActivityChartView: View {
 struct LimboLogoWithPointsView: View {
     var body: some View {
         ZStack() {
-            PointsView(points: 50)
+            PointsView(points: 50, showAlert: false)
                 .padding(.top, 40)
             
             LimboLogoView()
