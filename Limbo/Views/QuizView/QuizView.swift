@@ -25,10 +25,10 @@ struct QuizView: View {
                 QuestionTextView(text: "Która funkcja jest poprawnie wywołana?")
                 
                 VStack(spacing: 30) {
-                    AnswerRectangleView(text: "printf(\"Hello)")
-                    AnswerRectangleView(text: "printf(“%.1f”,1.56)")
-                    AnswerRectangleView(text: "printf(“%s”)")
-                    AnswerRectangleView(text: "printf(Hello world)")
+                    AnswerRectangleView(text: "printf(\"Hello)", check: false)
+                    AnswerRectangleView(text: "printf(“%.1f”,1.56)", check: true)
+                    AnswerRectangleView(text: "printf(“%s”)", check: false)
+                    AnswerRectangleView(text: "printf(Hello world)", check: false)
                 }
                 .padding(.top, 20)
                 
@@ -107,25 +107,43 @@ struct QuestionTextView: View {
 
 struct AnswerRectangleView: View {
     var text: String
+    @State var check: Bool
     
     var body: some View {
-        ZStack {
-            ZStack(alignment: .trailing) {
-                RoundedRectangle(cornerRadius: 25)
-                    .stroke(LinearGradient.orangeGradient(), lineWidth: 1.75)
-                    .frame(width: 200, height: 45)
+        Button {
+            check.toggle()
+        } label: {
+            ZStack {
+                ZStack(alignment: .trailing) {
+                    RoundedRectangle(cornerRadius: 25)
+                        .stroke(LinearGradient.orangeGradient(), lineWidth: 1.75)
+                        .frame(width: 200, height: 45)
+                    
+                    Circle()
+                        .stroke(LinearGradient.orangeGradient())
+                        .frame(width: 20, height: 20)
+                        .padding(.trailing, 15)
+                    if check {
+                        Circle()
+                            .foregroundColor(.orangeColor())
+                            .frame(width: 20, height: 20)
+                            .padding(.trailing, 15)
+                        
+                        Image(systemName: "checkmark")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 20, height: 10)
+                            .foregroundColor(.white)
+                            .padding(.trailing, 15)
+                    }
+                }
                 
-                Circle()
-                    .stroke(LinearGradient.orangeGradient())
-                    .frame(width: 20, height: 20)
-                    .padding(.trailing, 15)
+                Text(text)
+                    .font(.custom("Montserrat", size: 13))
+                    .fontWeight(.medium)
+                    .foregroundColor(.white)
+                    .padding(.trailing, 20)
             }
-            
-            Text(text)
-                .font(.custom("Montserrat", size: 13))
-                .fontWeight(.medium)
-                .foregroundColor(.white)
-                .padding(.trailing, 20)
         }
     }
 }
