@@ -9,13 +9,14 @@ import SwiftUI
 
 struct ProfileView: View {
     @StateObject private var viewModel = ProfileViewModel()
+    @StateObject private var alertModel = Alerts()
     
     var body: some View {
         ZStack {
             backgroundColorView()
             
             VStack(spacing: 15) {
-                LimboLogoWithPointsView()
+                LimboLogoWithPointsView(alertModel: alertModel)
                 
                 ScrollView {
                     VStack(spacing: 15) {

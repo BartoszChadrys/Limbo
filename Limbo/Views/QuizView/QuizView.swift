@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct QuizView: View {
+    @StateObject private var alertModel = Alerts()
+    
     var body: some View {
         ZStack {
             backgroundColorView()
             // TODO: Fix background gradient
             // LinearGradient.yellowGradient()
             VStack(spacing: 30) {
-                LimboLogoWithPointsView()
+                LimboLogoWithPointsView(alertModel: alertModel)
                 
                 HStack(spacing: 30) {
                     RectangleTimerView(fillPercent: 0.7)

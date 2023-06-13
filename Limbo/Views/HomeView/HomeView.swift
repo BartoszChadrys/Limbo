@@ -11,13 +11,14 @@ import Charts
 struct HomeView: View {
     @StateObject private var viewModel = HomeViewModel()
     @StateObject private var activityModel = Activity()
+    @StateObject private var alertModel = Alerts()
     
     var body: some View {
         ZStack {
             backgroundColorView()
             
             VStack(spacing: 15) {
-                LimboLogoWithPointsView()
+                LimboLogoWithPointsView(alertModel: alertModel)
                 
                 ScrollView {
                     VStack(alignment: .leading) {
@@ -104,12 +105,14 @@ struct HomeView: View {
             }
         }
         .overlay {
-            ZStack {
-                Color.black
-                    .opacity(0.75)
-                    .frame(width: .infinity, height: .infinity)
-                
-                PointsAlertView()
+            if alertModel.showPointsAlert {
+                ZStack {
+                    Color.black
+                        .opacity(0.75)
+                        .frame(width: .infinity, height: .infinity)
+                    
+                    PointsAlertView(alertModel: alertModel)
+                }
             }
         }
     }
@@ -119,7 +122,6 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
-        PointsAlertView()
     }
 }
 
@@ -181,11 +183,11 @@ struct PersonInfoView: View {
 
 struct PointsView: View {
     var points: Int
-    @State var showAlert: Bool
+    var alertModel: Alerts
     
     var body: some View {
         Button {
-            showAlert.toggle()
+            alertModel.showPointsAlert.toggle()
         } label: {
             ZStack {
                 Rectangle()
@@ -210,6 +212,8 @@ struct PointsView: View {
 }
 
 struct PointsAlertView: View {
+    var alertModel: Alerts
+    
     var body: some View {
         ZStack(alignment: .trailing) {
             RoundedRectangle(cornerRadius: 25)
@@ -222,7 +226,7 @@ struct PointsAlertView: View {
                 .frame(width: 240, height: 150)
             
             Button {
-                
+                alertModel.showPointsAlert.toggle()
             } label: {
                 Text("X")
                     .font(.custom("Montserrat", size: 14))
@@ -382,9 +386,11 @@ struct ActivityChartView: View {
 }
 
 struct LimboLogoWithPointsView: View {
+    var alertModel: Alerts
+    
     var body: some View {
         ZStack() {
-            PointsView(points: 50, showAlert: false)
+            PointsView(points: 50, alertModel: alertModel)
                 .padding(.top, 40)
             
             LimboLogoView()

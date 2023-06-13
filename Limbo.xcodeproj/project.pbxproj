@@ -36,6 +36,7 @@
 		294D60C429F1D54500CE0463 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 294D60B229F1D54500CE0463 /* Montserrat-Medium.ttf */; };
 		294D60C629F1D54500CE0463 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 294D60B429F1D54500CE0463 /* Montserrat-Regular.ttf */; };
 		294D60CA29F1E2C800CE0463 /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294D60C929F1E2C800CE0463 /* GradientButton.swift */; };
+		2962DA652A38806700C6D662 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2962DA642A38806700C6D662 /* Alerts.swift */; };
 		29A875A82A2936A7004164D6 /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A875A72A2936A7004164D6 /* QuizView.swift */; };
 		29A875AB2A2936C2004164D6 /* QuizViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A875AA2A2936C2004164D6 /* QuizViewModel.swift */; };
 		29E4A92A2A1EB0B200857EAE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 29E4A9292A1EB0B200857EAE /* GoogleService-Info.plist */; };
@@ -81,6 +82,7 @@
 		294D60B429F1D54500CE0463 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		294D60C829F1D5C100CE0463 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		294D60C929F1E2C800CE0463 /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
+		2962DA642A38806700C6D662 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		29A875A72A2936A7004164D6 /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
 		29A875AA2A2936C2004164D6 /* QuizViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewModel.swift; sourceTree = "<group>"; };
 		29E4A9292A1EB0B200857EAE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 				294D60C929F1E2C800CE0463 /* GradientButton.swift */,
 				291103232A163587007D5A8F /* TabData.swift */,
 				2911032C2A1D17DC007D5A8F /* Activity.swift */,
+				2962DA642A38806700C6D662 /* Alerts.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 				290629FA29F711020048434E /* RegisterViewModel.swift in Sources */,
 				290629F729F482050048434E /* LoginViewModel.swift in Sources */,
 				292E124A2A04468600190114 /* ProfileView.swift in Sources */,
+				2962DA652A38806700C6D662 /* Alerts.swift in Sources */,
 				292E123D2A02AC9000190114 /* Constants.swift in Sources */,
 				294D60CA29F1E2C800CE0463 /* GradientButton.swift in Sources */,
 				292E123929FBBB2C00190114 /* HomeView.swift in Sources */,

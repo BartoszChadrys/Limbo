@@ -9,12 +9,13 @@ import SwiftUI
 
 struct StatsView: View {
     @StateObject private var activityModel = Activity()
+    @StateObject private var alertModel = Alerts()
     
     var body: some View {
         ZStack {
             backgroundColorView()
             VStack(spacing: 15) {
-                LimboLogoWithPointsView()
+                LimboLogoWithPointsView(alertModel: alertModel)
                 
                 ScrollView {
                     VStack {

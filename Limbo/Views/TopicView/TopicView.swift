@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct TopicView: View {
+    @StateObject private var alertModel = Alerts()
+    
     var body: some View {
         ZStack {
             backgroundColorView()
             VStack(spacing: 15) {
-                LimboLogoWithPointsView()
+                LimboLogoWithPointsView(alertModel: alertModel)
                 
                 ScrollView {
                     LazyVStack {
