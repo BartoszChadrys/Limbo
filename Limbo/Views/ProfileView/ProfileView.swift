@@ -55,7 +55,7 @@ struct ProfileView: View {
                             Button() {
                                 print("Redeem points clicked!")
                             } label: {
-                                ReedemPointsButtonView()
+                                ReedemPointsButtonView(alertModel: alertModel)
                             }
                         }
                         .padding(.bottom, 10)
@@ -84,6 +84,8 @@ struct ProfileView: View {
                 PointsAlertView(alertModel: alertModel)
             } else if alertModel.showChangePasswordAlert {
                 ChangePasswordAlertView(alertModel: alertModel)
+            } else if alertModel.showExchangePointsAlert {
+                ExchangePointsAlertView(alertModel: alertModel)
             }
         }
     }
@@ -106,6 +108,74 @@ struct SquareAlertBackgroundView: View {
                         .frame(width: K.alertWidth, height: K.squareAlertHeight)
                 })
                 .frame(width: K.alertWidth, height: K.squareAlertHeight)
+        }
+    }
+}
+
+struct ExchangePointsAlertView: View {
+    var alertModel: Alerts
+    
+    var body: some View {
+        ZStack {
+            Button {
+                alertModel.showExchangePointsAlert = false
+            } label: {
+                Color.black
+                    .opacity(0.75)
+            }
+            
+            ZStack(alignment: .trailing) {
+                SquareAlertBackgroundView()
+                
+                Button {
+                    alertModel.showExchangePointsAlert.toggle()
+                } label: {
+                    Text("X")
+                        .font(.custom("Montserrat", size: 14))
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                        .padding(.bottom, 130)
+                        .padding(.trailing, 15)
+                }
+            }
+            
+            VStack(spacing: 15) {
+                Text("Czy na pewno chcesz\n wymienić punkty?")
+                    .font(.custom("Montserrat", size: 18))
+                    .fontWeight(.semibold)
+                    .foregroundColor(.white)
+                    .multilineTextAlignment(.center)
+                
+                Text("Tej operacji nie da się cofnąć")
+                    .font(.custom("Montserrat", size: 16))
+                    .fontWeight(.semibold)
+                    .foregroundColor(.orangeAlertColor())
+                    .multilineTextAlignment(.center)
+                
+                HStack(spacing: 10) {
+                    Button {
+                        alertModel.showExchangePointsAlert = false
+                    } label: {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 25)
+                                .stroke(LinearGradient.orangeGradient(), lineWidth: 1.5)
+                            
+                            Text("NIE")
+                                .font(.custom("Montserrat", size: 16))
+                                .fontWeight(.bold)
+                                .foregroundColor(.white)
+                        }
+                        .frame(width: 110, height: 45)
+                    }
+                    
+                    Button {
+                        alertModel.showExchangePointsAlert = false
+                    } label: {
+                        GradientButton(text: "TAK")
+                            .frame(width: 110, height: 45)
+                    }
+                }
+            }
         }
     }
 }
@@ -184,43 +254,50 @@ struct ChangePasswordButtonView: View {
 }
 
 struct ReedemPointsButtonView: View {
+    var alertModel: Alerts
+    
     var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 25)
-                .stroke(LinearGradient.orangeGradient(), lineWidth: 3)
-                .frame(height: 120)
-            
-            HStack(spacing: 40) {
-                VStack {
-                    Text("Punkty do wymiany")
-                        .font(.custom("Montserrat", size: 15))
-                        .fontWeight(.semibold)
-                        .foregroundColor(.white)
-                    
-                    Text("49")
-                        .font(.custom("Montserrat", size: 30))
-                        .fontWeight(.semibold)
-                        .overlay {
-                            LinearGradient.orangeGradient()
-                        }
-                        .mask(Text("49")
-                            .font(.custom("Montserrat", size: 30))
-                            .fontWeight(.semibold))
-                    
-                    Text("Kliknij, aby przejść do ekranu \nwymiany punktów")
-                        .font(.custom("Montserrat", size: 10))
-                        .fontWeight(.light)
-                        .foregroundColor(.white)
-                        .multilineTextAlignment(.center)
-                }
+        Button {
+            alertModel.showExchangePointsAlert.toggle()
+        } label: {
+            ZStack {
+                RoundedRectangle(cornerRadius: 25)
+                    .stroke(LinearGradient.orangeGradient(), lineWidth: 3)
+                    .frame(height: 120)
                 
-                Image("redeemPointsIcon")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(maxWidth: 80, maxHeight: 80)
+                HStack(spacing: 40) {
+                    VStack {
+                        Text("Punkty do wymiany")
+                            .font(.custom("Montserrat", size: 15))
+                            .fontWeight(.semibold)
+                            .foregroundColor(.white)
+                        
+                        Text("49")
+                            .font(.custom("Montserrat", size: 30))
+                            .fontWeight(.semibold)
+                            .overlay {
+                                LinearGradient.orangeGradient()
+                            }
+                            .mask(Text("49")
+                                .font(.custom("Montserrat", size: 30))
+                                .fontWeight(.semibold))
+                        
+                        Text("Kliknij, aby przejść do ekranu \nwymiany punktów")
+                            .font(.custom("Montserrat", size: 10))
+                            .fontWeight(.light)
+                            .foregroundColor(.white)
+                            .multilineTextAlignment(.center)
+                    }
+                    
+                    Image("redeemPointsIcon")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(maxWidth: 80, maxHeight: 80)
+                }
             }
+            .padding(.leading, 15)
+            .padding(.trailing, 15)
         }
-        .padding(.leading, 15)
-        .padding(.trailing, 15)
+        
     }
 }

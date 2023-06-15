@@ -45,10 +45,10 @@ struct StatsView: View {
                             .padding(.bottom, 10)
                         
                         HStack(spacing: 35) {
-                            BonusRectangleView(title: "Dodatkowe punkty na egzaminie", points: 21)
+                            BonusRectangleView(title: "Dodatkowe punkty\n na egzaminie", points: 21)
                                 .padding(.leading, 15)
                             
-                            BonusRectangleView(title: "Dodatkowe punkty w Dante", points: 37)
+                            BonusRectangleView(title: "Dodatkowe punkty\n w Dante", points: 37)
                                 .padding(.trailing, 15)
                         }
                         .padding(.bottom, 3)
@@ -121,7 +121,7 @@ struct BonusRectangleView: View {
                     .foregroundColor(.white)
                 
                 Text(title)
-                    .font(.custom("Montserrat", size: 10))
+                    .font(.custom("Montserrat", size: 12))
                     .fontWeight(.semibold)
                     .foregroundColor(.white)
                     .multilineTextAlignment(.center)
