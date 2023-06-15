@@ -14,7 +14,8 @@ struct QuizView: View {
         ZStack {
             backgroundColorView()
             // TODO: Fix background gradient
-            // LinearGradient.yellowGradient()
+             LinearGradient.yellowGradient()
+                .opacity(0.2)
             VStack(spacing: 30) {
                 LimboLogoWithPointsView(alertModel: alertModel)
                 
@@ -104,6 +105,8 @@ struct QuestionTextView: View {
             .fontWeight(.medium)
             .foregroundColor(.white)
             .multilineTextAlignment(.center)
+            .padding(.trailing, 15)
+            .padding(.leading, 15)
     }
 }
 

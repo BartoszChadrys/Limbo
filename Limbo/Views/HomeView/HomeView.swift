@@ -106,13 +106,7 @@ struct HomeView: View {
         }
         .overlay {
             if alertModel.showPointsAlert {
-                ZStack {
-                    Color.black
-                        .opacity(0.75)
-                        .frame(width: .infinity, height: .infinity)
-                    
-                    PointsAlertView(alertModel: alertModel)
-                }
+                PointsAlertView(alertModel: alertModel)
             }
         }
     }
@@ -215,54 +209,61 @@ struct PointsAlertView: View {
     var alertModel: Alerts
     
     var body: some View {
-        ZStack(alignment: .trailing) {
-            RoundedRectangle(cornerRadius: 25)
-                .foregroundColor(.backgroundColor())
-                .overlay(content: {
-                    RoundedRectangle(cornerRadius: 25)
-                        .stroke(LinearGradient.orangeGradient(), lineWidth: 1.5)
-                        .frame(width: 240, height: 150)
-                })
-                .frame(width: 240, height: 150)
-            
+        ZStack {
             Button {
-                alertModel.showPointsAlert.toggle()
+                alertModel.showPointsAlert = false
             } label: {
-                Text("X")
-                    .font(.custom("Montserrat", size: 14))
-                    .fontWeight(.bold)
-                    .foregroundColor(.white)
-                    .padding(.bottom, 110)
-                    .padding(.trailing, 15)
+                Color.black
+                    .opacity(0.75)
             }
-            
-            VStack(spacing: 15) {
-                HStack {
-                    Image("flame")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 20, height: 20)
-                    
-                    Text("Co to za punkty?")
-                        .font(.custom("Montserrat", size: 15))
-                        .fontWeight(.semibold)
-                        .foregroundColor(.white)
-                }
-                .padding(.top, 10)
+            ZStack(alignment: .trailing) {
+                RoundedRectangle(cornerRadius: 25)
+                    .foregroundColor(.backgroundColor())
+                    .overlay(content: {
+                        RoundedRectangle(cornerRadius: 25)
+                            .stroke(LinearGradient.orangeGradient(), lineWidth: 1.5)
+                            .frame(width: K.pointsAlertWidth, height: 150)
+                    })
+                    .frame(width: K.pointsAlertWidth, height: 150)
                 
-                Text("Punkty możesz wymieniać na nagrody, np. dodatkowe punkty na egzaminie lub w dziale. Dodatkowo dzięki tym punktom tworzymy ranking osób w twojej grupie.")
-                    .font(.custom("Montserrat", size: 12))
-                    .fontWeight(.light)
-                    .foregroundColor(.white)
-                    .multilineTextAlignment(.center)
-                    .frame(maxWidth: 230)
-                    .minimumScaleFactor(0.5)
-                    .padding(.bottom, 10)
+                Button {
+                    alertModel.showPointsAlert.toggle()
+                } label: {
+                    Text("X")
+                        .font(.custom("Montserrat", size: 14))
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                        .padding(.bottom, 110)
+                        .padding(.trailing, 15)
+                }
+                
+                VStack(spacing: 15) {
+                    HStack {
+                        Image("flame")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 20, height: 20)
+                        
+                        Text("Co to za punkty?")
+                            .font(.custom("Montserrat", size: 16))
+                            .fontWeight(.semibold)
+                            .foregroundColor(.white)
+                    }
+                    .padding(.top, 10)
+                    
+                    Text("Punkty możesz wymieniać na nagrody, np. dodatkowe punkty na egzaminie lub w dziale. Dodatkowo dzięki tym punktom tworzymy ranking osób w twojej grupie.")
+                        .font(.custom("Montserrat", size: 14))
+                        .fontWeight(.light)
+                        .foregroundColor(.white)
+                        .multilineTextAlignment(.center)
+                        .frame(maxWidth: 250)
+                        .minimumScaleFactor(0.5)
+                        .padding(.bottom, 10)
+                }
+                .frame(width: K.pointsAlertWidth, height: 150)
             }
-            .frame(width: 240, height: 150)
         }
-        .frame(width: .infinity, height: .infinity, alignment: .center)
-        .transition(.opacity)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 
