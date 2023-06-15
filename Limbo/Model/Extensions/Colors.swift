@@ -27,4 +27,8 @@ extension Color {
     internal static func redColor() -> Color {
         .init("redColor")
     }
+    
+    internal static func orangeAlertColor() -> Color {
+        .init("orangeAlertColor")
+    }
 }

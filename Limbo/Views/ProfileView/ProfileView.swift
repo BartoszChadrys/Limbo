@@ -72,7 +72,7 @@ struct ProfileView: View {
                             TextFieldView(title: "Powtórz nowe hasło", holdText: $viewModel.repeatNewPassword)
                         }
                         
-                        ChangePasswordButtonView()
+                        ChangePasswordButtonView(alertModel: alertModel)
                     }
                 }
                 .scrollIndicators(.hidden)
@@ -82,6 +82,8 @@ struct ProfileView: View {
         .overlay {
             if alertModel.showPointsAlert {
                 PointsAlertView(alertModel: alertModel)
+            } else if alertModel.showChangePasswordAlert {
+                ChangePasswordAlertView(alertModel: alertModel)
             }
         }
     }
@@ -93,13 +95,73 @@ struct ProfileView_Previews: PreviewProvider {
     }
 }
 
+struct ChangePasswordAlertView: View {
+    var alertModel: Alerts
+    
+    var body: some View {
+        ZStack {
+            Button {
+                alertModel.showChangePasswordAlert = false
+            } label: {
+                Color.black
+                    .opacity(0.75)
+            }
+            
+            ZStack(alignment: .trailing) {
+                RoundedRectangle(cornerRadius: 25)
+                    .foregroundColor(.backgroundColor())
+                    .overlay(content: {
+                        RoundedRectangle(cornerRadius: 25)
+                            .stroke(LinearGradient.orangeGradient(), lineWidth: 1.5)
+                            .frame(width: K.pointsAlertWidth, height: 180)
+                    })
+                    .frame(width: K.pointsAlertWidth, height: 180)
+                
+                Button {
+                    alertModel.showChangePasswordAlert.toggle()
+                } label: {
+                    Text("X")
+                        .font(.custom("Montserrat", size: 14))
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                        .padding(.bottom, 130)
+                        .padding(.trailing, 15)
+                }
+                
+                VStack(spacing: 15) {
+                    Text("Zmiana hasła")
+                        .font(.custom("Montserrat", size: 20))
+                        .fontWeight(.semibold)
+                        .foregroundColor(.white)
+                    
+                    Text("Twoje hasło zostało\n zmienione")
+                        .font(.custom("Montserrat", size: 17))
+                        .fontWeight(.semibold)
+                        .foregroundColor(.orangeAlertColor())
+                        .multilineTextAlignment(.center)
+                    
+                    Button {
+                        alertModel.showChangePasswordAlert = false
+                    } label: {
+                        GradientButton(text: "Powrót")
+                            .frame(width: 150, height: 45)
+                    }
+                }
+                .frame(width: K.pointsAlertWidth, height: 180)
+            }
+        }
+    }
+}
+
 struct ChangePasswordButtonView: View {
+    var alertModel: Alerts
+    
     var body: some View {
         ZStack {
             LinearGradient.orangeGradient()
             
             Button() {
-                print("Change password clicked!")
+                alertModel.showChangePasswordAlert.toggle()
             } label: {
                 Text("Zmień hasło")
                     .font(.custom("Montserrat", size: 13))

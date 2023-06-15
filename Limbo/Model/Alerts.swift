@@ -8,5 +8,6 @@
 import Foundation
 
 class Alerts: ObservableObject {
-    @Published var showPointsAlert = false
+    @Published var showPointsAlert: Bool = false
+    @Published var showChangePasswordAlert: Bool = false
 }
