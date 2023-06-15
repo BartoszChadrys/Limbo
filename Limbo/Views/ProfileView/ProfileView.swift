@@ -103,9 +103,9 @@ struct SquareAlertBackgroundView: View {
                 .overlay(content: {
                     RoundedRectangle(cornerRadius: 25)
                         .stroke(LinearGradient.orangeGradient(), lineWidth: 1.5)
-                        .frame(width: K.pointsAlertWidth, height: 180)
+                        .frame(width: K.alertWidth, height: K.squareAlertHeight)
                 })
-                .frame(width: K.pointsAlertWidth, height: 180)
+                .frame(width: K.alertWidth, height: K.squareAlertHeight)
         }
     }
 }
@@ -155,7 +155,7 @@ struct ChangePasswordAlertView: View {
                             .frame(width: 150, height: 45)
                     }
                 }
-                .frame(width: K.pointsAlertWidth, height: 180)
+                .frame(width: K.alertWidth, height: K.squareAlertHeight)
             }
         }
     }

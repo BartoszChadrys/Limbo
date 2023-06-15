@@ -222,9 +222,9 @@ struct PointsAlertView: View {
                     .overlay(content: {
                         RoundedRectangle(cornerRadius: 25)
                             .stroke(LinearGradient.orangeGradient(), lineWidth: 1.5)
-                            .frame(width: K.pointsAlertWidth, height: K.pointsAlertHeight)
+                            .frame(width: K.alertWidth, height: K.pointsAlertHeight)
                     })
-                    .frame(width: K.pointsAlertWidth, height: K.pointsAlertHeight)
+                    .frame(width: K.alertWidth, height: K.pointsAlertHeight)
                 
                 Button {
                     alertModel.showPointsAlert.toggle()
@@ -260,7 +260,7 @@ struct PointsAlertView: View {
                         .minimumScaleFactor(0.5)
                         .padding(.bottom, 10)
                 }
-                .frame(width: K.pointsAlertWidth, height: K.pointsAlertHeight)
+                .frame(width: K.alertWidth, height: K.pointsAlertHeight)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
