@@ -95,6 +95,21 @@ struct ProfileView_Previews: PreviewProvider {
     }
 }
 
+struct SquareAlertBackgroundView: View {
+    var body: some View {
+        ZStack(alignment: .trailing) {
+            RoundedRectangle(cornerRadius: 25)
+                .foregroundColor(.backgroundColor())
+                .overlay(content: {
+                    RoundedRectangle(cornerRadius: 25)
+                        .stroke(LinearGradient.orangeGradient(), lineWidth: 1.5)
+                        .frame(width: K.pointsAlertWidth, height: 180)
+                })
+                .frame(width: K.pointsAlertWidth, height: 180)
+        }
+    }
+}
+
 struct ChangePasswordAlertView: View {
     var alertModel: Alerts
     
@@ -108,14 +123,7 @@ struct ChangePasswordAlertView: View {
             }
             
             ZStack(alignment: .trailing) {
-                RoundedRectangle(cornerRadius: 25)
-                    .foregroundColor(.backgroundColor())
-                    .overlay(content: {
-                        RoundedRectangle(cornerRadius: 25)
-                            .stroke(LinearGradient.orangeGradient(), lineWidth: 1.5)
-                            .frame(width: K.pointsAlertWidth, height: 180)
-                    })
-                    .frame(width: K.pointsAlertWidth, height: 180)
+                SquareAlertBackgroundView()
                 
                 Button {
                     alertModel.showChangePasswordAlert.toggle()
