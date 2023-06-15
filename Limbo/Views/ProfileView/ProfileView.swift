@@ -79,6 +79,11 @@ struct ProfileView: View {
                 .padding(.bottom, K.navbarBottomPadding)
             }
         }
+        .overlay {
+            if alertModel.showPointsAlert {
+                PointsAlertView(alertModel: alertModel)
+            }
+        }
     }
 }
 

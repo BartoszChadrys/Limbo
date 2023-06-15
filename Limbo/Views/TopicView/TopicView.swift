@@ -37,6 +37,11 @@ struct TopicView: View {
                 Spacer()                
             }
         }
+        .overlay {
+            if alertModel.showPointsAlert {
+                PointsAlertView(alertModel: alertModel)
+            }
+        }
     }
 }
 
