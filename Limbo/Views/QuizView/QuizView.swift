@@ -13,7 +13,6 @@ struct QuizView: View {
     var body: some View {
         ZStack {
             backgroundColorView()
-            // TODO: Fix background gradient
              LinearGradient.yellowGradient()
                 .opacity(0.2)
             VStack(spacing: 30) {
@@ -36,7 +35,7 @@ struct QuizView: View {
                 .padding(.top, 20)
                 
                 Button {
-                    
+                    print("Continue")
                 } label: {
                     GradientButton(text: "Kontynuuj")
                         .frame(width: 250, height: 60)
