@@ -66,32 +66,20 @@ struct HomeView: View {
                             
                             VStack(spacing: 15) {
                                 HStack(spacing: K.topicsHomeViewPadding) {
-                                    ZStack {
-                                        RoundedRectangleView(gradient: .greenGradient())
-                                        CircleView(percent: 100, title: "Operacje na danych", gradient: .greenGradient(), circleColor: .greenColor(), circleIcon: Image("checkmarkIcon"))
-                                    }
+                                    CircleView(percent: 100, title: "Operacje na danych", gradient: .greenGradient(), circleColor: .greenColor(), circleIcon: Image("checkmarkIcon"))
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                     .padding(.leading, 15)
                                     
-                                    ZStack {
-                                        RoundedRectangleView(gradient: .orangeGradient())
-                                        CircleView(percent: 47, title: "Instrukcje warunkowe", gradient: .orangeGradient(), circleColor: .orangeColor(), circleIcon: Image("flameWhite"))
-                                    }
+                                    CircleView(percent: 47, title: "Instrukcje warunkowe", gradient: .orangeGradient(), circleColor: .orangeColor(), circleIcon: Image("flameWhite"))
                                     .frame(maxWidth: .infinity, alignment: .trailing)
                                     .padding(.trailing, 15)
                                 }
                                 HStack(spacing: K.topicsHomeViewPadding) {
-                                    ZStack {
-                                        RoundedRectangleView(gradient: .redGradient())
-                                        CircleView(percent: 0, title: "Instrukcje iteracyjne", gradient: .redGradient(), circleColor: .redColor(), circleIcon: Image("lockIcon"))
-                                    }
+                                    CircleView(percent: 0, title: "Instrukcje iteracyjne", gradient: .redGradient(), circleColor: .redColor(), circleIcon: Image("lockIcon"))
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                     .padding(.leading, 15)
                                     
-                                    ZStack {
-                                        RoundedRectangleView(gradient: .redGradient())
-                                        CircleView(percent: 0, title: "Tablice jednowymiarowe", gradient: .redGradient(), circleColor: .redColor(), circleIcon: Image("lockIcon"))
-                                    }
+                                    CircleView(percent: 0, title: "Tablice jednowymiarowe", gradient: .redGradient(), circleColor: .redColor(), circleIcon: Image("lockIcon"))
                                     .frame(maxWidth: .infinity, alignment: .trailing)
                                     .padding(.trailing, 15)
                                     .padding(.bottom, 3)
@@ -313,42 +301,45 @@ struct CircleView: View {
     @State var drawProgress = false
     
     var body: some View {
-        VStack(spacing: 0) {
-            ZStack {
-                Circle()
-                    .trim(from: 0, to: drawProgress ? CGFloat(percent)/100 : 0)
-                    .stroke(gradient, style: StrokeStyle(lineWidth: 4.5, lineCap: .round))
-                    .foregroundColor(.white)
-                    .rotationEffect(.degrees(-90))
-                    .frame(width: 45, height: 45)
-                    .animation(.easeOut, value: drawProgress)
-                    .onAppear {
-                        drawProgress = true
-                    }
-                    .onDisappear {
-                        drawProgress = false
-                    }
-                
-                Circle()
-                    .foregroundColor(circleColor)
-                    .frame(width: 15, height: 15)
-                    .padding(.bottom, 45)
-                
-                circleIcon
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 10, height: 10)
-                    .padding(.bottom, 45)
-                
-                Text("\(percent)%")
-                    .font(.custom("Montserrat", size: 12))
-                    .fontWeight(.bold)
+        ZStack {
+            RoundedRectangleView(gradient: gradient)
+            VStack(spacing: 0) {
+                ZStack {
+                    Circle()
+                        .trim(from: 0, to: drawProgress ? CGFloat(percent)/100 : 0)
+                        .stroke(gradient, style: StrokeStyle(lineWidth: 4.5, lineCap: .round))
+                        .foregroundColor(.white)
+                        .rotationEffect(.degrees(-90))
+                        .frame(width: 45, height: 45)
+                        .animation(.easeOut, value: drawProgress)
+                        .onAppear {
+                            drawProgress = true
+                        }
+                        .onDisappear {
+                            drawProgress = false
+                        }
+                    
+                    Circle()
+                        .foregroundColor(circleColor)
+                        .frame(width: 15, height: 15)
+                        .padding(.bottom, 45)
+                    
+                    circleIcon
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 10, height: 10)
+                        .padding(.bottom, 45)
+                    
+                    Text("\(percent)%")
+                        .font(.custom("Montserrat", size: 12))
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                }
+                Text(title)
+                    .font(.custom("Montserrat", size: 9))
+                    .fontWeight(.semibold)
                     .foregroundColor(.white)
             }
-            Text(title)
-                .font(.custom("Montserrat", size: 9))
-                .fontWeight(.semibold)
-                .foregroundColor(.white)
         }
     }
 }
