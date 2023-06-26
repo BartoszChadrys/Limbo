@@ -64,27 +64,23 @@ struct HomeView: View {
                                 .padding(.leading, 15)
                                 .foregroundColor(.backgroundColor())
                             
+                            
                             VStack(spacing: 15) {
                                 HStack(spacing: K.topicsHomeViewPadding) {
-                                    TopicRectangleView(percent: 100, title: "Operacje na danych", gradient: .greenGradient(), circleColor: .greenColor(), circleIcon: Image("checkmarkIcon"))
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                    .padding(.leading, 15)
+                                    TopicRectangleView(percent: 100, title: "Operacje na danych", gradient: K.doneGradient, circleColor: K.doneColor, circleIcon: K.doneIcon)
                                     
-                                    TopicRectangleView(percent: 47, title: "Instrukcje warunkowe", gradient: .orangeGradient(), circleColor: .orangeColor(), circleIcon: Image("flameWhite"))
-                                    .frame(maxWidth: .infinity, alignment: .trailing)
-                                    .padding(.trailing, 15)
+                                    TopicRectangleView(percent: 47, title: "Instrukcje warunkowe", gradient: K.progressGradient, circleColor: K.progressColor, circleIcon: K.progressIcon)
                                 }
+                                
                                 HStack(spacing: K.topicsHomeViewPadding) {
-                                    TopicRectangleView(percent: 0, title: "Instrukcje iteracyjne", gradient: .redGradient(), circleColor: .redColor(), circleIcon: Image("lockIcon"))
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                    .padding(.leading, 15)
+                                    TopicRectangleView(percent: 0, title: "Instrukcje iteracyjne", gradient: K.lockGradient, circleColor: K.lockColor, circleIcon: K.lockIcon)
                                     
-                                    TopicRectangleView(percent: 0, title: "Tablice jednowymiarowe", gradient: .redGradient(), circleColor: .redColor(), circleIcon: Image("lockIcon"))
-                                    .frame(maxWidth: .infinity, alignment: .trailing)
-                                    .padding(.trailing, 15)
-                                    .padding(.bottom, 3)
+                                    TopicRectangleView(percent: 0, title: "Tablice jednowymiarowe", gradient: K.lockGradient, circleColor: K.lockColor, circleIcon: K.lockIcon)
                                 }
                             }
+                            .padding(.leading, 15)
+                            .padding(.trailing, 15)
+                            .padding(.bottom, 3)
                         }
                     }
                 }
@@ -298,7 +294,7 @@ struct TopicRectangleView: View {
     var gradient: LinearGradient
     var circleColor: Color
     var circleIcon: Image
-    @State var drawProgress = false
+    @State var drawProgress: Bool = false
     
     var body: some View {
         ZStack {
