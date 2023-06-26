@@ -66,20 +66,20 @@ struct HomeView: View {
                             
                             VStack(spacing: 15) {
                                 HStack(spacing: K.topicsHomeViewPadding) {
-                                    CircleView(percent: 100, title: "Operacje na danych", gradient: .greenGradient(), circleColor: .greenColor(), circleIcon: Image("checkmarkIcon"))
+                                    TopicRectangleView(percent: 100, title: "Operacje na danych", gradient: .greenGradient(), circleColor: .greenColor(), circleIcon: Image("checkmarkIcon"))
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                     .padding(.leading, 15)
                                     
-                                    CircleView(percent: 47, title: "Instrukcje warunkowe", gradient: .orangeGradient(), circleColor: .orangeColor(), circleIcon: Image("flameWhite"))
+                                    TopicRectangleView(percent: 47, title: "Instrukcje warunkowe", gradient: .orangeGradient(), circleColor: .orangeColor(), circleIcon: Image("flameWhite"))
                                     .frame(maxWidth: .infinity, alignment: .trailing)
                                     .padding(.trailing, 15)
                                 }
                                 HStack(spacing: K.topicsHomeViewPadding) {
-                                    CircleView(percent: 0, title: "Instrukcje iteracyjne", gradient: .redGradient(), circleColor: .redColor(), circleIcon: Image("lockIcon"))
+                                    TopicRectangleView(percent: 0, title: "Instrukcje iteracyjne", gradient: .redGradient(), circleColor: .redColor(), circleIcon: Image("lockIcon"))
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                     .padding(.leading, 15)
                                     
-                                    CircleView(percent: 0, title: "Tablice jednowymiarowe", gradient: .redGradient(), circleColor: .redColor(), circleIcon: Image("lockIcon"))
+                                    TopicRectangleView(percent: 0, title: "Tablice jednowymiarowe", gradient: .redGradient(), circleColor: .redColor(), circleIcon: Image("lockIcon"))
                                     .frame(maxWidth: .infinity, alignment: .trailing)
                                     .padding(.trailing, 15)
                                     .padding(.bottom, 3)
@@ -292,7 +292,7 @@ struct RoundedRectangleView: View {
     }
 }
 
-struct CircleView: View {
+struct TopicRectangleView: View {
     var percent: Int
     var title: String
     var gradient: LinearGradient
