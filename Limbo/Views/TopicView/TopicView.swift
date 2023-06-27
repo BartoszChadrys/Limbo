@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TopicView: View {
     @StateObject private var alertModel = Alerts()
+    @StateObject private var topicModel = Topics()
     
     var body: some View {
         ZStack {
@@ -17,16 +18,16 @@ struct TopicView: View {
                 LimboLogoWithPointsView(alertModel: alertModel)
                 
                 ScrollView {
-                    LazyVStack {
-                        TopicElementView(gradient: .greenGradient(), mainColor: .greenColor(), topicTitle: "Operacje na danych", points: 15, circleTitle: "Gratulacje!", circleIcon: Image("checkmarkIcon"), percent: 100)
-                        
-                        TopicElementView(gradient: .orangeGradient(), mainColor: .orangeColor(), topicTitle: "Instrukcje warunkowe", points: 7, circleTitle: "Kliknij, aby wykonać quiz", circleIcon: Image("flameWhite"), percent: 47)
-                        
-                        TopicElementView(gradient: .redGradient(), mainColor: .redColor(), topicTitle: "Instrukcje iteracyjne", points: 0, circleTitle: "Zablokowany", circleIcon: Image("lockIcon"), percent: 0)
-                            .opacity(0.5)
-                        
-                        TopicElementView(gradient: .redGradient(), mainColor: .redColor(), topicTitle: "Tablice jednowymiarowe", points: 0, circleTitle: "Zablokowany", circleIcon: Image("lockIcon"), percent: 0)
-                            .opacity(0.5)
+                    VStack {
+                        ForEach(topicModel.topicsArray, id: \.self) { topic in
+                            if topic.status == .done {
+                                TopicElementView(gradient: K.doneGradient, mainColor: K.doneColor, topicTitle: topic.title, points: 15, circleTitle: "Gratulacje!", circleIcon: K.doneIcon, percent: 100)
+                            } else if topic.status == .inProgress {
+                                TopicElementView(gradient: K.progressGradient, mainColor: K.progressColor, topicTitle: topic.title, points: 10, circleTitle: "Kliknij, aby wykonać quiz", circleIcon: K.progressIcon, percent: 67)
+                            } else {
+                                TopicElementView(gradient: K.lockGradient, mainColor: K.lockColor, topicTitle: topic.title, points: 0, circleTitle: "Zablokowane", circleIcon: K.lockIcon, percent: 0)
+                            }
+                        }
                     }
                     .padding(.top, 3)
                     .padding(.bottom, 3)

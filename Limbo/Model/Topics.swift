@@ -21,9 +21,20 @@ class Topics: ObservableObject {
         .init(title: "Teksty i napisy", maxPoints: 15, status: .locked),
         .init(title: "Zadania ogólnorozwojowe", maxPoints: 15, status: .locked)
     ]
+    
+    func prepareTopics() -> [topicModel] {
+        var topTopicsArray: [topicModel] = []
+        for i in 0..<4 {
+//            if topicsArray[i].status == .inProgress {
+//                topTopicsArray.append(topicsArray[i])
+//            }
+            topTopicsArray.append(topicsArray[i])
+        }
+        return topTopicsArray
+    }
 }
 
-struct topicModel {
+struct topicModel: Hashable {
     let title: String
     let maxPoints: Int
     let status: topicStatusEnum

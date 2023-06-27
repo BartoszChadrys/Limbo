@@ -12,6 +12,7 @@ struct HomeView: View {
     @StateObject private var viewModel = HomeViewModel()
     @StateObject private var activityModel = Activity()
     @StateObject private var alertModel = Alerts()
+    @StateObject private var topicModel = Topics()
     
     var body: some View {
         ZStack {
@@ -64,6 +65,9 @@ struct HomeView: View {
                                 .padding(.leading, 15)
                                 .foregroundColor(.backgroundColor())
                             
+//                            ForEach(topicModel.prepareTopics(), id: \.self) { topic in
+//                                TopicRectangleView(percent: 50, title: topic.title, gradient: K.progressGradient, circleColor: K.progressColor, circleIcon: K.progressIcon)
+//                            }
                             
                             VStack(spacing: 15) {
                                 HStack(spacing: K.topicsHomeViewPadding) {
