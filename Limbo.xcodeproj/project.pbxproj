@@ -40,6 +40,8 @@
 		2962DA652A38806700C6D662 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2962DA642A38806700C6D662 /* Alerts.swift */; };
 		29A875A82A2936A7004164D6 /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A875A72A2936A7004164D6 /* QuizView.swift */; };
 		29A875AB2A2936C2004164D6 /* QuizViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A875AA2A2936C2004164D6 /* QuizViewModel.swift */; };
+		29C6539D2A55FED70053C3E3 /* QuizData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 29C6539B2A55FED70053C3E3 /* QuizData.xcdatamodeld */; };
+		29C6539F2A55FFB80053C3E3 /* QuizDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C6539E2A55FFB80053C3E3 /* QuizDataController.swift */; };
 		29E4A92A2A1EB0B200857EAE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 29E4A9292A1EB0B200857EAE /* GoogleService-Info.plist */; };
 		29E4A92D2A1EB11E00857EAE /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 29E4A92C2A1EB11E00857EAE /* FirebaseAuth */; };
 		29E4A92F2A1EB11E00857EAE /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 29E4A92E2A1EB11E00857EAE /* FirebaseAuthCombine-Community */; };
@@ -87,6 +89,8 @@
 		2962DA642A38806700C6D662 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		29A875A72A2936A7004164D6 /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
 		29A875AA2A2936C2004164D6 /* QuizViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewModel.swift; sourceTree = "<group>"; };
+		29C6539C2A55FED70053C3E3 /* QuizData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = QuizData.xcdatamodel; sourceTree = "<group>"; };
+		29C6539E2A55FFB80053C3E3 /* QuizDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizDataController.swift; sourceTree = "<group>"; };
 		29E4A9292A1EB0B200857EAE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -252,6 +256,7 @@
 		294D60CD29F1E63B00CE0463 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				29C653A02A55FFBC0053C3E3 /* QuizData */,
 				291103292A16359A007D5A8F /* Extensions */,
 				294D60C929F1E2C800CE0463 /* GradientButton.swift */,
 				291103232A163587007D5A8F /* TabData.swift */,
@@ -269,6 +274,15 @@
 				29A875AA2A2936C2004164D6 /* QuizViewModel.swift */,
 			);
 			path = QuizView;
+			sourceTree = "<group>";
+		};
+		29C653A02A55FFBC0053C3E3 /* QuizData */ = {
+			isa = PBXGroup;
+			children = (
+				29C6539B2A55FED70053C3E3 /* QuizData.xcdatamodeld */,
+				29C6539E2A55FFB80053C3E3 /* QuizDataController.swift */,
+			);
+			path = QuizData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -362,6 +376,8 @@
 			files = (
 				292E12472A043B3C00190114 /* StatsViewModel.swift in Sources */,
 				294D609829F1D25B00CE0463 /* FirstView.swift in Sources */,
+				29C6539F2A55FFB80053C3E3 /* QuizDataController.swift in Sources */,
+				29C6539D2A55FED70053C3E3 /* QuizData.xcdatamodeld in Sources */,
 				292E123B29FBBB3900190114 /* HomeViewModel.swift in Sources */,
 				29A875AB2A2936C2004164D6 /* QuizViewModel.swift in Sources */,
 				290629F429F480260048434E /* RegisterView.swift in Sources */,
@@ -642,6 +658,19 @@
 			productName = FirebaseFirestoreSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		29C6539B2A55FED70053C3E3 /* QuizData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				29C6539C2A55FED70053C3E3 /* QuizData.xcdatamodel */,
+			);
+			currentVersion = 29C6539C2A55FED70053C3E3 /* QuizData.xcdatamodel */;
+			path = QuizData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 294D608A29F1D25B00CE0463 /* Project object */;
 }
