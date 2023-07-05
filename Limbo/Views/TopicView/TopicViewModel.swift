@@ -8,5 +8,5 @@
 import SwiftUI
 
 class TopicViewModel: ObservableObject {
-
+    @State var showQuiz: Bool = false
 }

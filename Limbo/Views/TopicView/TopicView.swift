@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct TopicView: View {
+    @StateObject private var topicViewModel = TopicViewModel()
     @StateObject private var alertModel = Alerts()
     @StateObject private var topicModel = Topics()
     
@@ -23,9 +24,14 @@ struct TopicView: View {
                             if topic.status == .done {
                                 TopicElementView(gradient: K.doneGradient, mainColor: K.doneColor, topicTitle: topic.title, points: 15, circleTitle: "Gratulacje!", circleIcon: K.doneIcon, percent: 100)
                             } else if topic.status == .inProgress {
-                                TopicElementView(gradient: K.progressGradient, mainColor: K.progressColor, topicTitle: topic.title, points: 10, circleTitle: "Kliknij, aby wykonać quiz", circleIcon: K.progressIcon, percent: 67)
+                                Button() {
+                                    topicViewModel.showQuiz = true
+                                } label: {
+                                    TopicElementView(gradient: K.progressGradient, mainColor: K.progressColor, topicTitle: topic.title, points: 10, circleTitle: "Kliknij, aby wykonać quiz", circleIcon: K.progressIcon, percent: 67)
+                                }
                             } else {
                                 TopicElementView(gradient: K.lockGradient, mainColor: K.lockColor, topicTitle: topic.title, points: 0, circleTitle: "Zablokowane", circleIcon: K.lockIcon, percent: 0)
+                                    .opacity(0.5)
                             }
                         }
                     }
@@ -35,10 +41,13 @@ struct TopicView: View {
                 .scrollIndicators(.hidden)
                 .padding(.bottom, K.navbarBottomPadding)
                 
-                Spacer()                
+                Spacer()
             }
         }
         .overlay {
+            if topicViewModel.showQuiz {
+                QuizView()
+            }
             if alertModel.showPointsAlert {
                 PointsAlertView(alertModel: alertModel)
             }

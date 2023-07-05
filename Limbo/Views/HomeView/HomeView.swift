@@ -66,6 +66,7 @@ struct HomeView: View {
                                 .foregroundColor(.backgroundColor())
                             
 //                            ForEach(topicModel.prepareTopics(), id: \.self) { topic in
+//
 //                                TopicRectangleView(percent: 50, title: topic.title, gradient: K.progressGradient, circleColor: K.progressColor, circleIcon: K.progressIcon)
 //                            }
                             
