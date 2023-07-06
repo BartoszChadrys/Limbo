@@ -51,6 +51,7 @@
 		29E4A9372A1EB11E00857EAE /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 29E4A9362A1EB11E00857EAE /* FirebaseFirestore */; };
 		29E4A9392A1EB11E00857EAE /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 29E4A9382A1EB11E00857EAE /* FirebaseFirestoreCombine-Community */; };
 		29E4A93B2A1EB11E00857EAE /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 29E4A93A2A1EB11E00857EAE /* FirebaseFirestoreSwift */; };
+		29EC59FF2A5753270090F5B6 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EC59FE2A5753270090F5B6 /* Question.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +93,7 @@
 		29C6539C2A55FED70053C3E3 /* QuizData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = QuizData.xcdatamodel; sourceTree = "<group>"; };
 		29C6539E2A55FFB80053C3E3 /* QuizDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizDataController.swift; sourceTree = "<group>"; };
 		29E4A9292A1EB0B200857EAE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		29EC59FE2A5753270090F5B6 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -263,6 +265,7 @@
 				2911032C2A1D17DC007D5A8F /* Activity.swift */,
 				2962DA642A38806700C6D662 /* Alerts.swift */,
 				2947F3D62A45D52A0068BC73 /* Topics.swift */,
+				29EC59FE2A5753270090F5B6 /* Question.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 				292E12472A043B3C00190114 /* StatsViewModel.swift in Sources */,
 				294D609829F1D25B00CE0463 /* FirstView.swift in Sources */,
 				29C6539F2A55FFB80053C3E3 /* QuizDataController.swift in Sources */,
+				29EC59FF2A5753270090F5B6 /* Question.swift in Sources */,
 				29C6539D2A55FED70053C3E3 /* QuizData.xcdatamodeld in Sources */,
 				292E123B29FBBB3900190114 /* HomeViewModel.swift in Sources */,
 				29A875AB2A2936C2004164D6 /* QuizViewModel.swift in Sources */,
