@@ -8,8 +8,7 @@
 import Foundation
 
 struct Question {
-    var id: UUID
     var text: String
-    var answers = Set<[Int: String]>()
-    var correctAnswers = Set<Int>()
+    var answers: [Int: String]
+    var correctAnswers: Set<Int>
 }

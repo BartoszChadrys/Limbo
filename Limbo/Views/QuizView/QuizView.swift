@@ -9,8 +9,7 @@ import SwiftUI
 
 struct QuizView: View {
     @StateObject private var alertModel = Alerts()
-    @FetchRequest(sortDescriptors: []) var questions: FetchedResults<Questions>
-    @Environment(\.managedObjectContext) var moc
+    @StateObject private var quizModel = QuizViewModel()
     
     var body: some View {
         ZStack {
