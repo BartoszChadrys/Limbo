@@ -20,7 +20,7 @@ struct QuizView: View {
                 LimboLogoWithPointsView(alertModel: alertModel, hasQuiz: true)
                 
                 HStack(spacing: 30) {
-                    RectangleTimerView(fillPercent: 0.7)
+                    RectangleTimerView(fillPercent: quizModel.quizTime/10)
                     
                     QuestionNumberView(questionNumber: "\(quizModel.currentQuestionNumber+1)/5")
                 }
@@ -31,7 +31,6 @@ struct QuizView: View {
                     ForEach(Array(quizModel.questions[quizModel.currentQuestionNumber].answers.enumerated()), id: \.element.key) { index, answer in
                         AnswerRectangleView(text: answer.value, check: false)
                     }
-
                 }
                 .padding(.top, 20)
                 
@@ -48,6 +47,12 @@ struct QuizView: View {
                 }
                 
                 Spacer()
+            }
+            .onAppear() {
+                quizModel.startTimer()
+            }
+            .onDisappear() {
+                quizModel.stopTimer()
             }
         }
     }
@@ -72,6 +77,7 @@ struct RectangleTimerView: View {
                 RoundedRectangle(cornerRadius: 25)
                     .fill(LinearGradient.orangeGradient())
                     .frame(width: 250 * fillPercent, height: 40)
+                    .animation(.easeOut, value: fillPercent)
             }
             Image(systemName: "clock")
                 .resizable()
