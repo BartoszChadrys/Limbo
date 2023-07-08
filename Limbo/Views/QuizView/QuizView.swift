@@ -40,6 +40,7 @@ struct QuizView: View {
                     } else {
                         quizModel.currentQuestionNumber = 0
                     }
+                    quizModel.stopTimer()
                 } label: {
                     GradientButton(text: "Kontynuuj")
                         .frame(width: 250, height: 60)
@@ -50,9 +51,6 @@ struct QuizView: View {
             }
             .onAppear() {
                 quizModel.startTimer()
-            }
-            .onDisappear() {
-                quizModel.stopTimer()
             }
         }
     }

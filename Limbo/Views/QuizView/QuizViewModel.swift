@@ -31,5 +31,6 @@ class QuizViewModel: ObservableObject {
     func stopTimer() {
         timer?.invalidate()
         timer = nil
+        quizTime = 10
     }
 }
