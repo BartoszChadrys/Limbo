@@ -15,7 +15,7 @@ struct QuizView: View {
     var body: some View {
         ZStack {
             backgroundColorView()
-             LinearGradient.yellowGradient()
+            LinearGradient.yellowGradient()
                 .opacity(0.2)
             VStack(spacing: 30) {
                 LimboLogoWithPointsView(alertModel: alertModel, hasQuiz: true)

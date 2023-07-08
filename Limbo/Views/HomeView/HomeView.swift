@@ -17,7 +17,6 @@ struct HomeView: View {
     var body: some View {
         ZStack {
             backgroundColorView()
-            
             VStack(spacing: 15) {
                 LimboLogoWithPointsView(alertModel: alertModel, hasQuiz: false)
                 

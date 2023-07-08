@@ -26,7 +26,6 @@ struct RegisterView: View {
                 }
                 .padding(.top, 50)
                 
-                
                 ScrollView {
                     VStack(alignment: .leading, spacing: 15) {
                         TextFieldViewWithUserIcon(email: $viewModel.email)
