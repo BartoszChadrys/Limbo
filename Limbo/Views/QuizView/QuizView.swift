@@ -22,21 +22,25 @@ struct QuizView: View {
                 HStack(spacing: 30) {
                     RectangleTimerView(fillPercent: 0.7)
                     
-                    QuestionNumberView(questionNumber: "3/10")
+                    QuestionNumberView(questionNumber: "\(quizModel.currentQuestionNumber+1)/5")
                 }
                 
-                QuestionTextView(text: "Która funkcja jest poprawnie wywołana?")
+                QuestionTextView(text: quizModel.questions[quizModel.currentQuestionNumber].text)
                 
                 VStack(spacing: 30) {
-                    AnswerRectangleView(text: "printf(\"Hello)", check: false)
-                    AnswerRectangleView(text: "printf(“%.1f”,1.56)", check: true)
-                    AnswerRectangleView(text: "printf(“%s”)", check: false)
-                    AnswerRectangleView(text: "printf(Hello world)", check: false)
+                    ForEach(Array(quizModel.questions[quizModel.currentQuestionNumber].answers.enumerated()), id: \.element.key) { index, answer in
+                        AnswerRectangleView(text: answer.value, check: false)
+                    }
+
                 }
                 .padding(.top, 20)
                 
                 Button {
-                    print("Continue")
+                    if quizModel.currentQuestionNumber < quizModel.questions.count-1 {
+                        quizModel.currentQuestionNumber += 1
+                    } else {
+                        quizModel.currentQuestionNumber = 0
+                    }
                 } label: {
                     GradientButton(text: "Kontynuuj")
                         .frame(width: 250, height: 60)
