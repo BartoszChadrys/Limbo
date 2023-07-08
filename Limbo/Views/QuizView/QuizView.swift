@@ -18,7 +18,7 @@ struct QuizView: View {
              LinearGradient.yellowGradient()
                 .opacity(0.2)
             VStack(spacing: 30) {
-                LimboLogoWithPointsView(alertModel: alertModel)
+                LimboLogoWithPointsView(alertModel: alertModel, hasQuiz: true)
                 
                 HStack(spacing: 30) {
                     RectangleTimerView(fillPercent: 0.7)

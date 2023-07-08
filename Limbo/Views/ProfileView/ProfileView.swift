@@ -16,7 +16,7 @@ struct ProfileView: View {
             backgroundColorView()
             
             VStack(spacing: 15) {
-                LimboLogoWithPointsView(alertModel: alertModel)
+                LimboLogoWithPointsView(alertModel: alertModel, hasQuiz: false)
                 
                 ScrollView {
                     VStack(spacing: 15) {

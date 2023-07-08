@@ -14,7 +14,7 @@ struct LoginView: View {
         ZStack {
             backgroundColorView()
             VStack {
-                LimboLogoView()
+                LimboLogoView(hasQuiz: false)
                 
                 Spacer()
                 
@@ -164,6 +164,8 @@ struct backgroundColorView: View {
 }
 
 struct LimboLogoView: View {
+    var hasQuiz: Bool
+    
     var body: some View {
         HStack {
             Image("flame")
@@ -174,7 +176,7 @@ struct LimboLogoView: View {
             Text("Limbo")
                 .font(.custom("Montserrat", size: 40))
                 .fontWeight(.semibold)
-                .foregroundColor(.orangeColor())
+                .foregroundColor(hasQuiz ? .white : .orangeColor())
         }
         .padding(.top, 35)
     }

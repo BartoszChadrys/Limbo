@@ -14,7 +14,7 @@ struct RegisterView: View {
         ZStack {
             backgroundColorView()
             VStack {
-                LimboLogoView()
+                LimboLogoView(hasQuiz: false)
                 
                 Spacer()
                 

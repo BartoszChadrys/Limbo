@@ -16,7 +16,7 @@ struct TopicView: View {
         ZStack {
             backgroundColorView()
             VStack(spacing: 15) {
-                LimboLogoWithPointsView(alertModel: alertModel)
+                LimboLogoWithPointsView(alertModel: alertModel, hasQuiz: false)
                 
                 ScrollView {
                     VStack {
@@ -45,9 +45,9 @@ struct TopicView: View {
             }
         }
         .overlay {
-            if topicViewModel.showQuiz {
-                QuizView()
-            }
+//            if topicViewModel.showQuiz {
+//                QuizView()
+//            }
             if alertModel.showPointsAlert {
                 PointsAlertView(alertModel: alertModel)
             }

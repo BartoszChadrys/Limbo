@@ -19,7 +19,7 @@ struct HomeView: View {
             backgroundColorView()
             
             VStack(spacing: 15) {
-                LimboLogoWithPointsView(alertModel: alertModel)
+                LimboLogoWithPointsView(alertModel: alertModel, hasQuiz: false)
                 
                 ScrollView {
                     VStack(alignment: .leading) {
@@ -380,13 +380,14 @@ struct ActivityChartView: View {
 
 struct LimboLogoWithPointsView: View {
     var alertModel: Alerts
+    var hasQuiz: Bool
     
     var body: some View {
         ZStack() {
             PointsView(points: 50, alertModel: alertModel)
                 .padding(.top, 40)
             
-            LimboLogoView()
+            LimboLogoView(hasQuiz: hasQuiz)
             
             Image("exampleAvatar")
                 .resizable()

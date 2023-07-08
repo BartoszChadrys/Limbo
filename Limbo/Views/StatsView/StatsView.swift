@@ -15,7 +15,7 @@ struct StatsView: View {
         ZStack {
             backgroundColorView()
             VStack(spacing: 15) {
-                LimboLogoWithPointsView(alertModel: alertModel)
+                LimboLogoWithPointsView(alertModel: alertModel, hasQuiz: false)
                 
                 ScrollView {
                     VStack {
