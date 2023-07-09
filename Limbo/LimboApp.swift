@@ -28,8 +28,9 @@ struct LimboApp: App {
     
     var body: some Scene {
         WindowGroup {
-            FirstView()
-                .environment(\.managedObjectContext, quizDataModel.container.viewContext)
+            QuizView()
+            //FirstView()
+            //    .environment(\.managedObjectContext, quizDataModel.container.viewContext)
         }
     }
 }

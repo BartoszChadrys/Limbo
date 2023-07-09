@@ -29,18 +29,16 @@ struct QuizView: View {
                 
                 VStack(spacing: 30) {
                     ForEach(Array(quizModel.questions[quizModel.currentQuestionNumber].answers.enumerated()), id: \.element.key) { index, answer in
-                        AnswerRectangleView(text: answer.value, check: false)
+                        AnswerRectangleView(text: answer.value, answerId: index, correct: $quizModel.correctBoolAnswers[index], check: $quizModel.currentCheckedAnswers[index], quizModel: quizModel)
                     }
                 }
                 .padding(.top, 20)
                 
                 Button {
-                    if quizModel.currentQuestionNumber < quizModel.questions.count-1 {
-                        quizModel.currentQuestionNumber += 1
-                    } else {
-                        quizModel.currentQuestionNumber = 0
+                    quizModel.checkAnswers()
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+                        quizModel.continueButtonClicked()
                     }
-                    quizModel.stopTimer()
                 } label: {
                     GradientButton(text: "Kontynuuj")
                         .frame(width: 250, height: 60)
@@ -120,11 +118,19 @@ struct QuestionTextView: View {
 
 struct AnswerRectangleView: View {
     var text: String
-    @State var check: Bool
+    var answerId: Int
+    @Binding var correct: Bool
+    @Binding var check: Bool
+    var quizModel: QuizViewModel
     
     var body: some View {
         Button {
             check.toggle()
+            if check {
+                quizModel.currentAnswers.append(answerId)
+            } else {
+                quizModel.currentAnswers.removeAll {$0 == answerId}
+            }
         } label: {
             ZStack {
                 ZStack(alignment: .trailing) {
@@ -136,6 +142,11 @@ struct AnswerRectangleView: View {
                         .stroke(LinearGradient.orangeGradient())
                         .frame(width: 20, height: 20)
                         .padding(.trailing, 15)
+                    if correct {
+                        RoundedRectangle(cornerRadius: 25)
+                            .foregroundColor(.green)
+                            .frame(width: 200, height: 45)
+                    }
                     if check {
                         Circle()
                             .foregroundColor(.orangeColor())
