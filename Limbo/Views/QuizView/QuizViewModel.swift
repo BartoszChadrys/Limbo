@@ -14,14 +14,14 @@ class QuizViewModel: ObservableObject {
     @Published var quizTime: Double = 10
     @Published var currentCheckedAnswers: [Bool] = [false, false, false, false]
     @Published var correctBoolAnswers: [Bool] = [false, false, false, false]
-    @Published var currentAnswers: [Int] = []
+    @Published var currentAnswers: [Int : String] = [:]
     @Published var currentQuestionNumber = 0
     @Published var questions: [Question] = [
-        Question(id: UUID(),text: "Która funkcja jest poprawnie wywołana?", answers: [1: "printf(“Hello)", 2: "printf(“%.1f”,1.56)", 3: "printf(“%s”)", 4: "printf(Hello world)"], correctAnswers: Set([2])),
-        Question(id: UUID(),text: "Które funkcje/metody znajdują się w języku C?", answers: [1: ".contain", 2: "cout", 3: "scanf", 4: "sscanf"], correctAnswers: Set([3,4])),
-        Question(id: UUID(), text: "Jak wygląda operator logiczny \"lub\" w języku C?", answers: [1: "or", 2: "||", 3: "&&", 4: "OR"], correctAnswers: Set([2])),
-        Question(id: UUID(), text: "Jaki jest symbol używany do komentarzy jednoliniowych w języku C?", answers: [1: "//", 2: "\\", 3: "#", 4: "$"], correctAnswers: Set([1])),
-        Question(id: UUID(), text: "Które funkcje używa się do dynamicznej alokacji pamięci w języku C?", answers: [1: "malloc", 2: "calloc", 3: "alloc", 4: "dealloc"], correctAnswers: Set([1,2]))
+        Question(id: UUID(),text: "Która funkcja jest poprawnie wywołana?", answers: [1: "printf(“Hello)", 2: "printf(“%.1f”,1.56)", 3: "printf(“%s”)", 4: "printf(Hello world)"], correctAnswers: Set(["printf(“%.1f”,1.56)"])),
+        Question(id: UUID(),text: "Które funkcje/metody znajdują się w języku C?", answers: [1: ".contain", 2: "cout", 3: "scanf", 4: "sscanf"], correctAnswers: Set(["scanf", "sscanf"])),
+        Question(id: UUID(), text: "Jak wygląda operator logiczny \"lub\" w języku C?", answers: [1: "or", 2: "||", 3: "&&", 4: "OR"], correctAnswers: Set(["||"])),
+        Question(id: UUID(), text: "Jaki jest symbol używany do komentarzy jednoliniowych w języku C?", answers: [1: "//", 2: "\\", 3: "#", 4: "$"], correctAnswers: Set(["//"])),
+        Question(id: UUID(), text: "Które funkcje używa się do dynamicznej alokacji pamięci w języku C?", answers: [1: "malloc", 2: "calloc", 3: "alloc", 4: "dealloc"], correctAnswers: Set(["malloc", "calloc"]))
     ]
     
     func continueButtonClicked() {
@@ -31,15 +31,16 @@ class QuizViewModel: ObservableObject {
             currentQuestionNumber = 0
         }
         stopTimer()
-        currentAnswers = []
+        currentAnswers = [:]
         currentCheckedAnswers = [false, false, false, false]
         correctBoolAnswers = [false, false, false, false]
     }
     
     func checkAnswers() {
-        for answerID in currentAnswers {
-            if questions[currentQuestionNumber].correctAnswers.contains(answerID+1) {
-                correctBoolAnswers[answerID] = true
+        print(currentAnswers)
+        for answer in currentAnswers {
+            if questions[currentQuestionNumber].correctAnswers.contains(answer.value) {
+                correctBoolAnswers[answer.key] = true
             }
         }
     }

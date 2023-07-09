@@ -28,7 +28,7 @@ struct QuizView: View {
                 QuestionTextView(text: quizModel.questions[quizModel.currentQuestionNumber].text)
                 
                 VStack(spacing: 30) {
-                    ForEach(Array(quizModel.questions[quizModel.currentQuestionNumber].answers.enumerated()), id: \.element.key) { index, answer in
+                    ForEach(Array(quizModel.questions[quizModel.currentQuestionNumber].answers.enumerated()).sorted { $0.element.key < $1.element.key }, id: \.element.key) { index, answer in
                         AnswerRectangleView(text: answer.value, answerId: index, correct: $quizModel.correctBoolAnswers[index], check: $quizModel.currentCheckedAnswers[index], quizModel: quizModel)
                     }
                 }
@@ -127,9 +127,9 @@ struct AnswerRectangleView: View {
         Button {
             check.toggle()
             if check {
-                quizModel.currentAnswers.append(answerId)
+                quizModel.currentAnswers[answerId] = text
             } else {
-                quizModel.currentAnswers.removeAll {$0 == answerId}
+                quizModel.currentAnswers[answerId] = ""
             }
         } label: {
             ZStack {
