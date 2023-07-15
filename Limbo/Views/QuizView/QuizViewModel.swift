@@ -13,7 +13,7 @@ class QuizViewModel: ObservableObject {
     @State var timer: Timer? = Timer()
     @Published var quizTime: Double = 10
     @Published var currentCheckedAnswers: [Bool] = [false, false, false, false]
-    @Published var correctBoolAnswers: [Bool] = [false, false, false, false]
+    @Published var correctBoolAnswers: [Bool?] = [nil, nil, nil, nil]
     @Published var currentAnswers: [Int : String] = [:]
     @Published var currentQuestionNumber = 0
     @Published var questions: [Question] = [
@@ -33,7 +33,7 @@ class QuizViewModel: ObservableObject {
         stopTimer()
         currentAnswers = [:]
         currentCheckedAnswers = [false, false, false, false]
-        correctBoolAnswers = [false, false, false, false]
+        correctBoolAnswers = [nil, nil, nil, nil]
     }
     
     func checkAnswers() {
@@ -41,6 +41,8 @@ class QuizViewModel: ObservableObject {
         for answer in currentAnswers {
             if questions[currentQuestionNumber].correctAnswers.contains(answer.value) {
                 correctBoolAnswers[answer.key] = true
+            } else {
+                correctBoolAnswers[answer.key] = false
             }
         }
     }

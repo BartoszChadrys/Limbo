@@ -119,7 +119,7 @@ struct QuestionTextView: View {
 struct AnswerRectangleView: View {
     var text: String
     var answerId: Int
-    @Binding var correct: Bool
+    @Binding var correct: Bool?
     @Binding var check: Bool
     var quizModel: QuizViewModel
     
@@ -142,12 +142,13 @@ struct AnswerRectangleView: View {
                         .stroke(LinearGradient.orangeGradient())
                         .frame(width: 20, height: 20)
                         .padding(.trailing, 15)
-                    if correct {
-                        RoundedRectangle(cornerRadius: 25)
-                            .foregroundColor(.green)
-                            .frame(width: 200, height: 45)
-                    }
                     if check {
+                        if let correctAnswer = correct {
+                            RoundedRectangle(cornerRadius: 25)
+                                .foregroundColor(correctAnswer ? .green : .red)
+                                .frame(width: 200, height: 45)
+                        }
+                        
                         Circle()
                             .foregroundColor(.orangeColor())
                             .frame(width: 20, height: 20)
