@@ -10,11 +10,15 @@ import SwiftUI
 class QuizViewModel: ObservableObject {
 //    @FetchRequest(sortDescriptors: []) var questions: FetchedResults<Questions>
 //    @Environment(\.managedObjectContext) var moc
+    
     @State var timer: Timer? = Timer()
-    @Published var quizTime: Double = 10
+    @Published var timePerQuestion: Double = 10
+    @Published var timeAfterAnswer: Double = 1.5
+    
     @Published var currentCheckedAnswers: [Bool] = [false, false, false, false]
     @Published var correctBoolAnswers: [Bool?] = [nil, nil, nil, nil]
     @Published var currentAnswers: [Int : String] = [:]
+    
     @Published var currentQuestionNumber = 0
     @Published var questions: [Question] = [
         Question(id: UUID(),text: "Która funkcja jest poprawnie wywołana?", answers: [1: "printf(“Hello)", 2: "printf(“%.1f”,1.56)", 3: "printf(“%s”)", 4: "printf(Hello world)"], correctAnswers: Set(["printf(“%.1f”,1.56)"])),
@@ -25,19 +29,26 @@ class QuizViewModel: ObservableObject {
     ]
     
     func continueButtonClicked() {
-        if currentQuestionNumber < questions.count-1 {
-            currentQuestionNumber += 1
-        } else {
-            currentQuestionNumber = 0
-        }
         stopTimer()
+        resetQuestionData()
+        changeQuestionNumber()
+    }
+    
+    func resetQuestionData() {
         currentAnswers = [:]
         currentCheckedAnswers = [false, false, false, false]
         correctBoolAnswers = [nil, nil, nil, nil]
     }
     
+    func changeQuestionNumber() {
+        if currentQuestionNumber < questions.count-1 {
+            currentQuestionNumber += 1
+        } else {
+            currentQuestionNumber = 0
+        }
+    }
+    
     func checkAnswers() {
-        print(currentAnswers)
         for answer in currentAnswers {
             if questions[currentQuestionNumber].correctAnswers.contains(answer.value) {
                 correctBoolAnswers[answer.key] = true
@@ -48,15 +59,18 @@ class QuizViewModel: ObservableObject {
     }
     
     func startTimer() {
-        quizTime = 10
+        resetTime()
         timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
-            self.quizTime -= 0.1
+            self.timePerQuestion -= 0.1
         }
+    }
+    
+    func resetTime() {
+        timePerQuestion = 10
     }
     
     func stopTimer() {
         timer?.invalidate()
         timer = nil
-        quizTime = 10
     }
 }

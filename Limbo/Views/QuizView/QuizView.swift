@@ -20,7 +20,7 @@ struct QuizView: View {
                 LimboLogoWithPointsView(alertModel: alertModel, hasQuiz: true)
                 
                 HStack(spacing: 30) {
-                    RectangleTimerView(fillPercent: quizModel.quizTime/10)
+                    RectangleTimerView(fillPercent: quizModel.timePerQuestion/10)
                     
                     QuestionNumberView(questionNumber: "\(quizModel.currentQuestionNumber+1)/5")
                 }
@@ -36,7 +36,8 @@ struct QuizView: View {
                 
                 Button {
                     quizModel.checkAnswers()
-                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+                    DispatchQueue.main.asyncAfter(deadline:
+                    DispatchTime.now() + quizModel.timeAfterAnswer) {
                         quizModel.continueButtonClicked()
                     }
                 } label: {
