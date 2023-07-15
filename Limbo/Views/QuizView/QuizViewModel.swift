@@ -73,7 +73,7 @@ class QuizViewModel: ObservableObject {
         resetTime()
         self.timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
             if self.isChangingQuestion == false {
-                if self.timePerQuestion > 0 {
+                if self.timePerQuestion > 0.1 {
                     self.timePerQuestion -= 0.1
                 } else {
                     self.isChangingQuestion = true
