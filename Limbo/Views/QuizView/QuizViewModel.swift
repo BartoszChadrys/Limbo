@@ -10,6 +10,7 @@ import SwiftUI
 class QuizViewModel: ObservableObject {
 //    @FetchRequest(sortDescriptors: []) var questions: FetchedResults<Questions>
 //    @Environment(\.managedObjectContext) var moc
+    private var isChangingQuestion: Bool = false
     
     @State var timer: Timer? = Timer()
     @Published var timePerQuestion: Double = 10
@@ -28,10 +29,11 @@ class QuizViewModel: ObservableObject {
         Question(id: UUID(), text: "Które funkcje używa się do dynamicznej alokacji pamięci w języku C?", answers: [1: "malloc", 2: "calloc", 3: "alloc", 4: "dealloc"], correctAnswers: Set(["malloc", "calloc"]))
     ]
     
-    func continueButtonClicked() {
+    func changeQuestion() {
         stopTimer()
         resetQuestionData()
         changeQuestionNumber()
+        resetTime()
     }
     
     func resetQuestionData() {
@@ -58,19 +60,35 @@ class QuizViewModel: ObservableObject {
         }
     }
     
+    func checkAndChangeQuestion() {
+        self.checkAnswers()
+        DispatchQueue.main.asyncAfter(deadline:
+        DispatchTime.now() + self.timeAfterAnswer) {
+            self.changeQuestion()
+            self.isChangingQuestion = false
+        }
+    }
+    
     func startTimer() {
         resetTime()
-        timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
-            self.timePerQuestion -= 0.1
+        self.timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
+            if self.isChangingQuestion == false {
+                if self.timePerQuestion > 0 {
+                    self.timePerQuestion -= 0.1
+                } else {
+                    self.isChangingQuestion = true
+                    self.checkAndChangeQuestion()
+                }
+            }
         }
     }
     
     func resetTime() {
-        timePerQuestion = 10
+        self.timePerQuestion = 10
     }
     
     func stopTimer() {
-        timer?.invalidate()
-        timer = nil
+        self.timer?.invalidate()
+        self.timer = nil
     }
 }

@@ -20,7 +20,7 @@ struct QuizView: View {
                 LimboLogoWithPointsView(alertModel: alertModel, hasQuiz: true)
                 
                 HStack(spacing: 30) {
-                    RectangleTimerView(fillPercent: quizModel.timePerQuestion/10)
+                    RectangleTimerView(fillPercent: quizModel.timePerQuestion)
                     
                     QuestionNumberView(questionNumber: "\(quizModel.currentQuestionNumber+1)/5")
                 }
@@ -35,11 +35,7 @@ struct QuizView: View {
                 .padding(.top, 20)
                 
                 Button {
-                    quizModel.checkAnswers()
-                    DispatchQueue.main.asyncAfter(deadline:
-                    DispatchTime.now() + quizModel.timeAfterAnswer) {
-                        quizModel.continueButtonClicked()
-                    }
+                    quizModel.checkAndChangeQuestion()
                 } label: {
                     GradientButton(text: "Kontynuuj")
                         .frame(width: 250, height: 60)
@@ -73,7 +69,7 @@ struct RectangleTimerView: View {
                 
                 RoundedRectangle(cornerRadius: 25)
                     .fill(LinearGradient.orangeGradient())
-                    .frame(width: 250 * fillPercent, height: 40)
+                    .frame(width: 25 * fillPercent, height: 40)
                     .animation(.easeOut, value: fillPercent)
             }
             Image(systemName: "clock")
