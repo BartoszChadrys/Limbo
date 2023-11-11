@@ -8,7 +8,7 @@
 import Foundation
 
 class Topics: ObservableObject {
-    @Published var topicsArray: [topicModel] = [
+    @Published var topicsArray: [TopicModel] = [
         .init(title: "Operacje na danych", maxPoints: 15, status: .done),
         .init(title: "Instrukcje warunkowe", maxPoints: 15, status: .inProgress),
         .init(title: "Instrukcje iteracyjne", maxPoints: 15, status: .locked),
@@ -22,8 +22,8 @@ class Topics: ObservableObject {
         .init(title: "Zadania ogólnorozwojowe", maxPoints: 15, status: .locked)
     ]
     
-    func prepareTopics() -> [topicModel] {
-        var topTopicsArray: [topicModel] = []
+    func prepareTopics() -> [TopicModel] {
+        var topTopicsArray: [TopicModel] = []
         for i in 0..<4 {
 //            if topicsArray[i].status == .inProgress {
 //                topTopicsArray.append(topicsArray[i])
@@ -34,12 +34,12 @@ class Topics: ObservableObject {
     }
 }
 
-struct topicModel: Hashable {
+struct TopicModel: Hashable {
     let title: String
     let maxPoints: Int
-    let status: topicStatusEnum
+    let status: TopicStatusEnum
 }
 
-enum topicStatusEnum {
+enum TopicStatusEnum {
     case done, inProgress, locked
 }

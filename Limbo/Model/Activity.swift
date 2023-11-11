@@ -8,7 +8,7 @@
 import SwiftUI
 
 class Activity: ObservableObject {
-    @Published var activityArray: [activityModel] = [
+    @Published var activityArray: [ActivityModel] = [
         .init(date: Date.from(year: 2023, month: 5, day: 1), activityCount: 5),
         .init(date: Date.from(year: 2023, month: 5, day: 2), activityCount: 2),
         .init(date: Date.from(year: 2023, month: 5, day: 3), activityCount: 7),
@@ -18,7 +18,7 @@ class Activity: ObservableObject {
         .init(date: Date.from(year: 2023, month: 5, day: 7), activityCount: 10)]
 }
 
-struct activityModel: Identifiable {
+struct ActivityModel: Identifiable {
     let id = UUID()
     let date: Date
     let activityCount: Int
@@ -27,7 +27,9 @@ struct activityModel: Identifiable {
 extension Date {
     static func from(year: Int, month: Int, day: Int) -> Date {
         let components = DateComponents(year: year, month: month, day: day)
-        return Calendar.current.date(from: components)!
+        if let date = Calendar.current.date(from: components) {
+            return date
+        }
+        return Date(timeIntervalSinceNow: .zero)
     }
 }
-

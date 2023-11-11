@@ -22,15 +22,14 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
 @main
 struct LimboApp: App {
-    
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     @StateObject private var quizDataModel = QuizDataController()
     
     var body: some Scene {
         WindowGroup {
-            QuizView()
-            //FirstView()
-            //    .environment(\.managedObjectContext, quizDataModel.container.viewContext)
+//            QuizView()
+            FirstView()
+                .environment(\.managedObjectContext, quizDataModel.container.viewContext)
         }
     }
 }
